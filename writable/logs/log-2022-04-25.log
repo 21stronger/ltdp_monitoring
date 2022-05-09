@@ -1,0 +1,125 @@
+CRITICAL - 2022-04-25 06:52:05 --> Invalid file: header.php
+#0 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(198): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('header.php')
+#1 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('header', Array, true)
+#2 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(8): view('header')
+#3 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->index()
+#4 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-04-25 10:02:32 --> Undefined index: deparment_name
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Views\project.php(71): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 71, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('project', Array, true)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(20): view('project')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->index()
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-25 10:04:07 --> Undefined index: deparment_name
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Views\project.php(71): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 71, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('project', Array, true)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(20): view('project')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->index()
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-25 10:04:53 --> Undefined index: deparment_name
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Views\project.php(71): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 71, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('project', Array, true)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(20): view('project')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->index()
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-25 10:05:17 --> Undefined index: deparment_name
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Views\project.php(72): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 72, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('project', Array, true)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(20): view('project')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->index()
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-25 10:07:02 --> Undefined index: deparment_name
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Views\project.php(71): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 71, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('project', Array, true)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(20): view('project')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->index()
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-25 10:35:58 --> You must set the database table to be used with your query.
+#0 C:\xampp\htdocs\ltdp_monitoring\system\Model.php(545): CodeIgniter\Database\BaseConnection->table(NULL)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\Model.php(176): CodeIgniter\Model->builder()
+#2 C:\xampp\htdocs\ltdp_monitoring\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#3 C:\xampp\htdocs\ltdp_monitoring\app\Models\View_model.php(11): CodeIgniter\BaseModel->findAll()
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(20): App\Models\View_model->getSummaryMonthly()
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->index()
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-25 10:36:47 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::findAll()
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(20): App\Models\View_model->getSummaryMonthly()
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->index()
+#2 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#3 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-04-25 10:37:03 --> You must set the database table to be used with your query.
+#0 C:\xampp\htdocs\ltdp_monitoring\system\Model.php(545): CodeIgniter\Database\BaseConnection->table(NULL)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\Model.php(176): CodeIgniter\Model->builder()
+#2 C:\xampp\htdocs\ltdp_monitoring\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#3 C:\xampp\htdocs\ltdp_monitoring\app\Models\View_model.php(11): CodeIgniter\BaseModel->findAll()
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(20): App\Models\View_model->getSummaryMonthly()
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->index()
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-25 10:38:29 --> Call to a member function findAll() on null
+#0 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->index()
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#2 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-04-25 10:38:38 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::findAll()
+#0 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->index()
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#2 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-04-25 10:57:46 --> syntax error, unexpected '"%"' (T_CONSTANT_ENCAPSED_STRING), expecting ';' or ','
+#0 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('project', Array, true)
+#2 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(24): view('project')
+#3 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->index()
+#4 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-04-25 23:24:07 --> A non-numeric value encountered
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Views\project.php(118): CodeIgniter\Debug\Exceptions->errorHandler(2, 'A non-numeric v...', 'C:\\xampp\\htdocs...', 118, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('project', Array, true)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(24): view('project')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->index()
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}

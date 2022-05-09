@@ -1,0 +1,30 @@
+CRITICAL - 2022-05-08 04:38:07 --> Class 'App\Models\View_summary_monthly1_model' not found
+#0 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Update->index()
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Update))
+#2 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-05-08 04:38:22 --> Class 'App\Models\View_summary_monthly1_model' not found
+#0 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Update->index()
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Update))
+#2 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-05-08 04:38:33 --> Class 'App\Models\View_summary_monthly1_model' not found
+#0 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Update->index()
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Update))
+#2 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-05-08 04:39:08 --> Class 'App\Models\View_summary_monthly1_model' not found
+#0 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Update->index()
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Update))
+#2 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-05-08 04:40:16 --> Class 'App\Models\View_summary_monthly1_model' not found
+#0 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Update->index()
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Update))
+#2 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}

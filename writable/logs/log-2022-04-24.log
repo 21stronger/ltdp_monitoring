@@ -1,0 +1,99 @@
+ERROR - 2022-04-24 03:05:07 --> Unknown table 'db_monitoring.tc'
+CRITICAL - 2022-04-24 03:05:07 --> Unknown table 'db_monitoring.tc'
+#0 C:\xampp\htdocs\ltdp_monitoring\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tc`.*, ...', 0)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tc`.*, ...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tc`.*, ...')
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `tc`.*, ...', Array, false)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Models\Category_model.php(38): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Home.php(11): App\Models\Category_model->getSummaryByMonth('2022-01-01')
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+ERROR - 2022-04-24 03:06:15 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '=`vw_summary_monthly`.`category_name`
+WHERE `vw_summary_monthly`.`date_monthl...' at line 3
+CRITICAL - 2022-04-24 03:06:15 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '=`vw_summary_monthly`.`category_name`
+WHERE `vw_summary_monthly`.`date_monthl...' at line 3
+#0 C:\xampp\htdocs\ltdp_monitoring\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT `tb_cate...', 0)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `tb_cate...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `tb_cate...')
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT `tb_cate...', Array, false)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Models\Category_model.php(38): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Home.php(11): App\Models\Category_model->getSummaryByMonth('2022-01-01')
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#8 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-04-24 03:08:13 --> Object of class CodeIgniter\Database\MySQLi\Result could not be converted to string
+#0 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include()
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#2 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('dashboard', Array, true)
+#3 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Home.php(15): view('dashboard')
+#4 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}
+CRITICAL - 2022-04-24 03:16:08 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::getResult()
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Home.php(11): App\Models\Category_model->getSummaryByMonth('1')
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#2 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-04-24 03:20:25 --> Undefined variable: dataCategories
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Views\dashboard.php(141): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 141, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('dashboard', Array, true)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Home.php(15): view('dashboard')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-24 03:21:30 --> Undefined variable: dataCategories
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Views\dashboard.php(141): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 141, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('dashboard', Array, true)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Home.php(15): view('dashboard')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-24 07:50:29 --> Undefined variable: countProjectClose
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Views\dashboard.php(76): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 76, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('dashboard', Array, true)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Home.php(15): view('dashboard')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-24 07:50:34 --> Call to undefined method App\Models\Category_model::getOpenProject
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Home.php(12): CodeIgniter\Model->__call('getOpenProject', Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#2 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-04-24 08:17:48 --> syntax error, unexpected ','
+#0 C:\xampp\htdocs\ltdp_monitoring\system\Router\Router.php(175): CodeIgniter\Router\Router->autoRoute('home')
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(726): CodeIgniter\Router\Router->handle('home')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+#3 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-04-24 08:17:56 --> Undefined variable: countFaster
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Home.php(17): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 17, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Home->index()
+#2 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Home))
+#3 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}

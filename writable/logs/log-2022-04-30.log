@@ -1,0 +1,117 @@
+CRITICAL - 2022-04-30 02:18:49 --> Undefined index: ach
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Views\project.php(106): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 106, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('project', Array, true)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(26): view('project')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->index()
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-30 02:19:08 --> Undefined index: category_name
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Views\project.php(125): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 125, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('project', Array, true)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(26): view('project')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->index()
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-30 02:21:03 --> Class 'App\Controllers\View_summary_monthly_model' not found
+#0 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->index()
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#2 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-04-30 02:29:31 --> Trying to access array offset on value of type null
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Views\detail.php(34): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\xampp\\htdocs...', 34, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('detail', Array, true)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(42): view('detail')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->detail('2')
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-30 21:12:27 --> Undefined variable: dateDepartment
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Views\activity.php(71): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 71, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('activity', Array, true)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(42): view('activity')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->detail('1')
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-30 21:12:58 --> Undefined variable: dateDepartment
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Views\activity.php(71): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 71, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('activity', Array, true)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(44): view('activity')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->detail('1')
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-30 21:23:50 --> Class 'App\Controllers\Category_model' not found
+#0 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->detail('1')
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#2 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-04-30 21:24:16 --> Undefined variable: dataCategories
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Views\activity.php(64): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 64, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('activity', Array, true)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(50): view('activity')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->detail('1')
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-30 21:35:37 --> syntax error, unexpected ';'
+#0 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('activity', Array, true)
+#2 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(50): view('activity')
+#3 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->detail('1')
+#4 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-04-30 21:35:59 --> syntax error, unexpected ';'
+#0 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('activity', Array, true)
+#2 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(50): view('activity')
+#3 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->detail('1')
+#4 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-04-30 21:47:32 --> Undefined variable: dataCategories
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Views\project.php(46): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 46, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('project', Array, true)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(28): view('project')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->index()
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-30 22:45:29 --> Allowed fields must be specified for model: App\Models\Project_model
+#0 C:\xampp\htdocs\ltdp_monitoring\system\BaseModel.php(1138): CodeIgniter\Database\Exceptions\DataException::forInvalidAllowedFields('App\\Models\\Proj...')
+#1 C:\xampp\htdocs\ltdp_monitoring\system\BaseModel.php(713): CodeIgniter\BaseModel->doProtectFields(Array)
+#2 C:\xampp\htdocs\ltdp_monitoring\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, true)
+#3 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(68): CodeIgniter\Model->insert(Array)
+#4 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->addProject()
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#8 {main}

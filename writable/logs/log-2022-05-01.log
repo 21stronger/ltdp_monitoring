@@ -1,0 +1,44 @@
+CRITICAL - 2022-05-01 08:10:31 --> Too few arguments to function App\Controllers\Project::addActivities(), 0 passed in C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php on line 832 and exactly 1 expected
+#0 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->addActivities()
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#2 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+ERROR - 2022-05-01 08:25:24 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '0) VALUES ('2022-05-01'), ('20'), (0), (0), (1)' at line 1
+CRITICAL - 2022-05-01 08:25:24 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '0) VALUES ('2022-05-01'), ('20'), (0), (0), (1)' at line 1
+#0 C:\xampp\htdocs\ltdp_monitoring\system\Database\MySQLi\Connection.php(292): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Database\BaseBuilder.php(1648): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', NULL, false)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Models\Monthly_activity_model.php(14): CodeIgniter\Database\BaseBuilder->insertBatch(Array)
+#5 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(100): App\Models\Monthly_activity_model->addBatch(Array)
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->addActivities('1')
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#8 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-05-01 08:28:08 --> Undefined variable: idProject
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Views\activity.php(167): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 167, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('activity', Array, true)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(56): view('activity')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->detail('1')
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-05-01 08:33:39 --> Call to a member function insertID() on bool
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(87): App\Models\Activity_model->addActivity(Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->addActivities('1')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#3 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-05-01 08:34:06 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::insertID()
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(87): App\Models\Activity_model->addActivity(Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->addActivities('1')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#3 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}

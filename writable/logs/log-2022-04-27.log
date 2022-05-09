@@ -1,0 +1,170 @@
+CRITICAL - 2022-04-27 06:41:39 --> Undefined variable: data
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Test.php(8): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 8, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Test->index()
+#2 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+#3 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-04-27 06:41:45 --> Undefined variable: currentPage
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Views\_partial\sidebar.php(7): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 7, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('_partial\\sideba...', Array, true)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Test.php(8): view('_partial\\sideba...')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Test->index()
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-27 06:41:59 --> Class 'App\Controllers\Project_model' not found
+#0 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Test->index()
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+#2 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#3 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 {main}
+CRITICAL - 2022-04-27 06:42:07 --> Undefined variable: dateDepartment
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Views\project.php(70): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 70, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('project', Array, true)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Test.php(12): view('project')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Test->index()
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-27 08:12:09 --> Undefined variable: id_project
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Test.php(13): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 13, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Test->index()
+#2 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+#3 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#5 {main}
+CRITICAL - 2022-04-27 08:12:23 --> Undefined variable: variable
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Views\test.php(39): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 39, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('test', Array, true)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Test.php(18): view('test')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Test->index()
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-27 10:29:12 --> syntax error, unexpected ':', expecting ';' or ','
+#0 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('test', Array, true)
+#2 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Test.php(17): view('test')
+#3 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Test->index()
+#4 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-04-27 10:29:20 --> syntax error, unexpected ':', expecting ';' or ','
+#0 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('test', Array, true)
+#2 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Test.php(17): view('test')
+#3 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Test->index()
+#4 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-04-27 10:30:22 --> syntax error, unexpected ';'
+#0 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('test', Array, true)
+#2 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Test.php(17): view('test')
+#3 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Test->index()
+#4 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-04-27 10:30:30 --> syntax error, unexpected ';'
+#0 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('test', Array, true)
+#2 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Test.php(17): view('test')
+#3 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Test->index()
+#4 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-04-27 10:31:06 --> syntax error, unexpected ';'
+#0 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('test', Array, true)
+#2 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Test.php(17): view('test')
+#3 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Test->index()
+#4 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-04-27 10:31:27 --> syntax error, unexpected ';'
+#0 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#1 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('test', Array, true)
+#2 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Test.php(17): view('test')
+#3 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Test->index()
+#4 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Test))
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#7 {main}
+CRITICAL - 2022-04-27 10:57:34 --> Trying to access array offset on value of type null
+#0 C:\xampp\htdocs\ltdp_monitoring\app\Views\detail.php(34): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\xampp\\htdocs...', 34, Array)
+#1 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\ltdp_monitoring\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(1089): CodeIgniter\View\View->render('detail', Array, true)
+#4 C:\xampp\htdocs\ltdp_monitoring\app\Controllers\Project.php(41): view('detail')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(832): App\Controllers\Project->detail('users-profile.h...')
+#6 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(419): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Project))
+#7 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 {main}
+CRITICAL - 2022-04-27 23:05:47 --> syntax error, unexpected ';', expecting ']'
+#0 C:\xampp\htdocs\ltdp_monitoring\system\Autoloader\Autoloader.php(241): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs...')
+#1 C:\xampp\htdocs\ltdp_monitoring\system\Autoloader\Autoloader.php(219): CodeIgniter\Autoloader\Autoloader->loadInNamespace('Config\\Filters')
+#2 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('Config\\Filters')
+#3 [internal function]: spl_autoload_call('Config\\Filters')
+#4 C:\xampp\htdocs\ltdp_monitoring\system\Config\Factories.php(136): class_exists('Config\\Filters')
+#5 C:\xampp\htdocs\ltdp_monitoring\system\Config\Factories.php(106): CodeIgniter\Config\Factories::locateClass(Array, 'Filters')
+#6 C:\xampp\htdocs\ltdp_monitoring\system\Common.php(198): CodeIgniter\Config\Factories::__callStatic('config', Array)
+#7 C:\xampp\htdocs\ltdp_monitoring\system\Config\Services.php(258): config('Filters')
+#8 C:\xampp\htdocs\ltdp_monitoring\system\Config\BaseService.php(248): CodeIgniter\Config\Services::filters(NULL, false)
+#9 C:\xampp\htdocs\ltdp_monitoring\system\Config\BaseService.php(189): CodeIgniter\Config\BaseService::__callStatic('filters', Array)
+#10 C:\xampp\htdocs\ltdp_monitoring\system\Config\Services.php(255): CodeIgniter\Config\BaseService::getSharedInstance('filters', NULL)
+#11 C:\xampp\htdocs\ltdp_monitoring\system\Config\BaseService.php(248): CodeIgniter\Config\Services::filters()
+#12 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(373): CodeIgniter\Config\BaseService::__callStatic('filters', Array)
+#13 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#14 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#15 {main}
+CRITICAL - 2022-04-27 23:06:01 --> Class 'App\Filters\UserAuth_Filter' not found
+#0 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/', 'before')
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#2 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#3 {main}
+CRITICAL - 2022-04-27 23:06:33 --> Class 'App\Filters\UserAuth_Filter' not found
+#0 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/', 'before')
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#2 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#3 {main}
+CRITICAL - 2022-04-27 23:06:44 --> Class 'Config\UserAuth_Filter' not found
+#0 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/', 'before')
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#2 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#3 {main}
+CRITICAL - 2022-04-27 23:08:07 --> Class 'App\Filters\UsersAuth_Filter' not found
+#0 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/', 'before')
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#2 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#3 {main}
+CRITICAL - 2022-04-27 23:08:18 --> Class 'App\Filters\UsersAuth_Filter' not found
+#0 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/', 'before')
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#2 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#3 {main}
+CRITICAL - 2022-04-27 23:08:35 --> Class 'App\Filters\UsersAuth_Filter' not found
+#0 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/', 'before')
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#2 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#3 {main}
+CRITICAL - 2022-04-27 23:09:03 --> Class 'App\Filters\UsersAuth_Filter' not found
+#0 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(393): CodeIgniter\Filters\Filters->run('/', 'before')
+#1 C:\xampp\htdocs\ltdp_monitoring\system\CodeIgniter.php(326): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#2 C:\xampp\htdocs\ltdp_monitoring\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#3 {main}
