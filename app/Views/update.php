@@ -23,53 +23,53 @@
                   <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                       <div class="row">
-                        <label class="col-sm-2 col-form-label">Bulan</label>
+                        <label class="col-sm-2 col-form-label">Month</label>
                         <div class="col-sm-4">
-                          <select class="form-select" aria-label="Default select example">
-                            <option value="0">All</option>
-                            <option value="0">Januari</option>
-                            <option value="1">Februari</option>
-                            <option value="2">Maret</option>
-                            <option value="3">April</option>
-                            <option value="0">Mei</option>
-                            <option value="1">Juni</option>
-                            <option value="2">Juli</option>
-                            <option value="3">Agustus</option>
-                            <option value="0">September</option>
-                            <option value="1">Oktober</option>
-                            <option value="2">November</option>
-                            <option value="3">Desember</option>
+                          <select class="form-select" id="monthUpd" aria-label="Default select example">
+                            <option value="">All</option>
+                            <option value="01">Januari</option>
+                            <option value="02">Februari</option>
+                            <option value="03">Maret</option>
+                            <option value="04">April</option>
+                            <option value="05">Mei</option>
+                            <option value="06">Juni</option>
+                            <option value="07">Juli</option>
+                            <option value="08">Agustus</option>
+                            <option value="09">September</option>
+                            <option value="10">Oktober</option>
+                            <option value="11">November</option>
+                            <option value="12">Desember</option>
                           </select>
                         </div>
 
                         <label class="col-sm-2 col-form-label">Status</label>
                         <div class="col-sm-4">
-                          <select class="form-select" aria-label="Default select example">
-                            <option value="0">All</option>
-                            <option value="0">Faster</option>
-                            <option value="1">Ontime</option>
-                            <option value="2">Overdue</option>
+                          <select class="form-select" id="statusUpd" aria-label="Default select example">
+                            <option value="">All</option>
+                            <option value="Faster">Faster</option>
+                            <option value="Ontime">Ontime</option>
+                            <option value="Overdue">Overdue</option>
                           </select>
                         </div>
 
                         <label class="col-sm-2 col-form-label">Achievement</label>
                         <div class="col-sm-4">
-                          <select class="form-select" aria-label="Default select example">
-                            <option value="0">All</option>
-                            <option value="0">Open</option>
-                            <option value="1">Close</option>
-                            <option value="2">Cancel</option>
+                          <select class="form-select" id="achUpd" aria-label="Default select example">
+                            <option value="">All</option>
+                            <option value="Open">Open</option>
+                            <option value="Close">Close</option>
+                            <option value="Cancel">Cancel</option>
                           </select>
                         </div>
 
                         <label class="col-sm-2 col-form-label">Department</label>
                         <div class="col-sm-4">
-                          <select class="form-select" aria-label="Default select example">
-                            <option value="0">All</option>
+                          <select class="form-select" id="deptUpd" aria-label="Default select example">
+                            <option value="">All</option>
                             <?php 
                               foreach ($dateDepartment as $key => $value) {
                             ?>
-                            <option value="<?php echo $value['id_department']; ?>"><?php echo $value['department_name']; ?></option>
+                            <option value="<?php echo $value['department_name']; ?>"><?php echo $value['department_name']; ?></option>
                             <?php 
                               }
                             ?>
@@ -77,7 +77,7 @@
                         </div>
 
                         <div class="col-sm-3">
-                          <button type="button" class="btn btn-primary">Reset</button>
+                          <button type="button" id="resetUpd" class="btn btn-primary">Reset</button>
                         </div>
                       </div>
                     </div>
@@ -86,7 +86,7 @@
               </div><!-- End Default Accordion Example -->
 
               <!-- Table with stripped rows -->
-              <table class="table datatable">
+              <table class="table" id="dataUpdate">
                 <thead>
                   <tr>
                     <th scope="col">#</th>

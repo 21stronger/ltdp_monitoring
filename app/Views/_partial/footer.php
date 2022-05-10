@@ -30,7 +30,7 @@
   <script type="text/javascript">
     $(document).ready(function() {
       var pic, department, achievement;
-      var table = $('#datatable').DataTable();
+      var table = $('#dataProject').DataTable();
        
       $('#DeptSel').change( function() {
         department = this.value;
@@ -79,6 +79,64 @@
       $('#row').on('click', '#delete', function(e){
         e.preventDefault();
         $(this).parent('div').parent('div').remove();
+      });
+    });
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var month, status, department, achievement;
+      var table = $('#dataUpdate').DataTable();
+       
+      $('#monthUpd').change( function() {
+        if(this.value==''){
+          month = this.value;
+        } else {
+          month = '2022-'+this.value+'-01';
+        }
+        table
+          .columns(3)
+          .search(month)
+          .draw();
+      });
+
+      $('#achUpd').change( function() {
+        achievement = this.value
+        table
+          .columns(9)
+          .search(achievement)
+          .draw();
+      });
+
+      $('#statusUpd').change( function() {
+        status = this.value
+        table
+          .columns(7)
+          .search(status)
+          .draw();
+      });
+
+      $('#deptUpd').change( function() {
+        department = this.value
+        table
+          .columns(4)
+          .search(department)
+          .draw();
+      });
+
+      $('#resetUpd').click( function() {
+        document.getElementById("monthUpd").selectedIndex = 0;
+        document.getElementById("achUpd").selectedIndex = 0;
+        document.getElementById("statusUpd").selectedIndex = 0;
+        document.getElementById("deptUpd").selectedIndex = 0;
+        department='';
+        month='';
+        status='';
+        achievement='';
+        table
+          .columns()
+          .search('')
+          .draw();
       });
     });
   </script>

@@ -6,7 +6,7 @@ use App\Models\Project_model;
 use App\Models\Department_model;
 use App\Models\Monthly_activity_model;
 
-use App\Models\View_summary_monthly1_model;
+use App\Models\View_summary_monthly_model;
 use App\Models\View_project_detail_model;
 use App\Models\View_activity_pivot_model;
 
@@ -14,7 +14,7 @@ class Update extends BaseController{
     public function index(){
         $modelProject = new Project_model;
         $modelDeparment = new Department_model;
-        $modelView = new View_summary_monthly1_model;
+        $modelView = new View_summary_monthly_model;
 
         $data['headerTitle'] = "Update Project";
         $data['currentPage'] = "Update";

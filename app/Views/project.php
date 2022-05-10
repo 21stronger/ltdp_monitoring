@@ -146,7 +146,7 @@
               </div><!-- End Default Accordion Example -->
 
               <!-- Table with stripped rows -->
-              <table class="table" id="datatable">
+              <table class="table" id="dataProject">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
