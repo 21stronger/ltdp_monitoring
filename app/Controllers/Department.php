@@ -29,9 +29,9 @@ class Department extends BaseController{
         $data['currentPage'] = "Department";
         $data['headerTitle'] = "Department Achievement";
         
-        echo view('_partial\header', $data);
-        echo view('_partial\sidebar');
+        echo view('_partial/header', $data);
+        echo view('_partial/sidebar');
         echo view('department');
-        echo view('_partial\footer');
+        echo view('_partial/footer');
     }
 }

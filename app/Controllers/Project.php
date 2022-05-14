@@ -27,10 +27,10 @@ class Project extends BaseController{
         $data['dateDepartment'] = $modelDeparment->findAll();
         $data['dataProjects'] = $modelViewProject->findAll();
 
-        echo view('_partial\header', $data);
-        echo view('_partial\sidebar');
+        echo view('_partial/header', $data);
+        echo view('_partial/sidebar');
         echo view('project');
-        echo view('_partial\footer');
+        echo view('_partial/footer');
     }
 
     public function detail($id_project){
@@ -49,12 +49,15 @@ class Project extends BaseController{
         $data['dateDepartment'] = $modelDeparment->findAll();
 
         $data['dataProject'] = $modelViewProject->find($id_project);
-        $data['detailActivity'] = $modelViewActivity->where('id_project', $id_project)->findAll();
+        $data['detailActivity'] = $modelViewActivity
+                                    ->where('id_project', $id_project)
+                                    ->orderBy('id_activity', 'asc')
+                                    ->findAll();
 
-        echo view('_partial\header', $data);
-        echo view('_partial\sidebar');
+        echo view('_partial/header', $data);
+        echo view('_partial/sidebar');
         echo view('activity');
-        echo view('_partial\footer');
+        echo view('_partial/footer');
     }
 
     public function addProject(){

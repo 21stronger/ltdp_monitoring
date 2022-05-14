@@ -20,12 +20,14 @@ class Update extends BaseController{
         $data['currentPage'] = "Update";
         $data['dateDepartment'] = $modelDeparment->getDepartments();
         $data['dataProjects'] = $modelProject->getProjects();
-        $data['dataSummary'] = $modelView->findAll();
+        $data['dataSummary'] = (session()->get('role')=="Admin")? 
+                    $modelView->findAll(): 
+                    $modelView->where('name_pic', session()->get('name'))->findAll();
 
-        echo view('_partial\header', $data);
-        echo view('_partial\sidebar');
+        echo view('_partial/header', $data);
+        echo view('_partial/sidebar');
         echo view('update');
-        echo view('_partial\footer');
+        echo view('_partial/footer');
     }
 
     public function detail($id_project){
@@ -33,14 +35,17 @@ class Update extends BaseController{
         $modelViewActivity = new View_activity_pivot_model;
 
         $data['dataProject'] = $modelViewProject->find($id_project);
-        $data['detailActivity'] = $modelViewActivity->where('id_project', $id_project)->findAll();
+        $data['detailActivity'] = $modelViewActivity
+                                    ->where('id_project', $id_project)
+                                    ->orderBy('id_activity', 'asc')
+                                    ->findAll();
         $data['headerTitle'] = "Detail Project";
         $data['currentPage'] = "Update";
 
-        echo view('_partial\header', $data);
-        echo view('_partial\sidebar');
+        echo view('_partial/header', $data);
+        echo view('_partial/sidebar');
         echo view('detail');
-        echo view('_partial\footer');
+        echo view('_partial/footer');
     }
 
     public function updateDetail(){

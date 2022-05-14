@@ -12,9 +12,13 @@ class Test extends BaseController{
         $data['currentPage'] = "Update";
         $data['detailActivity'] = $modelViewActivity->where('id_project', 1)->findAll();
 
-        echo view('_partial\header', $data);
-        echo view('_partial\sidebar');
+        echo view('_partial/header', $data);
+        echo view('_partial/sidebar');
         echo view('test');
-        echo view('_partial\footer');
+        echo view('_partial/footer');
+    }
+
+    public function main(){
+        echo view('welcome_message');
     }
 }
