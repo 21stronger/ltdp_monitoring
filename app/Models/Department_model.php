@@ -29,13 +29,20 @@ class Department_model extends Model{
         return $builder->delete($id_department);
     }
 
-    public function getSummaryByMonth($date){
+    public function getSummaryByMonth($month){
         $builder = $this->db->table($this->table);
-        $builder->select('tb_department.*, COUNT(IF(vw_summary_monthly.ach>1, 1, null)) AS faster, COUNT(IF(vw_summary_monthly.ach=1, 1, null)) AS ontime, COUNT(IF(vw_summary_monthly.ach<1, 1, null)) AS overdue');
-        $builder->join('vw_summary_monthly', 'tb_department.department_name=vw_summary_monthly.department_name', 'left');
-        $builder->where("vw_summary_monthly.date_monthly_activity='2022-01-01' OR vw_summary_monthly.date_monthly_activity is null");
-        $builder->groupBy('`tb_department`.department_name');
-        $builder->orderBy('`tb_department`.`id_department`', 'ASC');
+        $builder->select('
+        `tb_department`.`id_department`, 
+        `tb_department`.`department_name`, 
+        `summary`.`date_monthly_activity`, 
+        COALESCE(`summary`.`overdue`, 0) AS overdue, 
+        COALESCE(`summary`.`ontime`, 0) AS ontime, 
+        COALESCE(`summary`.`faster`, 0) AS faster');
+        $builder->join(
+            "(SELECT * FROM `vw_summary_department_pivot` 
+                WHERE `vw_summary_department_pivot`.`date_monthly_activity`='2022-".$month."-01') summary", 
+            "`tb_department`.`department_name`=`summary`.`department_name`", 
+            "left");
         return $builder->get()->getResultArray();
     }
 }

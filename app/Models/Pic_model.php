@@ -8,6 +8,8 @@ class Pic_model extends Model{
 
     protected $table        = 'tb_pic';
     protected $primaryKey   = 'id_pic';
+
+    protected $allowedFields = ['name_pic','user_pic','role_pic','pass_pic'];
  
     public function getPics(){
        return $this->findAll();
@@ -25,8 +27,7 @@ class Pic_model extends Model{
 
     public function editPic($id_pic, $data){
         $builder = $this->db->table($this->table);
-        $builder->where($primaryKey, $id_pic);
-        $builder->update($data);
+        return $builder->update($id_pic, $data);
     }
 
     public function delPic($id_pic){

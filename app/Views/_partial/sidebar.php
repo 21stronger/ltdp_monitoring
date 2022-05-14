@@ -5,28 +5,21 @@
 
       <li class="nav-item">
         <a class="nav-link <?= ($currentPage=="Dashboard")? "": "collapsed"; ?>" href="<?= base_url('home') ?>">
-          <i class="bi bi-grid"></i>
+          <i class="bi bi-calendar-week"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Dashboard Nav -->
 
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link <?= ($currentPage=="Department")? "": "collapsed"; ?>" href="<?= base_url('department') ?>">
           <i class="bi bi-grid"></i>
           <span>Department</span>
         </a>
-      </li><!-- End Department Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link <?= ($currentPage=="Project")? "": "collapsed"; ?>" href="<?= base_url('project') ?>">
-          <i class="bi bi-person"></i>
-          <span>Project</span>
-        </a>
-      </li><!-- End Project Monitoring Page Nav -->
+      </li> --><!-- End Department Nav -->
 
       <li class="nav-item">
         <a class="nav-link <?= ($currentPage=="Update")? "": "collapsed"; ?>" href="<?= base_url('update') ?>">
-          <i class="bi bi-question-circle"></i>
+          <i class="bi bi-pencil-square"></i>
           <span>Update Project</span>
         </a>
       </li><!-- End Update Project Page Nav -->
@@ -36,8 +29,26 @@
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
+      </li><!-- End Profile Page Nav -->
+
+      <?php if(session()->get('role')=="Admin"){ ?>
+      <li class="nav-heading">Admin Menu</li>
+
+      <li class="nav-item">
+        <a class="nav-link <?= ($currentPage=="Project")? "": "collapsed"; ?>" href="<?= base_url('project') ?>">
+          <i class="bi bi-card-list"></i>
+          <span>Project</span>
+        </a>
       </li><!-- End Project Monitoring Page Nav -->
 
+      <li class="nav-item">
+        <a class="nav-link <?= ($currentPage=="PIC")? "": "collapsed"; ?>" href="<?= base_url('pic') ?>">
+          <i class="bi bi-people"></i>
+          <span>PICs</span>
+        </a>
+      </li><!-- End PIC Page Nav -->
+      <?php } ?>
+      
     </ul>
 
   </aside><!-- End Sidebar-->

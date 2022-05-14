@@ -86,7 +86,7 @@
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6><?= session()->get('name'); ?></h6>
+              <h6><?= session()->get('role'); ?></h6>
               <span><?= "Department" ?></span>
             </li>
             <li>

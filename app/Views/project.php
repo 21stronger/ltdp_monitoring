@@ -11,12 +11,12 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Datatables
-                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#largeModal">
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#addProjectModal">
                   <i class="bi bi-plus-square" data-bs-toggle="tooltip" data-bs-toggle="tooltip" data-bs-placement="right" title="Add New Project"></i>
                 </button>
               </h5>
 
-              <div class="modal fade" id="largeModal" tabindex="-1">
+              <div class="modal fade" id="addProjectModal" tabindex="-1">
                 <div class="modal-dialog modal-lg">
                   <!-- Horizontal Form -->
                   <form action="<?= base_url('project/addProject'); ?>" method="post">
