@@ -37,10 +37,12 @@ class Pic extends BaseController{
 
         $id_pic             = $this->request->getPost("idPic");
         $data['name_pic']   = $this->request->getPost("edtSurename");
-        $data['user_pic']   = $this->request->getPost("edtUsername");
         $data['role_pic']   = $this->request->getPost("edtRole");
 
-        //$data['pass_pic']   = $this->request->getPost("password");
+        $passwordChanged    = $this->request->getPost("edtPassword");
+        if($passwordChanged!=""){
+            $data['pass_pic']   = $passwordChanged;
+        }
 
         $result = $modelPIC->update($id_pic, $data);
         if($result){
