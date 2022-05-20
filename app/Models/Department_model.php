@@ -40,7 +40,7 @@ class Department_model extends Model{
         COALESCE(`summary`.`faster`, 0) AS faster');
         $builder->join(
             "(SELECT * FROM `vw_summary_department_pivot` 
-                WHERE `vw_summary_department_pivot`.`date_monthly_activity`='2022-".$month."-01') summary", 
+                WHERE `vw_summary_department_pivot`.`date_monthly_activity` LIKE '2022-".$month."%') summary", 
             "`tb_department`.`department_name`=`summary`.`department_name`", 
             "left");
         return $builder->get()->getResultArray();

@@ -16,15 +16,15 @@
                 </li>
                 <li>
                   <select class="form-select" name="month" id="month">
-                    <option value="1">January</option>
-                    <option value="2">February</option>
-                    <option value="3">March</option>
-                    <option value="4">April</option>
-                    <option value="5">May</option>
-                    <option value="6">June</option>
-                    <option value="7">July</option>
-                    <option value="8">August</option>
-                    <option value="9">September</option>
+                    <option value="01">January</option>
+                    <option value="02">February</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
                     <option value="10">October</option>
                     <option value="11">November</option>
                     <option value="12">Desember</option>
@@ -481,8 +481,9 @@
   $(document).ready(function() {
     //this month
     const d = new Date();
-    getAchievement(d.getMonth()+1);
-    document.getElementById('month').value = d.getMonth()+1;
+    const month = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+    getAchievement(month[d.getMonth()]);
+    document.getElementById('month').value = month[d.getMonth()];
 
     //choosed month
     $("#month").change(function(){
