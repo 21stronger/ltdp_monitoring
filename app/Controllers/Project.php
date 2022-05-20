@@ -54,6 +54,10 @@ class Project extends BaseController{
                                     ->orderBy('id_activity', 'asc')
                                     ->findAll();
 
+        if(!$data['dataProject']){
+            return redirect()->to(base_url('project'));
+        }
+
         echo view('_partial/header', $data);
         echo view('_partial/sidebar');
         echo view('activity');
@@ -85,7 +89,7 @@ class Project extends BaseController{
         $dataActivity['activity_weight'] = $this->request->getPost("activityWeight");
         $dataActivity['activity_plan']   = $this->request->getPost("activityWeight");
         $dataActivity['activity_actual'] = 0;
-        $dataActivity['id_project ']     = $id_project;
+        $dataActivity['id_project']      = $id_project;
 
         $idActivity = $modelActivity->addActivity($dataActivity);
 

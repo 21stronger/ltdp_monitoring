@@ -42,6 +42,10 @@ class Update extends BaseController{
         $data['headerTitle'] = "Detail Project";
         $data['currentPage'] = "Update";
 
+        if(!$data['dataProject']){
+            return redirect()->to(base_url('update'));
+        }
+        
         echo view('_partial/header', $data);
         echo view('_partial/sidebar');
         echo view('detail');

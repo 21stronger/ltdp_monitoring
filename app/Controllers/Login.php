@@ -6,7 +6,9 @@ use App\Models\Pic_model;
 
 class Login extends BaseController{
     public function index(){
-        echo view('_partial/header_login');
+        $data['headerTitle'] = "Login";
+
+        echo view('_partial/header_login', $data);
         echo view('login');
         echo view('_partial/footer_login');
     }
@@ -23,9 +25,10 @@ class Login extends BaseController{
         if($checkPic){
             if($checkPic['pass_pic']==$password){
                 session()->set([
-                    'username' => $checkPic['user_pic'],
-                    'name' => $checkPic['name_pic'],
-                    'role' => $checkPic['role_pic'],
+                    'idPic'     => $checkPic['id_pic'],
+                    'username'  => $checkPic['user_pic'],
+                    'name'      => $checkPic['name_pic'],
+                    'role'      => $checkPic['role_pic'],
                     'logged_in' => TRUE
                 ]);
                 return redirect()->to(base_url('home'));
