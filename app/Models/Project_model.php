@@ -9,6 +9,15 @@ class Project_model extends Model{
     protected $table        = 'tb_project';
     protected $primaryKey   = 'id_project';
  
+    protected $allowedFields = [
+        'id_category',
+        'id_department',
+        'id_pic',
+        'project_name',
+        'project_due_date',
+        'achievement'
+    ];
+ 
     public function getProjects(){
        return $this->findAll();
     }
@@ -36,14 +45,13 @@ class Project_model extends Model{
         return $builder->insert($data);
     }
 
-    public function editProject($id_project, $data){
-        $builder = $this->db->table($this->table);
-        $builder->where($primaryKey, $id_project);
-        $builder->update($data);
-    }
+    // public function editProject($id_project, $data){
+    //     $builder = $this->db->table($this->table);
+    //     return $builder->update($id_project, $data);
+    // }
 
-    public function deleteProject($id_project){
-        $builder = $this->db->table($this->table);
-        return $builder->delete($id_project);
-    }
+    // public function deleteProject($id_project){
+    //     $builder = $this->db->table($this->table);
+    //     return $builder->delete($id_project);
+    // }
 }

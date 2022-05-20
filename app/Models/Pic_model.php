@@ -25,13 +25,13 @@ class Pic_model extends Model{
         return $builder->insert($data);
     }
 
-    public function editPic($id_pic, $data){
-        $builder = $this->db->table($this->table);
-        return $builder->update($id_pic, $data);
-    }
+    // public function editPic($id_pic, $data){
+    //     $builder = $this->db->table($this->table);
+    //     return $builder->update($id_pic, $data);
+    // }
 
-    public function delPic($id_pic){
-        $builder = $this->db->table($this->table);
-        return $builder->delete($id_pic);
-    }
+    // public function delPic($id_pic){
+    //     $builder = $this->db->table($this->table);
+    //     return $builder->delete($id_pic);
+    // }
 }

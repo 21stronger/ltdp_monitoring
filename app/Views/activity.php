@@ -35,90 +35,92 @@
                   <!-- Project Edit Modal -->
                   <div class="modal fade" id="projectEditModal" tabindex="-1">
                     <div class="modal-dialog modal-lg">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title">Project Detail</h5>
-                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                          
-                        <!-- Horizontal Form -->
-                        <form>
-                          <div class="row mb-3">
-                            <label for="inputProjectName" class="col-sm-2 col-form-label">Project Name</label>
-                            <div class="col-sm-10">
-                              <input type="text" class="form-control" id="inputText" value="<?= $dataProject['project_name']; ?>">
-                            </div>
+                      <form action="<?= base_url('project/editProject/'.$idProject); ?>" method="post">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">Project Detail</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
-                          <div class="row mb-3">
-                            <label for="InputDueDate" class="col-sm-2 col-form-label">Due Date</label>
-                            <div class="col-sm-10">
-                              <input type="date" class="form-control" id="inputText" value="<?= $dataProject['project_due_date']; ?>">
+                          <div class="modal-body">
+                            
+                          <!-- Horizontal Form -->
+                          <form>
+                            <div class="row mb-3">
+                              <label for="inputProjectName" class="col-sm-2 col-form-label">Project Name</label>
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputText" name="projectName" value="<?= $dataProject['project_name']; ?>">
+                              </div>
                             </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="inputCategory" class="col-sm-2 col-form-label">Category</label>
-                            <div class="col-sm-10">
-                              <select class="form-select" name="pic" id="pic" aria-label="Default select example">
-                                <?php foreach ($dataCategories as $key => $value) {
-                                  $selected = 
-                                  ($value['category_name']==$dataProject['category_name'])? 
-                                  " selected": "";
-                                  echo "<option value=".$value['id_category']."".$selected.">".$value['category_name']."</option>";
-                                }?>
-                              </select>
+                            <div class="row mb-3">
+                              <label for="InputDueDate" class="col-sm-2 col-form-label">Due Date</label>
+                              <div class="col-sm-10">
+                                <input type="date" class="form-control" id="inputText" name="projectDueDate" value="<?= $dataProject['project_due_date']; ?>">
+                              </div>
                             </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="inputDepartment" class="col-sm-2 col-form-label">Department</label>
-                            <div class="col-sm-10">
-                              <select class="form-select" name="department" id="department" aria-label="Default select example">
-                              <?php 
-                                foreach ($dateDepartment as $key => $value) {
-                                  $selected = 
-                                  ($value['department_name']==$dataProject['department_name'])? 
-                                  " selected": "";
+                            <div class="row mb-3">
+                              <label for="inputCategory" class="col-sm-2 col-form-label">Category</label>
+                              <div class="col-sm-10">
+                                <select class="form-select" name="projectCategory"  id="category" aria-label="Default select example">
+                                  <?php foreach ($dataCategories as $key => $value) {
+                                    $selected = 
+                                    ($value['category_name']==$dataProject['category_name'])? 
+                                    " selected": "";
+                                    echo "<option value=".$value['id_category']."".$selected.">".$value['category_name']."</option>";
+                                  }?>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputDepartment" class="col-sm-2 col-form-label">Department</label>
+                              <div class="col-sm-10">
+                                <select class="form-select" name="projectDepartment"  id="department" aria-label="Default select example">
+                                <?php 
+                                  foreach ($dateDepartment as $key => $value) {
+                                    $selected = 
+                                    ($value['department_name']==$dataProject['department_name'])? 
+                                    " selected": "";
 
-                                  echo "<option value=".$value['department_name']."".$selected.">".$value['department_name']."</option>";
-                                }
-                              ?>
-                          </select>
+                                    echo "<option value=".$value['id_department']."".$selected.">".$value['department_name']."</option>";
+                                  }
+                                ?>
+                            </select>
+                              </div>
                             </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="inputPIC" class="col-sm-2 col-form-label">PIC</label>
-                            <div class="col-sm-10">
-                              <select class="form-select" name="pic" id="pic" aria-label="Default select example">
-                                <?php foreach ($dataPics as $key => $value) {
-                                  $selected = 
-                                  ($value['name_pic']==$dataProject['name_pic'])? 
-                                  " selected": "";
-                                  echo "<option value=".$value['name_pic']."".$selected.">".$value['name_pic']."</option>";
-                                }?>
-                              </select>
+                            <div class="row mb-3">
+                              <label for="inputPIC" class="col-sm-2 col-form-label">PIC</label>
+                              <div class="col-sm-10">
+                                <select class="form-select" name="projectPic"  id="pic" aria-label="Default select example">
+                                  <?php foreach ($dataPics as $key => $value) {
+                                    $selected = 
+                                    ($value['name_pic']==$dataProject['name_pic'])? 
+                                    " selected": "";
+                                    echo "<option value=".$value['id_pic']."".$selected.">".$value['name_pic']."</option>";
+                                  }?>
+                                </select>
+                              </div>
                             </div>
-                          </div>
-                          <div class="row mb-3">
-                            <label for="inputAchievement" class="col-sm-2 col-form-label">Achievement</label>
-                            <div class="col-sm-10">
-                              <select class="form-select" name="achievement" id="achievement" aria-label="Default select example">
-                                <option value="Open"
-                                <?php echo ($dataProject['achievement']=="Open")?" selected":""; ?>>Open</option>
-                                <option value="Close"
-                                <?php echo ($dataProject['achievement']=="Close")?" selected":""; ?>>Close</option>
-                                <option value="Cancel"
-                                <?php echo ($dataProject['achievement']=="Cancel")?" selected":""; ?>>Cancel</option>
-                              </select>
+                            <div class="row mb-3">
+                              <label for="inputAchievement" class="col-sm-2 col-form-label">Achievement</label>
+                              <div class="col-sm-10">
+                                <select class="form-select" name="projectAchievement" id="achievement" aria-label="Default select example">
+                                  <option value="Open"
+                                  <?php echo ($dataProject['achievement']=="Open")?" selected":""; ?>>Open</option>
+                                  <option value="Close"
+                                  <?php echo ($dataProject['achievement']=="Close")?" selected":""; ?>>Close</option>
+                                  <option value="Cancel"
+                                  <?php echo ($dataProject['achievement']=="Cancel")?" selected":""; ?>>Cancel</option>
+                                </select>
+                              </div>
                             </div>
-                          </div>
-                        </form><!-- End Horizontal Form -->
+                          </form><!-- End Horizontal Form -->
 
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                          </div>
                         </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                      </div>
+                      </form>
                     </div>
                   </div><!-- End Project Edit Modal-->
 

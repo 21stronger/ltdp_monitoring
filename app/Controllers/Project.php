@@ -111,4 +111,20 @@ class Project extends BaseController{
             echo $result;
         }
     }
+
+    public function editProject($idProject){
+        $modelProject = new Project_model;
+
+        $data['project_name']           = $this->request->getPost("projectName");
+        $data['project_due_date']       = $this->request->getPost("projectDueDate");
+        $data['achievement']            = $this->request->getPost("projectAchievement");
+        $data['id_category']            = $this->request->getPost("projectCategory");
+        $data['id_department']          = $this->request->getPost("projectDepartment");
+        $data['id_pic']                 = $this->request->getPost("projectPic");
+
+        $result = $modelProject->update($idProject, $data);
+        if($result){
+            return redirect()->back();
+        }
+    }
 }
