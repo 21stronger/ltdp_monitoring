@@ -67,19 +67,6 @@
           .search('')
           .draw();
       })
-
-      // Add field
-      var x = 1;
-      var field = '<div class="row mb-3"><label for="InputDueDate" class="col-sm-3 col-form-label">Activity</label><div class="col-sm-4"><input type="date" class="form-control" id="inputText" name="activitiesDate[]" value="" required></div><div class="col-sm-4"><input type="number" class="form-control" id="inputText" name="activitiesWeight[]" value="" placeholder="%" required></div><div class="col-sm-1"><button id="delete" type="button" class="btn btn-danger">x</button></div></div>';
-      
-      $('#addButton').click(function(){
-        $('#row').append(field);
-      });
-
-      $('#row').on('click', '#delete', function(e){
-        e.preventDefault();
-        $(this).parent('div').parent('div').remove();
-      });
     });
   </script>
 </body>

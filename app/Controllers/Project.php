@@ -11,6 +11,7 @@ use App\Models\Monthly_activity_model;
 
 use App\Models\View_project_detail_model;
 use App\Models\View_activity_pivot_model;
+use App\Models\View_activity_monthly_model;
 
 class Project extends BaseController{
     public function index(){
@@ -124,6 +125,93 @@ class Project extends BaseController{
 
         $result = $modelProject->update($idProject, $data);
         if($result){
+            return redirect()->back();
+        }
+    }
+
+    public function getActivityMonthly($id_activity){
+        $modelMonthly = new View_activity_monthly_model;
+
+        $data = $modelMonthly
+            ->where('id_activity', $id_activity)
+            ->findAll();
+
+        echo json_encode($data);
+    }
+
+    public function editActivities($idActivity){
+        $modelActivity      = new Activity_model;
+        $modelMonthly       = new Monthly_activity_model;
+        $modelViewMonthly   = new View_activity_monthly_model;
+
+        $dataActivity['activity_name']   = $this->request->getPost("activityName");
+        $dataActivity['activity_weight'] = $this->request->getPost("activityWeight");
+        $dataActivity['activity_plan']   = $this->request->getPost("activityWeight");
+
+        // Update tb_activity
+        $modelActivity->update($idActivity, $dataActivity);
+
+
+        // Data Monthly Activity
+        $dataActivities = $modelViewMonthly
+            ->where('id_activity', $idActivity)
+            ->findAll();
+
+        $arrayActDate   = $this->request->getPost("activitiesDate");
+        $arrayActPlan   = $this->request->getPost("activitiesWeight");
+
+        $countFromBase = count($dataActivities);
+        $countFromPost = count($arrayActDate);
+
+        if($countFromBase==$countFromPost){
+            for ($i=0; $i < $countFromPost; $i++) { 
+                $idMonthly = $dataActivities[$i]['id_monthly_activity'];
+                
+                $data['date_monthly_activity'] = $arrayActDate[$i]; 
+                $data['plan_monthly_activity'] = $arrayActPlan[$i];
+
+                $modelMonthly->update($idMonthly, $data);
+            }
+            return redirect()->back();
+        }
+
+        if($countFromBase>$countFromPost){
+            $i=0;
+            for (; $i < $countFromPost; $i++) { 
+                $idMonthly = $dataActivities[$i]['id_monthly_activity'];
+
+                $data['date_monthly_activity'] = $arrayActDate[$i]; 
+                $data['plan_monthly_activity'] = $arrayActPlan[$i];
+
+                $modelMonthly->update($idMonthly, $data);
+            }
+            for(; $i < $countFromBase; $i++){
+                $idMonthly = $dataActivities[$i]['id_monthly_activity'];
+                
+                $modelMonthly->delete(['id_monthly_activity' => $idMonthly]);
+            }
+            return redirect()->back();
+        }
+
+        if($countFromBase<$countFromPost){
+            $i=0;
+            for (; $i < $countFromBase; $i++) { 
+                $idMonthly = $dataActivities[$i]['id_monthly_activity'];
+                
+                $data['date_monthly_activity'] = $arrayActDate[$i]; 
+                $data['plan_monthly_activity'] = $arrayActPlan[$i];
+
+                $modelMonthly->update($idMonthly, $data);
+            }
+            for(; $i < $countFromPost; $i++){
+                $data['date_monthly_activity']      = $arrayActDate[$i]; 
+                $data['plan_monthly_activity']      = $arrayActPlan[$i];
+                $data['actual_monthly_activity']    = 0;
+                $data['status_monthly_activity']    = 0;
+                $data['id_activity']                = $idActivity;
+
+                $modelMonthly->insert($data);
+            }
             return redirect()->back();
         }
     }

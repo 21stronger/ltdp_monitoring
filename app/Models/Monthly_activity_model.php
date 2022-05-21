@@ -9,7 +9,13 @@ class Monthly_activity_model extends Model{
     protected $table        = 'tb_monthly_activity';
     protected $primaryKey   = 'id_monthly_activity';
 
-    protected $allowedFields = ['actual_monthly_activity'];
+    protected $allowedFields = [
+        'date_monthly_activity',
+        'plan_monthly_activity',
+        'actual_monthly_activity',
+        'status_monthly_activity',
+        'id_activity'
+    ];
  
     public function addBatch($data){
         $builder = $this->db->table($this->table);

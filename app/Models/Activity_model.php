@@ -8,7 +8,9 @@ class Activity_model extends Model{
 
     protected $table        = 'tb_activity';
     protected $primaryKey   = 'id_activity';
- 
+
+    protected $allowedFields = ['activity_name','activity_weight','activity_plan'];
+    
     public function getActivities(){
        return $this->findAll();
     }
@@ -30,8 +32,3 @@ class Activity_model extends Model{
         return $builder->delete($id_activity);
     }
 }
-
-// Dropdown Bulan YTD Department achievement
-// Achievemtn, plan 100 langsung closed
-// PIC berdasarkan dept
-// 1 dashboard, 2 achv

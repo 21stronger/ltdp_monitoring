@@ -43,8 +43,6 @@
                           </div>
                           <div class="modal-body">
                             
-                          <!-- Horizontal Form -->
-                          <form>
                             <div class="row mb-3">
                               <label for="inputProjectName" class="col-sm-2 col-form-label">Project Name</label>
                               <div class="col-sm-10">
@@ -112,7 +110,6 @@
                                 </select>
                               </div>
                             </div>
-                          </form><!-- End Horizontal Form -->
 
                           </div>
                           <div class="modal-footer">
@@ -157,21 +154,21 @@
 
                 <div class="tab-pane fade project-activity" id="project-activity">
                   <h5 class="card-title">Project Activities
-                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#activityEditModal">
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#activityAddModal">
                       <i class="bi bi-plus-square" data-bs-toggle="tooltip" data-bs-toggle="tooltip" data-bs-placement="right" title="Add Activity"></i>
                     </button>
                   </h5>
 
-                  <!-- Project Edit Modal -->
-                  <div class="modal fade" id="activityEditModal" tabindex="-1">
+                  <!-- Activity Add Modal -->
+                  <div class="modal fade" id="activityAddModal" tabindex="-1">
                     <div class="modal-dialog modal-lg">
                       <div class="modal-content">
                         <form action="<?= base_url('project/addActivities/'.$idProject); ?>" method="post"> 
                           <div class="modal-header">
-                            <h5 class="modal-title">Activity Detail</h5>
+                            <h5 class="modal-title">Add Activity</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
-                          <div class="modal-body" id="row">
+                          <div class="modal-body" id="addRowModal">
                             <div class="row mb-3">
                               <label for="inputProjectName" class="col-sm-3 col-form-label">Activity Name</label>
                               <div class="col-sm-9">
@@ -181,7 +178,7 @@
                             <div class="row mb-3">
                               <label for="InputDueDate" class="col-sm-3 col-form-label">Activity Weight</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputText" name="activityWeight" value="" required>
+                                <input type="number" class="form-control" id="inputText" name="activityWeight" value="" required>
                               </div>
                             </div>
                             <div class="row mb-3">
@@ -193,19 +190,52 @@
                                 <input type="number" class="form-control" id="inputText" name="activitiesWeight[]" value="" placeholder="%" required>
                               </div>
                               <div class="col-sm-1">
-                                <button id="delete" type="button" class="btn btn-danger">x</button>
+                                <button id="delete" type="button" class="btn btn-danger" disabled>x</button>
                               </div>
                             </div>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" id="addButton" class="btn btn-secondary">Add Row</button>
+                            <button type="button" id="addAddButton" class="btn btn-secondary">Add Row</button>
                             <button type="submit" class="btn btn-primary">Save changes</button>
                           </div>
                         </form>
                       </div>
                     </div>
                   </div>
-                  <!-- End Project Edit Modal-->
+                  <!-- End Activity Add Modal-->
+
+                  <!-- Activity Edit Modal -->
+                  <div class="modal fade" id="activityEditModal" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                      <div class="modal-content">
+                        <form id="editForm" method="post"> 
+                          <div class="modal-header">
+                            <h5 class="modal-title">Edit Activity</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body" id="editRowModal">
+                            <div class="row mb-3">
+                              <label for="inputProjectName" class="col-sm-3 col-form-label">Activity Name</label>
+                              <div class="col-sm-9">
+                                <input type="text" class="form-control" id="editActivityName" name="activityName" value="" required>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="InputDueDate" class="col-sm-3 col-form-label">Activity Weight</label>
+                              <div class="col-sm-9">
+                                <input type="number" class="form-control" id="editActivityWeight" name="activityWeight" value="" required>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" id="editAddButton" class="btn btn-secondary">Add Row</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- End Activity Edit Modal-->
 
                   <div class="row">
                     <table class="table table-sm">
@@ -235,7 +265,12 @@
                         ?>
                         <tr class="table-warning" style="vertical-align: middle;">
                           <th scope="row"><?= $numbering; ?></th>
-                          <td><?= $value['activity_name']; ?></td>
+                          <td>
+                            <?= $value['activity_name']; ?>
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#activityEditModal" onclick="editActivity('<?= $value['id_activity']; ?>')">
+                              <i class="bi bi-pencil-square" data-bs-toggle="tooltip" data-bs-toggle="tooltip" data-bs-placement="right" title="Edit Activity"></i>
+                            </button>
+                          </td>
                           <td><?= $value['activity_weight']; ?>%</td>
                           <td><?= (!is_null($value['JanPlan']))? $value['JanPlan']."%":""; ?></td>
                           <td><?= (!is_null($value['FebPlan']))? $value['FebPlan']."%":""; ?></td>
@@ -271,3 +306,47 @@
 
   </main><!-- End #main -->
 
+<script type="text/javascript">
+  function editActivity(id){
+    var rows = document.querySelectorAll('#rowEdit');
+    rows.forEach(function(item){
+      item.remove();
+    });
+
+    $.ajax({
+      url: "<?= base_url('project/getActivityMonthly'); ?>/"+id, 
+      success: function(result){
+        $('#editForm').attr('action', '<?= base_url('project/editActivities'); ?>/'+id);
+        var resultObj = JSON.parse(result);
+        document.getElementById('editActivityName').value   = resultObj[0].activity_name;
+        document.getElementById('editActivityWeight').value = resultObj[0].activity_weight;
+        resultObj.forEach(function(items){
+          var field = '<div class="row mb-3" id="rowEdit"><label for="InputDueDate" class="col-sm-3 col-form-label">Activity</label><div class="col-sm-4"><input type="date" class="form-control" id="inputText" name="activitiesDate[]" value="'+items.date_monthly_activity+'" required></div><div class="col-sm-4"><input type="number" class="form-control" id="inputText" name="activitiesWeight[]" value="'+items.plan_monthly_activity+'" placeholder="%" required></div><div class="col-sm-1"><button id="delete" type="button" class="btn btn-danger">x</button></div></div>';
+          $('#editRowModal').append(field);
+        });
+    }});
+  }
+
+  // Field Row Activity
+  var field = '<div class="row mb-3" id="rowEdit"><label for="InputDueDate" class="col-sm-3 col-form-label">Activity</label><div class="col-sm-4"><input type="date" class="form-control" id="inputText" name="activitiesDate[]" value="" required></div><div class="col-sm-4"><input type="number" class="form-control" id="inputText" name="activitiesWeight[]" value="" placeholder="%" required></div><div class="col-sm-1"><button id="delete" type="button" class="btn btn-danger">x</button></div></div>';
+  
+  // Edit Modal
+  $('#editAddButton').click(function(){
+    $('#editRowModal').append(field);
+  });
+
+  $('#editRowModal').on('click', '#delete', function(e){
+    e.preventDefault();
+    $(this).parent('div').parent('div').remove();
+  });
+  
+  // Add Modal
+  $('#addAddButton').click(function(){
+    $('#addRowModal').append(field);
+  });
+
+  $('#addRowModal').on('click', '#delete', function(e){
+    e.preventDefault();
+    $(this).parent('div').parent('div').remove();
+  });
+</script>
