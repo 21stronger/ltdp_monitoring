@@ -89,7 +89,7 @@
                         <div class="row mb-3">
                           <label for="edtPassword" class="col-sm-3 col-form-label">Password</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" id="edtPassword" name="edtPassword" placeholder="Leave blank if do not change">
+                            <input type="text" class="form-control" id="edtPassword" name="edtPassword" placeholder="Leave blank if doesn't change password">
                           </div>
                         </div>
                         <div class="row mb-3">
@@ -117,7 +117,6 @@
                     <th scope="col">#</th>
                     <th scope="col">Username</th>
                     <th scope="col">Surename</th>
-                    <th scope="col">Password</th>
                     <th scope="col">Role</th>
                     <th scope="col">Action</th>
                   </tr>
@@ -130,7 +129,6 @@
                     <th scope="row"><?= $value['id_pic']; ?></th>
                     <td><?= $value['user_pic']; ?></td>
                     <td><?= $value['name_pic']; ?></td>
-                    <td><?= $value['pass_pic']; ?></td>
                     <td><?= $value['role_pic']; ?></td>
                     <td>
                       <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editPIC" onclick="editModal('<?= $value['id_pic']; ?>', '<?= $value['name_pic']; ?>', '<?= $value['user_pic']; ?>', '<?= $value['role_pic']; ?>')"><i class="bi bi-pencil-square"></i> Edit</button>
