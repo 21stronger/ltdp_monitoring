@@ -27,9 +27,9 @@
   <link href="<?= base_url(); ?>/assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
   <!-- JQuery DataTable -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
-  <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
-  <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>/assets/css/jquery.dataTables.min.css">
+  <script type="text/javascript" language="javascript" src="<?= base_url(); ?>/assets/js/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript" language="javascript" src="<?= base_url(); ?>/assets/js/jquery.dataTables.min.js"></script>
 
   <!-- Template Main CSS File -->
   <link href="<?= base_url(); ?>/assets/css/style.css" rel="stylesheet">
