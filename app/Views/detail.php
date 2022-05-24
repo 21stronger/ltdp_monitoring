@@ -23,6 +23,10 @@
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#project-activity">Activity</button>
                 </li>
 
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#project-pica">PICA</button>
+                </li>
+
               </ul>
               <div class="tab-content pt-2">
 
@@ -134,7 +138,178 @@
                   </div>
                 </div>
 
-              </div><!-- End Bordered Tabs -->
+                <div class="tab-pane fade project-pica" id="project-pica">
+                  <h5 class="card-title">Project PICA
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#projectPicaAddModal">
+                      <i class="bi bi-plus-square" data-bs-toggle="tooltip" data-bs-toggle="tooltip" data-bs-placement="right" title="Add PICA"></i>
+                    </button>
+                  </h5>
+
+                  <!-- PICA Table -->
+                  <div class="row">
+                    <?php if(count($dataPica)<1) {?>
+                    <div class="row">
+                      <div class="col-lg-12 col-md-12 label ">No PICA Record for this Project</div>
+                    </div>
+                    <?php } else { ?>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Activity</th>
+                          <th scope="col">Month</th>
+                          <th scope="col">Due Date</th>
+                          <th scope="col">Root Cause</th>
+                          <th scope="col">CAPA</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                          $numbering=1;
+                          foreach ($dataPica as $key => $value) {
+                        ?>
+                        <tr>
+                          <th scope="row"><?= $numbering; ?></th>
+                          <td>
+                            <?= $value['activity_name']; ?>
+                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#projectPicaEditModal" onclick="editPica('<?= $value['id_pica']; ?>')">
+                              <i class="bi bi-pencil-square" data-bs-toggle="tooltip" data-bs-toggle="tooltip" data-bs-placement="right" title="Edit PICA"></i>
+                            </button>
+                          </td>
+                          <td><?= $value['date_monthly_activity']; ?></td>
+                          <td><?= $value['pica_due_date']; ?></td>
+                          <td><?= $value['root_cause']; ?></td>
+                          <td><?= $value['capa']; ?></td>
+                        </tr>
+                        <?php
+                          $numbering++;
+                          }
+                        ?>
+                      </tbody>
+                    </table>
+                    <?php } ?>
+                  </div><!-- End PICA Table -->
+
+                  <!-- Add Pica Modal -->
+                  <div class="modal fade" id="projectPicaAddModal" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                      <form action="<?= base_url('pica/addpica/'.$idProject) ?>" method="post">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">Add PICA</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="row mb-3">
+                              <label for="inputProjectName" class="col-sm-2 col-form-label">Activity Name</label>
+                              <div class="col-sm-10">
+                                <select class="form-select" name="activityName"  id="activityName" aria-label="Default select example" required>
+                                  <option disabled value selected>-</option>
+                                  <?php 
+                                    foreach ($dataActivities as $key => $value) {
+                                    echo "<option value=".$value['id_activity'].">".$value['activity_name']."</option>";
+                                    }
+                                  ?>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="InputDueDate" class="col-sm-2 col-form-label">Month</label>
+                              <div class="col-sm-10">
+                                <select class="form-select" name="activityMonth"  id="activityMonth" aria-label="Default select example" required>
+                                  <option disabled value>-</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputCategory" class="col-sm-2 col-form-label">Due Date</label>
+                              <div class="col-sm-10">
+                                <input type="date" class="form-control" id="picaDueDate" name="picaDueDate" value="" required>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputDepartment" class="col-sm-2 col-form-label">Root Cause</label>
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" id="rootCause" name="rootCause" required>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputPIC" class="col-sm-2 col-form-label">CAPA</label>
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" id="capa" name="capa" required>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div><!-- End Add Pica Modal-->
+
+                  <!-- Edit Pica Modal -->
+                  <div class="modal fade" id="projectPicaEditModal" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                      <form action="" id="formEditPica" method="post">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">Edit PICA</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="row mb-3">
+                              <label for="inputProjectName" class="col-sm-2 col-form-label">Activity Name</label>
+                              <div class="col-sm-10">
+                                <select class="form-select" name="activityName"  id="activityNameEdit" aria-label="Default select example" required>
+                                  <option disabled value>-</option>
+                                  <?php 
+                                    foreach ($dataActivities as $key => $value) {
+                                    echo "<option value=".$value['id_activity'].">".$value['activity_name']."</option>";
+                                    }
+                                  ?>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="InputDueDate" class="col-sm-2 col-form-label">Month</label>
+                              <div class="col-sm-10">
+                                <select class="form-select" name="activityMonth"  id="activityMonthEdit" aria-label="Default select example" required>
+                                  <option disabled value>-</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputCategory" class="col-sm-2 col-form-label">Due Date</label>
+                              <div class="col-sm-10">
+                                <input type="date" class="form-control" id="picaDueDateEdit" name="picaDueDate" value="" required>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputDepartment" class="col-sm-2 col-form-label">Root Cause</label>
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" id="rootCauseEdit" name="rootCause" required>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputPIC" class="col-sm-2 col-form-label">CAPA</label>
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" id="capaEdit" name="capa" required>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div><!-- End Edit Pica Modal-->
+                </div>
+
+              </div>
 
             </div>
           </div>
@@ -175,6 +350,64 @@
             }
           });
         });
+
+        $('#activityName').change(function(){
+          $('#activityMonth').children().slice(1).remove();
+          $.ajax({
+            url: '<?= base_url('update/getMonthly'); ?>/'+this.value,
+            success: function(result){
+              var resultObj = JSON.parse(result);
+              resultObj.forEach(function(items){
+                var field = "<option value="+items.id_monthly_activity+">"+items.date_monthly_activity+"</option>";
+                $('#activityMonth').append(field);
+              });
+            }
+          });
+        });
+
+        $('#activityNameEdit').change(function(){
+          $('#activityMonthEdit').children().slice(1).remove();
+          $.ajax({
+            url: '<?= base_url('update/getMonthly'); ?>/'+this.value,
+            success: function(result){
+              var resultObj = JSON.parse(result);
+              resultObj.forEach(function(items){
+                var field = "<option value="+items.id_monthly_activity+">"+items.date_monthly_activity+"</option>";
+                $('#activityMonthEdit').append(field);
+              });
+            }
+          });
+        });
       });
+
+      function editPica(id){
+        document.getElementById('formEditPica').action = '<?= base_url('pica/editpica'); ?>/'+id;
+        $.ajax({
+          url: '<?= base_url('pica/getpica'); ?>/'+id,
+          success: function(items){
+            var item = JSON.parse(items);
+            document.getElementById('activityNameEdit').value = item.id_activity;
+            editMonthOptions(item.id_activity, item.id_monthly_activity);
+            document.getElementById('picaDueDateEdit').value = item.pica_due_date;
+            document.getElementById('rootCauseEdit').value = item.root_cause;
+            document.getElementById('capaEdit').value = item.capa;
+          }
+        })
+      }
+
+      function editMonthOptions(idActivity, idMonthly){
+          $('#activityMonthEdit').children().slice(1).remove();
+          $.ajax({
+            url: '<?= base_url('update/getMonthly'); ?>/'+idActivity,
+            success: function(result){
+              var resultObj = JSON.parse(result);
+              resultObj.forEach(function(items){
+                var field = "<option value="+items.id_monthly_activity+">"+items.date_monthly_activity+"</option>";
+                $('#activityMonthEdit').append(field);
+              });
+              document.getElementById('activityMonthEdit').value = idMonthly;
+            }
+          });
+        }
     </script>
   </main><!-- End #main -->

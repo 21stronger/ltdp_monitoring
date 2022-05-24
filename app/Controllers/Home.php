@@ -71,3 +71,10 @@ class Home extends BaseController{
         echo json_encode($data);
     }
 }
+
+
+// Profile, Name, Department, Extention
+
+// Dropdown Bulan YTD Department achievement
+// Achievemtn, plan 100 langsung closed
+// PIC berdasarkan dept
