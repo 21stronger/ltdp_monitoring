@@ -39,7 +39,6 @@ class Project extends BaseController{
         $modelCategory = new Category_model;
         $modelDeparment = new Department_model;
         $modelViewProject = new View_project_detail_model;
-        $modelViewActivity = new View_activity_pivot_model;
 
         $data['headerTitle'] = "Detail Project";
         $data['currentPage'] = "Project";
@@ -50,10 +49,6 @@ class Project extends BaseController{
         $data['dateDepartment'] = $modelDeparment->findAll();
 
         $data['dataProject'] = $modelViewProject->find($id_project);
-        $data['detailActivity'] = $modelViewActivity
-                                    ->where('id_project', $id_project)
-                                    ->orderBy('id_activity', 'asc')
-                                    ->findAll();
 
         if(!$data['dataProject']){
             return redirect()->to(base_url('project'));
@@ -127,16 +122,6 @@ class Project extends BaseController{
         if($result){
             return redirect()->back();
         }
-    }
-
-    public function getActivityMonthly($id_activity){
-        $modelMonthly = new View_activity_monthly_model;
-
-        $data = $modelMonthly
-            ->where('id_activity', $id_activity)
-            ->findAll();
-
-        echo json_encode($data);
     }
 
     public function editActivities($idActivity){
@@ -214,5 +199,48 @@ class Project extends BaseController{
             }
             return redirect()->back();
         }
+    }
+
+    public function deleteActivity($idActivity){
+        $modelActivity      = new Activity_model;
+        $modelMonthly       = new Monthly_activity_model;
+
+        $data['message'] = "success";
+        $data['monthlyResult']  = $modelMonthly
+                                    ->where('id_activity', $idActivity)
+                                    ->delete();
+
+        $data['activityResult'] = $modelActivity
+                                    ->where('id_activity', $idActivity)
+                                    ->delete();
+
+        echo json_encode($data);
+    }
+
+
+    // Get Function
+    public function getActivityMonthly($id_activity){
+        $modelMonthly = new View_activity_monthly_model;
+
+        $data = $modelMonthly
+            ->where('id_activity', $id_activity)
+            ->findAll();
+
+        echo json_encode($data);
+    }
+
+    public function getDetailActivity($id_project){
+        $modelViewActivity = new View_activity_pivot_model;
+
+        $data = $modelViewActivity
+            ->where('id_project', $id_project)
+            ->orderBy('id_activity', 'asc')
+            ->findAll();
+
+        echo json_encode($data);
+    }
+
+    public function error404(){
+        return view('errors/html/error_404');
     }
 }

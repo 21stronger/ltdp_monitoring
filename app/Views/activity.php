@@ -161,7 +161,7 @@
                   <div class="modal fade" id="activityAddModal" tabindex="-1">
                     <div class="modal-dialog modal-lg">
                       <div class="modal-content">
-                        <form action="<?= base_url('project/addActivities/'.$idProject); ?>" method="post"> 
+                        <form id="activityAddForm" method="post"> 
                           <div class="modal-header">
                             <h5 class="modal-title">Add Activity</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -170,22 +170,22 @@
                             <div class="row mb-3">
                               <label for="inputProjectName" class="col-sm-3 col-form-label">Activity Name</label>
                               <div class="col-sm-9">
-                                <input type="text" class="form-control" id="inputText" name="activityName" value="" required>
+                                <input type="text" class="form-control" id="activityAddName" name="activityName" value="" required>
                               </div>
                             </div>
                             <div class="row mb-3">
                               <label for="InputDueDate" class="col-sm-3 col-form-label">Activity Weight</label>
                               <div class="col-sm-9">
-                                <input type="number" class="form-control" id="inputText" name="activityWeight" value="" required>
+                                <input type="number" class="form-control" id="activityAddWeight" name="activityWeight" value="" required>
                               </div>
                             </div>
                             <div class="row mb-3">
                               <label for="InputDueDate" class="col-sm-3 col-form-label">Activity</label>
                               <div class="col-sm-4">
-                                <input type="date" class="form-control" id="inputText" name="activitiesDate[]" value="" required>
+                                <input type="date" class="form-control" id="activityAddDate" name="activitiesDate[]" value="" required>
                               </div>
                               <div class="col-sm-4">
-                                <input type="number" class="form-control" id="inputText" name="activitiesWeight[]" value="" placeholder="%" required>
+                                <input type="number" class="form-control" id="activityAddWeight" name="activitiesWeight[]" value="" placeholder="%" required>
                               </div>
                               <div class="col-sm-1">
                                 <button id="delete" type="button" class="btn btn-danger" disabled>x</button>
@@ -194,7 +194,7 @@
                           </div>
                           <div class="modal-footer">
                             <button type="button" id="addAddButton" class="btn btn-secondary">Add Row</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
                           </div>
                         </form>
                       </div>
@@ -226,9 +226,9 @@
                             </div>
                           </div>
                           <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Delete Activity</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="deleteActivity()">Delete Activity</button>
                             <button type="button" id="editAddButton" class="btn btn-secondary">Add Row</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
+                            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
                           </div>
                         </form>
                       </div>
@@ -257,37 +257,7 @@
                           <th scope="col">Des</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <?php 
-                          $numbering=1;
-                          foreach ($detailActivity as $key => $value) {
-                        ?>
-                        <tr class="table-warning" style="vertical-align: middle;">
-                          <th scope="row"><?= $numbering; ?></th>
-                          <td>
-                            <?= $value['activity_name']; ?>
-                            <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#activityEditModal" onclick="editActivity('<?= $value['id_activity']; ?>')">
-                              <i class="bi bi-pencil-square" data-bs-toggle="tooltip" data-bs-toggle="tooltip" data-bs-placement="right" title="Edit Activity"></i>
-                            </button>
-                          </td>
-                          <td><?= $value['activity_weight']; ?>%</td>
-                          <td><?= (!is_null($value['JanPlan']))? $value['JanPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['FebPlan']))? $value['FebPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['MarPlan']))? $value['MarPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['AprPlan']))? $value['AprPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['MayPlan']))? $value['MayPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['JunPlan']))? $value['JunPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['JulPlan']))? $value['JulPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['AugPlan']))? $value['AugPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['SepPlan']))? $value['SepPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['OctPlan']))? $value['OctPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['NovPlan']))? $value['NovPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['DesPlan']))? $value['DesPlan']."%":""; ?></td>
-                        </tr>
-                        <?php
-                          $numbering++;
-                          }
-                        ?>
+                      <tbody id="activityTable" onload="getActivities()">
                       </tbody>
                     </table>
                   </div>
@@ -306,7 +276,81 @@
   </main><!-- End #main -->
 
 <script type="text/javascript">
+  var idActivity;
+
+  $(document).ready(function(){
+    getActivities();
+
+    $('#activityAddForm').submit(function(event){
+      event.preventDefault();
+      addActivity();
+    });
+  });
+
+  function getActivities(){
+    $('#activityTable').empty();
+    $.ajax({
+      url: "<?= base_url('project/getDetailActivity/'.$idProject); ?>",
+      success: function(result){
+        var numbering = 0;
+        var resultObj = JSON.parse(result);
+        resultObj.forEach(function(items){
+          numbering++;
+          var rowField = '<tr class="table-warning" style="vertical-align: middle;">'+
+              '<th scope="row">'+numbering+'</th>'+
+              '<td>'+
+              items.activity_name+
+              '<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#activityEditModal" onclick="editActivity('+items.id_activity+')">'+
+                '<i class="bi bi-pencil-square" data-bs-toggle="tooltip" data-bs-toggle="tooltip" data-bs-placement="right" title="Edit Activity"></i>'+
+              '</button>'+
+              '</td>'+
+              '<td>'+items.activity_weight+'%</td>'+
+              '<td>'+isset(items.JanPlan)+'</td>'+
+              '<td>'+isset(items.FebPlan)+'</td>'+
+              '<td>'+isset(items.MarPlan)+'</td>'+
+              '<td>'+isset(items.AprPlan)+'</td>'+
+              '<td>'+isset(items.MayPlan)+'</td>'+
+              '<td>'+isset(items.JunPlan)+'</td>'+
+              '<td>'+isset(items.JulPlan)+'</td>'+
+              '<td>'+isset(items.AugPlan)+'</td>'+
+              '<td>'+isset(items.SepPlan)+'</td>'+
+              '<td>'+isset(items.OctPlan)+'</td>'+
+              '<td>'+isset(items.NovPlan)+'</td>'+
+              '<td>'+isset(items.DesPlan)+'</td>'+
+            '</tr>';
+            $('#activityTable').append(rowField);
+        });
+      }
+    });
+  }
+
+  function isset(item){
+    return (item!=null)?
+      item+'%':
+      ''
+  }
+
+  function addActivity() {
+    $.ajax({
+      type: "POST",
+      url: "<?= base_url('project/addActivities/'.$idProject); ?>",
+      cache:false,
+      data: $('#activityAddForm').serialize(),
+      success: function(response){
+        getActivities();
+        $('#activityAddName').val("");
+        $('#activityAddWeight').val("");
+        $('#activityAddDate').val("");
+        $('#activityAddWeight').val("");
+      },
+      error: function(){
+          alert("Error");
+      }
+    });
+  }
+
   function editActivity(id){
+    this.idActivity = id;
     var rows = document.querySelectorAll('#rowEdit');
     rows.forEach(function(item){
       item.remove();
@@ -324,6 +368,15 @@
           $('#editRowModal').append(field);
         });
     }});
+  }
+
+  function deleteActivity(){
+    $.ajax({
+      url: "<?= base_url('project/deleteActivity'); ?>/"+this.idActivity,
+      success: function(response){
+        getActivities();
+      }
+    });
   }
 
   // Field Row Activity

@@ -39,6 +39,7 @@ $routes->get('/logout', 'Login::logout');
 $routes->post('project/addProject', 'Project::addProject');
 $routes->post('/project/addProject', 'Project::addProject');
 
+$routes->get('/project/getDetailActivity', 'Project::error404');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
