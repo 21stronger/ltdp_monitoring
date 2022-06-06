@@ -8,29 +8,21 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="card">
-            <div class="filter">
-              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <li class="dropdown-header text-start">
-                  <h6>Filter</h6>
-                </li>
-                <li>
-                  <select class="form-select" name="month" id="month">
-                    <option value="01">January</option>
-                    <option value="02">February</option>
-                    <option value="03">March</option>
-                    <option value="04">April</option>
-                    <option value="05">May</option>
-                    <option value="06">June</option>
-                    <option value="07">July</option>
-                    <option value="08">August</option>
-                    <option value="09">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">Desember</option>
-                  </select>
-                </li>
-              </ul>
+            <div class="filter" style="right: 20px;">
+              <select class="form-select" name="month" id="month">
+                <option value="01">January</option>
+                <option value="02">February</option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">Desember</option>
+              </select>
             </div>
             <div class="card-body">
               <h5 class="card-title">Achievement</h5>
@@ -304,178 +296,13 @@
     ]
   });
   
+  // EChart initfor Graph Data
+  var ytdStatus1, ytdAch1, ytdAch2, ytdStatus2;
   document.addEventListener("DOMContentLoaded", () => {
-    var ytdStatus1 = echarts.init(document.querySelector("#ytdStatus")).setOption({
-      tooltip: {
-        trigger: 'item'
-      },
-      legend: {
-        top: '5%',
-        left: 'center'
-      },
-      series: [{
-        name: 'Project',
-        type: 'pie',
-        radius: ['40%', '70%'],
-        avoidLabelOverlap: false,
-        label: {
-          show: false,
-          position: 'center'
-        },
-        emphasis: {
-          label: {
-            show: true,
-            fontSize: '18',
-            fontWeight: 'bold'
-          }
-        },
-        labelLine: {
-          show: false
-        },
-        data: [{
-            value: <?= $countProjectClose ?>,
-            name: 'Close'
-          },
-          {
-            value: <?= $countProjectOpen ?>,
-            name: 'Open'
-          },
-          {
-            value: <?= $countProjectCancel ?>,
-            name: 'Cancel'
-          }
-        ]
-      }]
-    });
-
-    var ytdAch1 = echarts.init(document.querySelector("#ytdAchievement")).setOption({
-      tooltip: {
-        trigger: 'item'
-      },
-      legend: {
-        top: '5%',
-        left: 'center'
-      },
-      series: [{
-        name: 'Project',
-        type: 'pie',
-        radius: ['40%', '70%'],
-        avoidLabelOverlap: false,
-        label: {
-          show: false,
-          position: 'center'
-        },
-        emphasis: {
-          label: {
-            show: true,
-            fontSize: '18',
-            fontWeight: 'bold'
-          }
-        },
-        labelLine: {
-          show: false
-        },
-        data: [{
-            value: <?= $countFaster ?>,
-            name: 'Faster'
-          },
-          {
-            value: <?= $countOntime ?>,
-            name: 'Ontime'
-          },
-          {
-            value: <?= $countOverdue ?>,
-            name: 'Overdue'
-          }
-        ]
-      }]
-    });
-    
-    var ytdAch2 = echarts.init(document.querySelector("#ytdAchievement1")).setOption({
-      tooltip: {
-        trigger: 'item'
-      },
-      legend: {
-        top: '5%',
-        left: 'center'
-      },
-      series: [{
-        name: 'Project',
-        type: 'pie',
-        radius: ['40%', '70%'],
-        avoidLabelOverlap: false,
-        label: {
-        show: false,
-        position: 'center'
-        },
-        emphasis: {
-        label: {
-          show: true,
-          fontSize: '18',
-          fontWeight: 'bold'
-        }
-        },
-        labelLine: {
-        show: false
-        },
-        data: [{
-          value: <?= $countFaster ?>,
-          name: 'Faster'
-        },
-        {
-          value: <?= $countOntime ?>,
-          name: 'Ontime'
-        },
-        {
-          value: <?= $countOverdue ?>,
-          name: 'Overdue'
-        }
-        ]
-      }]
-    });
-      
-    var ytdStatus2 = echarts.init(document.querySelector("#ytdStatus1")).setOption({
-      tooltip: {
-        trigger: 'item'
-      },
-      legend: {
-        top: '5%',
-        left: 'center'
-      },
-      series: [{
-        name: 'Project',
-        type: 'pie',
-        radius: ['40%', '70%'],
-        avoidLabelOverlap: false,
-        label: {
-        show: false,
-        position: 'center'
-        },
-        emphasis: {
-        label: {
-          show: true,
-          fontSize: '18',
-          fontWeight: 'bold'
-        }
-        },
-        labelLine: {
-        show: false
-        },
-        data: [{
-          value: <?= $countProjectClose ?>,
-          name: 'Close'
-        },
-        {
-          value: <?= $countProjectOpen ?>,
-          name: 'Open'
-        },
-        {
-          value: <?= $countProjectCancel ?>,
-          name: 'Cancel'
-        }
-        ]
-      }]
-    });
+    ytdStatus1 = echarts.init(document.querySelector("#ytdStatus"));
+    ytdAch1 = echarts.init(document.querySelector("#ytdAchievement"));
+    ytdAch2 = echarts.init(document.querySelector("#ytdAchievement1"));
+    ytdStatus2 = echarts.init(document.querySelector("#ytdStatus1"));
   });
   
   $(document).ready(function() {
@@ -492,31 +319,206 @@
   });
 
   function getAchievement(month){
-    $.ajax({url: "<?= base_url('home/'); ?>/getAchievement/"+month, success: function(resultJson){
-      var result = JSON.parse(resultJson);
-      document.getElementById('achFaster').innerHTML = result.countFaster;
-      document.getElementById('achOntime').innerHTML = result.countOntime;
-      document.getElementById('achOverdue').innerHTML = result.countOverdue;
-      document.getElementById('proClose').innerHTML = result.countClose;
-      document.getElementById('proOpen').innerHTML = result.countOpen;
-      document.getElementById('proCancel').innerHTML = result.countCancel;
+    $.ajax({url: "<?= base_url('home/ytd'); ?>/"+month, success: function(response){
+      var result = JSON.parse(response);
 
       tableCategories.clear();
-      tableDepartment.clear();
       result.dataCategories.forEach(addCategoriesRow);
-      result.dataDepartments.forEach(addDepartmentRow);
       tableCategories.draw();
+
+      tableDepartment.clear();
+      result.dataDepartments.forEach(addDepartmentRow);
       tableDepartment.draw();
+
+      document.getElementById('achFaster').innerHTML = result.faster;
+      document.getElementById('achOntime').innerHTML = result.ontime;
+      document.getElementById('achOverdue').innerHTML = result.overdue;
+      document.getElementById('proClose').innerHTML = result.close;
+      document.getElementById('proOpen').innerHTML = result.open;
+      document.getElementById('proCancel').innerHTML = result.cancel;
+
+      ytdStatus1.setOption({
+        tooltip: {
+          trigger: 'item'
+        },
+        legend: {
+          top: '5%',
+          left: 'center'
+        },
+        series: [{
+          name: 'Project',
+          type: 'pie',
+          radius: ['40%', '70%'],
+          avoidLabelOverlap: false,
+          label: {
+            show: false,
+            position: 'center'
+          },
+          emphasis: {
+            label: {
+              show: true,
+              fontSize: '18',
+              fontWeight: 'bold'
+            }
+          },
+          labelLine: {
+            show: false
+          },
+          data: [{
+              value: result.close,
+              name: 'Close'
+            },
+            {
+              value: result.open,
+              name: 'Open'
+            },
+            {
+              value: result.cancel,
+              name: 'Cancel'
+            }
+          ]
+        }]
+      });
+
+      ytdAch1.setOption({
+        tooltip: {
+          trigger: 'item'
+        },
+        legend: {
+          top: '5%',
+          left: 'center'
+        },
+        series: [{
+          name: 'Project',
+          type: 'pie',
+          radius: ['40%', '70%'],
+          avoidLabelOverlap: false,
+          label: {
+            show: false,
+            position: 'center'
+          },
+          emphasis: {
+            label: {
+              show: true,
+              fontSize: '18',
+              fontWeight: 'bold'
+            }
+          },
+          labelLine: {
+            show: false
+          },
+          data: [{
+              value: result.faster,
+              name: 'Faster'
+            },
+            {
+              value: result.ontime,
+              name: 'Ontime'
+            },
+            {
+              value: result.overdue,
+              name: 'Overdue'
+            }
+          ]
+        }]
+      });
+
+      ytdStatus2.setOption({
+        tooltip: {
+          trigger: 'item'
+        },
+        legend: {
+          top: '5%',
+          left: 'center'
+        },
+        series: [{
+          name: 'Project',
+          type: 'pie',
+          radius: ['40%', '70%'],
+          avoidLabelOverlap: false,
+          label: {
+          show: false,
+          position: 'center'
+          },
+          emphasis: {
+          label: {
+            show: true,
+            fontSize: '18',
+            fontWeight: 'bold'
+          }
+          },
+          labelLine: {
+          show: false
+          },
+          data: [{
+              value: result.close,
+              name: 'Close'
+            },
+            {
+              value: result.open,
+              name: 'Open'
+            },
+            {
+              value: result.cancel,
+              name: 'Cancel'
+            }
+          ]
+        }]
+      });
+
+      ytdAch2.setOption({
+        tooltip: {
+          trigger: 'item'
+        },
+        legend: {
+          top: '5%',
+          left: 'center'
+        },
+        series: [{
+          name: 'Project',
+          type: 'pie',
+          radius: ['40%', '70%'],
+          avoidLabelOverlap: false,
+          label: {
+          show: false,
+          position: 'center'
+          },
+          emphasis: {
+          label: {
+            show: true,
+            fontSize: '18',
+            fontWeight: 'bold'
+          }
+          },
+          labelLine: {
+          show: false
+          },
+          data: [{
+              value: result.faster,
+              name: 'Faster'
+            },
+            {
+              value: result.ontime,
+              name: 'Ontime'
+            },
+            {
+              value: result.overdue,
+              name: 'Overdue'
+            }
+          ]
+        }]
+      });
+        
     }});
   };
 
   function addCategoriesRow(item){
     tableCategories.row.add({
-      'id_category'   : item.id_category,
-      'category_name' : item.category_name,
-      'faster'        : item.faster,
-      'ontime'        : item.ontime,
-      'overdue'       : item.overdue
+      'id_category'   : item.idCategory,
+      'category_name' : item.nameCategory,
+      'faster'        : item.fasterCategory,
+      'ontime'        : item.ontimeCategory,
+      'overdue'       : item.overdueCategory
     });
   }
 
@@ -524,9 +526,9 @@
     tableDepartment.row.add({
       'id_department'  : item.id_department,
       'department_name': item.department_name,
-      'faster'         : item.faster,
-      'ontime'         : item.ontime,
-      'overdue'        : item.overdue
+      'faster'         : item.fasterDepartment,
+      'ontime'         : item.ontimeDepartment,
+      'overdue'        : item.overdueDepartment
     });
   }
 </script>
