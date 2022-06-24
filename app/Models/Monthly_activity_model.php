@@ -14,6 +14,7 @@ class Monthly_activity_model extends Model{
         'plan_monthly_activity',
         'actual_monthly_activity',
         'status_monthly_activity',
+        'description',
         'id_activity'
     ];
  

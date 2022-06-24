@@ -8,6 +8,7 @@ use App\Models\Activity_model;
 use App\Models\Department_model;
 use App\Models\Monthly_activity_model;
 
+use App\Models\View_activity_description_model;
 use App\Models\View_summary_monthly_model;
 use App\Models\View_project_detail_model;
 use App\Models\View_activity_pivot_model;
@@ -34,17 +35,22 @@ class Update extends BaseController{
     }
 
     public function detail($id_project){
-        $modelActivity = new Activity_model;
+        $modelActivity  = new Activity_model;
 
-        $modelViewProject = new View_project_detail_model;
-        $modelViewActivity = new View_activity_pivot_model;
-        $modelViewActivityPica = new View_activity_pica_model;
+        $modelViewActivityPica  = new View_activity_pica_model;
+        $modelViewProject       = new View_project_detail_model;
+        $modelViewActivity      = new View_activity_pivot_model;
+        $modelViewInformation   = new View_activity_description_model;
 
         $data['idProject'] = $id_project;
         $data['dataProject'] = $modelViewProject->find($id_project);
         $data['detailActivity'] = $modelViewActivity
                                     ->where('id_project', $id_project)
                                     ->orderBy('id_activity', 'asc')
+                                    ->findAll();
+        $data['dataDescription'] = $modelViewInformation
+                                    ->where('id_project', $id_project)
+                                    ->where("description IS NOT null AND description != ''")
                                     ->findAll();
         $data['dataPica']    = $modelViewActivityPica
                                 ->where('id_project', $id_project)
@@ -68,10 +74,25 @@ class Update extends BaseController{
     public function updateDetail(){
         $modelMonthly = new Monthly_activity_model;
 
-        $id     = $this->request->getPost("idUpdate");
-        $data['actual_monthly_activity']    = $this->request->getPost("value");
+        $idMonthly     = $this->request->getPost("activityIdAch");
+        $id = ($idMonthly==null)? 0: $idMonthly;
+
+        $data['actual_monthly_activity']    = $this->request->getPost("activityActualAch");
+        $data['description']                = $this->request->getPost("activityDescriptionAch");
 
         $modelMonthly->update($id, $data);
+
+        $result['id']   = $id;
+        $result['value']= $data['actual_monthly_activity'];
+        return json_encode($result);
+    }
+
+    public function getDetailMonthly($id_monthly){
+        $modelViewMonthly = new View_activity_description_model;
+
+        $result = $modelViewMonthly->find($id_monthly);
+
+        return json_encode($result);
     }
 
     public function getMonthly($idActivity){

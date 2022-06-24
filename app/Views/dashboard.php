@@ -276,6 +276,12 @@
   </main><!-- End #main -->
 
 <script type="text/javascript">
+  // Color Pallete for Faster, Ontime and Overdue
+  var colorPaletteAch = ['#2958BE', '#FFCC66', '#FF0000'];
+
+  // Color Pallete for Faster, Ontime and Overdue
+  var colorPaletteSta = ['#00B050', '#FFFF00', '#BFBFBF'];
+
   var tableCategories = $('#dataCategories').DataTable({
     columns: [
       {data: "id_category"},
@@ -376,13 +382,18 @@
               value: result.cancel,
               name: 'Cancel'
             }
-          ]
-        }]
+          ],
+          color: colorPaletteSta
+        }],
+        graph: {
+          color: colorPaletteSta
+        }
       });
 
       ytdAch1.setOption({
         tooltip: {
-          trigger: 'item'
+          trigger: 'item',
+          formatter: '{a} <br/>{b}: {c} ({d}%)'
         },
         legend: {
           top: '5%',
@@ -395,7 +406,20 @@
           avoidLabelOverlap: false,
           label: {
             show: false,
-            position: 'center'
+            position: 'center',
+            rich: {
+              a: {
+                color: '#6E7079',
+                lineHeight: 22,
+                align: 'center'
+              },
+              b: {
+                color: '#4C5058',
+                fontSize: 14,
+                fontWeight: 'bold',
+                lineHeight: 33
+              }
+            }
           },
           emphasis: {
             label: {
@@ -419,8 +443,12 @@
               value: result.overdue,
               name: 'Overdue'
             }
-          ]
-        }]
+          ],
+          color: colorPaletteAch
+        }],
+        graph: {
+          color: colorPaletteAch
+        }
       });
 
       ytdStatus2.setOption({
@@ -462,8 +490,12 @@
               value: result.cancel,
               name: 'Cancel'
             }
-          ]
-        }]
+          ],
+          color: colorPaletteSta
+        }],
+        graph: {
+          color: colorPaletteSta
+        }
       });
 
       ytdAch2.setOption({
@@ -475,23 +507,23 @@
           left: 'center'
         },
         series: [{
-          name: 'Project',
-          type: 'pie',
-          radius: ['40%', '70%'],
-          avoidLabelOverlap: false,
-          label: {
-          show: false,
-          position: 'center'
+            name: 'Project',
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            label: {
+            show: false,
+            position: 'center'
           },
           emphasis: {
-          label: {
-            show: true,
-            fontSize: '18',
-            fontWeight: 'bold'
-          }
+            label: {
+              show: true,
+              fontSize: '18',
+              fontWeight: 'bold'
+            }
           },
           labelLine: {
-          show: false
+            show: false
           },
           data: [{
               value: result.faster,
@@ -505,8 +537,12 @@
               value: result.overdue,
               name: 'Overdue'
             }
-          ]
-        }]
+          ],
+          color: colorPaletteAch
+        }],
+        graph: {
+          color: colorPaletteAch
+        }
       });
         
     }});

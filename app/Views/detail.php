@@ -12,7 +12,6 @@
 
           <div class="card">
             <div class="card-body pt-3">
-              <!-- Bordered Tabs -->
               <ul class="nav nav-tabs nav-tabs-bordered">
 
                 <li class="nav-item">
@@ -24,9 +23,12 @@
                 </li>
 
                 <li class="nav-item">
-                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#project-pica">PICA</button>
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#project-description">Description</button>
                 </li>
 
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab" data-bs-target="#project-pica">PICA</button>
+                </li>
               </ul>
               <div class="tab-content pt-2">
 
@@ -119,10 +121,9 @@
                               echo "<td>";
                               if(!is_null($value[$months[$i]])){
                           ?>
-                            <div class="editable">
+                            <div class="editable" id="<?= $value[$ids[$i]]; ?>">
                               <?= $value[$months[$i]]."%"; ?>
                             </div>
-                            <input type="number" class="inputEdit" id="<?= $value[$ids[$i]]; ?>" style="display: none;" value="<?= $value[$months[$i]]; ?>">
                           <?php
                               }
                               echo "</td>";
@@ -136,6 +137,97 @@
                       </tbody>
                     </table>
                   </div>
+
+                  <!-- Edit Monthly Activity Modal -->
+                  <div class="modal fade" id="monthlyActivityModal" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                      <form action="<?= base_url('update'); ?>" method="post" id="monthlyEditForm" novalidate>
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">Edit Activity Achievement</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <input type="hidden" class="form-control" id="activityIdAch" name="activityIdAch">
+                            <div class="row mb-3">
+                              <label for="inputProjectName" class="col-sm-2 col-form-label">Activity Name</label>
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" id="activityNameAch" disabled>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="InputDueDate" class="col-sm-2 col-form-label">Month</label>
+                              <div class="col-sm-10">
+                                <input type="date" class="form-control" id="activityMonthAch" disabled>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputCategory" class="col-sm-2 col-form-label">Plan</label>
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" id="activityPlanAch" disabled>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputDepartment" class="col-sm-2 col-form-label">Achievement</label>
+                              <div class="col-sm-10">
+                                <input type="number" class="form-control" id="activityActualAch" name="activityActualAch" required>
+                              </div>
+                            </div>
+                            <div class="row mb-3">
+                              <label for="inputPIC" class="col-sm-2 col-form-label">Description</label>
+                              <div class="col-sm-10">
+                                <input type="text" class="form-control" id="activityDescriptionAch" name="activityDescriptionAch">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div><!-- End Edit Monthly Activity Modal-->
+                </div>
+
+                <div class="tab-pane fade project-description" id="project-description">
+                  <h5 class="card-title">Activity Description</h5>
+
+                  <!-- Activity Description Table -->
+                  <div class="row">
+                    <?php if(count($dataDescription)<1) {?>
+                    <div class="row">
+                      <div class="col-lg-12 col-md-12 label ">No Description Record for this Project</div>
+                    </div>
+                    <?php } else { ?>
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Activity</th>
+                          <th scope="col">Month</th>
+                          <th scope="col">Description</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                          $numbering=1;
+                          foreach ($dataDescription as $key => $value) {
+                        ?>
+                        <tr>
+                          <th scope="row"><?= $numbering; ?></th>
+                          <td><?= $value['activity_name']; ?></td>
+                          <td><?= $value['date_monthly_activity']; ?></td>
+                          <td><?= $value['description']; ?></td>
+                        </tr>
+                        <?php
+                          $numbering++;
+                          }
+                        ?>
+                      </tbody>
+                    </table>
+                    <?php } ?>
+                  </div><!-- End Activity Description Table -->
                 </div>
 
                 <div class="tab-pane fade project-pica" id="project-pica">
@@ -308,7 +400,6 @@
                     </div>
                   </div><!-- End Edit Pica Modal-->
                 </div>
-
               </div>
 
             </div>
@@ -321,34 +412,24 @@
 
     <script type="text/javascript">
       $(document).ready(function() {
+        // Show Monthly Ach and Description Modal
         $('.editable').click(function() {
-          var width = $(this).width();
-          $('.inputEdit').hide();
-          $(this).next('.inputEdit').width(width);
-          $(this).next('.inputEdit').show().focus().select();
-          $(this).hide();
-        });
-
-        $('.inputEdit').focusout(function() {
           var id = this.id;
-          var value = $(this).val();
-
-          $(this).hide();
-          $(this).prev('.editable').show();
-          $(this).prev('.editable').text(value+"%");
 
           $.ajax({
-            url:'<?= base_url('update/updateDetail'); ?>',
-            type:'post',
-            data: {idUpdate: id, value: value},
-            success:function(response){
-              if(response == 1){
-                console.log('Saved');
-              }else{
-                console.log('Failed');
-              }
+            url: '<?= base_url('update/getDetailMonthly'); ?>/'+id, 
+            success: function(response){
+              var result = JSON.parse(response);
+              document.getElementById('activityIdAch').value          = result.id_monthly_activity;
+              document.getElementById('activityNameAch').value        = result.activity_name;
+              document.getElementById('activityMonthAch').value       = result.date_monthly_activity;
+              document.getElementById('activityPlanAch').value        = result.plan_monthly_activity;
+              document.getElementById('activityActualAch').value      = result.actual_monthly_activity;
+              document.getElementById('activityDescriptionAch').value = result.description;
             }
           });
+
+          $('#monthlyActivityModal').modal('show');
         });
 
         $('#activityName').change(function(){
@@ -375,6 +456,26 @@
                 var field = "<option value="+items.id_monthly_activity+">"+items.date_monthly_activity+"</option>";
                 $('#activityMonthEdit').append(field);
               });
+            }
+          });
+        });
+
+        $('#monthlyActivityModal').on('shown.bs.modal', function(){
+          $('#activityActualAch').focus();
+        });
+
+        $('#monthlyEditForm').submit(function(event){
+          event.preventDefault();
+
+          $.ajax({
+            url: '<?= base_url('update/updateDetail'); ?>',
+            type: "POST",
+            data: $('#monthlyEditForm').serialize(),
+            success: function(response){
+              var result = JSON.parse(response);
+
+              document.getElementById(result.id).innerHTML = result.value+'%';
+              $('#monthlyActivityModal').modal('hide');
             }
           });
         });
