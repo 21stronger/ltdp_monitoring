@@ -155,6 +155,16 @@
                     <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#activityAddModal">
                       <i class="bi bi-plus-square" data-bs-toggle="tooltip" data-bs-toggle="tooltip" data-bs-placement="right" title="Add Activity"></i>
                     </button>
+
+                    <div class="filter" style="right: 20px;">
+                      <select class="form-select" name="year" id="year" onchange="getActivities()">
+                        <?php
+                          foreach ($yearOptions as $key => $value) {
+                            echo '<option value="'.$value.'">'.$value.'</option>';
+                          }
+                        ?>
+                      </select>
+                    </div>
                   </h5>
 
                   <!-- Activity Add Modal -->
@@ -288,12 +298,13 @@
   });
 
   function getActivities(){
-    $('#activityTable').empty();
+    var year = document.getElementById('year').value;
     $.ajax({
-      url: "<?= base_url('project/getDetailActivity/'.$idProject); ?>",
-      success: function(result){
+      url: "<?= base_url('project/getDetailActivity/'.$idProject); ?>/"+year,
+      success: function(response){
+        $('#activityTable').empty();
         var numbering = 0;
-        var resultObj = JSON.parse(result);
+        var resultObj = JSON.parse(response);
         resultObj.forEach(function(items){
           numbering++;
           var rowField = '<tr class="table-warning" style="vertical-align: middle;">'+
@@ -318,7 +329,7 @@
               '<td>'+isset(items.NovPlan)+'</td>'+
               '<td>'+isset(items.DesPlan)+'</td>'+
             '</tr>';
-            $('#activityTable').append(rowField);
+          $('#activityTable').append(rowField);
         });
       }
     });
@@ -344,7 +355,7 @@
         $('#activityAddWeight').val("");
       },
       error: function(){
-          alert("Error");
+          alert("Failed, try again!");
       }
     });
   }

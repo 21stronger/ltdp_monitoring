@@ -69,6 +69,16 @@
                 <div class="tab-pane fade project-activity" id="project-activity">
                   <h5 class="card-title">Project Activities</h5>
 
+                  <div class="filter" style="right: 20px;">
+                    <select class="form-select" name="year" id="year" onchange="getActivities()">
+                      <?php
+                        foreach ($yearOptions as $key => $value) {
+                          echo '<option value="'.$value.'">'.$value.'</option>';
+                        }
+                      ?>
+                    </select>
+                  </div>
+
                   <div class="row">
                     <table class="table table-sm">
                       <thead>
@@ -90,50 +100,7 @@
                           <th scope="col">Des</th>
                         </tr>
                       </thead>
-                      <tbody>
-                        <?php 
-                          $numbering=1;
-                          foreach ($detailActivity as $key => $value) {
-                        ?>
-                        <tr class="table-warning" style="vertical-align: middle;" onclick="window">
-                          <th scope="row" rowspan="2"><?= $numbering; ?></th>
-                          <td rowspan="2"><?= $value['activity_name']; ?></td>
-                          <td rowspan="2"><?= $value['activity_weight']; ?>%</td>
-                          <td><?= (!is_null($value['JanPlan']))? $value['JanPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['FebPlan']))? $value['FebPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['MarPlan']))? $value['MarPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['AprPlan']))? $value['AprPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['MayPlan']))? $value['MayPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['JunPlan']))? $value['JunPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['JulPlan']))? $value['JulPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['AugPlan']))? $value['AugPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['SepPlan']))? $value['SepPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['OctPlan']))? $value['OctPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['NovPlan']))? $value['NovPlan']."%":""; ?></td>
-                          <td><?= (!is_null($value['DesPlan']))? $value['DesPlan']."%":""; ?></td>
-                        </tr>
-                        <tr class="table-primary">
-                          <?php 
-                            $months = array('JanAct','FebAct','MarAct','AprAct','MayAct','JunAct','JulAct','AugAct','SepAct','OctAct','NovAct','DesAct');
-                            $ids = array('JanId','FebId','MarId','AprId','MayId','JunId','JulId','AugId','SepId','OctId','NovId','DesId');
-
-                            for ($i=0; $i < 12; $i++) {
-                              echo "<td>";
-                              if(!is_null($value[$months[$i]])){
-                          ?>
-                            <div class="editable" id="<?= $value[$ids[$i]]; ?>">
-                              <?= $value[$months[$i]]."%"; ?>
-                            </div>
-                          <?php
-                              }
-                              echo "</td>";
-                            }
-                          ?>
-                        </tr>
-                        <?php
-                          $numbering++;
-                          }
-                        ?>
+                      <tbody id="activityTable" onload="getActivities()">
                       </tbody>
                     </table>
                   </div>
@@ -412,8 +379,10 @@
 
     <script type="text/javascript">
       $(document).ready(function() {
+        getActivities();
+        
         // Show Monthly Ach and Description Modal
-        $('.editable').click(function() {
+        $(document).on('click', '.editable', function() {
           var id = this.id;
 
           $.ajax({
@@ -497,18 +466,71 @@
       }
 
       function editMonthOptions(idActivity, idMonthly){
-          $('#activityMonthEdit').children().slice(1).remove();
-          $.ajax({
-            url: '<?= base_url('update/getMonthly'); ?>/'+idActivity,
-            success: function(result){
-              var resultObj = JSON.parse(result);
-              resultObj.forEach(function(items){
-                var field = "<option value="+items.id_monthly_activity+">"+items.date_monthly_activity+"</option>";
-                $('#activityMonthEdit').append(field);
-              });
-              document.getElementById('activityMonthEdit').value = idMonthly;
-            }
-          });
-        }
+        $('#activityMonthEdit').children().slice(1).remove();
+        $.ajax({
+          url: '<?= base_url('update/getMonthly'); ?>/'+idActivity,
+          success: function(result){
+            var resultObj = JSON.parse(result);
+            resultObj.forEach(function(items){
+              var field = "<option value="+items.id_monthly_activity+">"+items.date_monthly_activity+"</option>";
+              $('#activityMonthEdit').append(field);
+            });
+            document.getElementById('activityMonthEdit').value = idMonthly;
+          }
+        });
+      }
+
+      function getActivities(){
+        var year = document.getElementById('year').value;
+        $.ajax({
+          url: "<?= base_url('update/getDetailActivity/'.$idProject); ?>/"+year,
+          success: function(response){
+            $('#activityTable').empty();
+            var numbering = 0;
+            var result = JSON.parse(response);
+            result.forEach(function(items){
+              numbering++;
+              var rowField = '<tr class="table-warning" style="vertical-align: middle;" onclick="window">'+
+                  '<th scope="row" rowspan="2">'+numbering+'</th>'+
+                  '<td rowspan="2">'+items.activity_name+'</td>'+
+                  '<td rowspan="2">'+items.activity_weight+'%</td>'+
+                  '<td>'+isset(items.JanPlan)+'</td>'+
+                  '<td>'+isset(items.FebPlan)+'</td>'+
+                  '<td>'+isset(items.MarPlan)+'</td>'+
+                  '<td>'+isset(items.AprPlan)+'</td>'+
+                  '<td>'+isset(items.MayPlan)+'</td>'+
+                  '<td>'+isset(items.JunPlan)+'</td>'+
+                  '<td>'+isset(items.JulPlan)+'</td>'+
+                  '<td>'+isset(items.AugPlan)+'</td>'+
+                  '<td>'+isset(items.SepPlan)+'</td>'+
+                  '<td>'+isset(items.OctPlan)+'</td>'+
+                  '<td>'+isset(items.NovPlan)+'</td>'+
+                  '<td>'+isset(items.DesPlan)+'</td>'+
+                '</tr>'+
+                '<tr class="table-primary">'+
+                  '<td><div class="editable" id="'+items.JanId+'">'+isset(items.JanAct)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.FebId+'">'+isset(items.FebAct)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.MarId+'">'+isset(items.MarAct)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.AprId+'">'+isset(items.AprAct)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.MayId+'">'+isset(items.MayAct)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.JunId+'">'+isset(items.JunAct)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.JulId+'">'+isset(items.JulAct)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.AugId+'">'+isset(items.AugAct)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.SepId+'">'+isset(items.SepAct)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.OctId+'">'+isset(items.OctAct)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.NovId+'">'+isset(items.NovAct)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.DesId+'">'+isset(items.DesAct)+'</div></td>'+
+                '</tr>';
+            $('#activityTable').append(rowField);
+            });
+          }
+        });
+      }
+
+      function isset(item){
+        return (item!=null)?
+          item+'%':
+          '&nbsp;'
+      }
     </script>
   </main><!-- End #main -->

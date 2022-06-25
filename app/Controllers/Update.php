@@ -61,6 +61,14 @@ class Update extends BaseController{
         $data['headerTitle'] = "Detail Project";
         $data['currentPage'] = "Update";
 
+        $yearOptions = array();
+        $thisYear = date('Y');
+        $projectDueYear = date('Y', strtotime($data['dataProject']['project_due_date']));
+        for ($i=$thisYear; $i <= $projectDueYear; $i++) {
+            array_push($yearOptions, $i);
+        }
+        $data['yearOptions'] = $yearOptions;
+
         if(!$data['dataProject']){
             return redirect()->to(base_url('update'));
         }
@@ -85,6 +93,18 @@ class Update extends BaseController{
         $result['id']   = $id;
         $result['value']= $data['actual_monthly_activity'];
         return json_encode($result);
+    }
+
+    public function getDetailActivity($id_project, $year){
+        $modelViewActivity = new View_activity_pivot_model;
+
+        $data = $modelViewActivity
+                ->where('id_project', $id_project)
+                ->where('YEAR', $year)
+                ->orderBy('id_activity', 'asc')
+                ->findAll();
+
+        echo json_encode($data);
     }
 
     public function getDetailMonthly($id_monthly){
