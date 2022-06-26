@@ -27,18 +27,18 @@
                         <div class="col-sm-4">
                           <select class="form-select" id="monthUpd" aria-label="Default select example">
                             <option value="">All</option>
-                            <option value="01">Januari</option>
-                            <option value="02">Februari</option>
-                            <option value="03">Maret</option>
-                            <option value="04">April</option>
-                            <option value="05">Mei</option>
-                            <option value="06">Juni</option>
-                            <option value="07">Juli</option>
-                            <option value="08">Agustus</option>
-                            <option value="09">September</option>
-                            <option value="10">Oktober</option>
-                            <option value="11">November</option>
-                            <option value="12">Desember</option>
+                            <option value="January">January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
                           </select>
                         </div>
 
@@ -127,7 +127,7 @@
                     <th scope="row"><?= $no; ?></th>
                     <td><?= $value['category_name']; ?></td>
                     <td><?= $value['project_name']; ?></td>
-                    <td><?= $value['date_monthly_activity']; ?></td>
+                    <td><?= datetostr($value['date_monthly_activity']); ?></td>
                     <td><?= $value['department_name']; ?></td>
                     <th><?= $value['name_pic']; ?></th>
                     <td><?= $value['ach']*100; ?>%</td>
@@ -161,7 +161,7 @@
         if(this.value==''){
           month = this.value;
         } else {
-          month = '2022-'+this.value;
+          month = this.value;
         }
         table
           .columns(3)

@@ -42,7 +42,7 @@
 
                   <div class="row">
                     <div class="col-lg-3 col-md-4 label">Due Date</div>
-                    <div class="col-lg-9 col-md-8"><?= $dataProject['project_due_date']; ?></div>
+                    <div class="col-lg-9 col-md-8"><?= datetostr($dataProject['project_due_date']); ?></div>
                   </div>
 
                   <div class="row">
@@ -184,7 +184,7 @@
                         <tr>
                           <th scope="row"><?= $numbering; ?></th>
                           <td><?= $value['activity_name']; ?></td>
-                          <td><?= $value['date_monthly_activity']; ?></td>
+                          <td><?= datetostr($value['date_monthly_activity']); ?></td>
                           <td><?= $value['description']; ?></td>
                         </tr>
                         <?php
@@ -235,8 +235,8 @@
                               <i class="bi bi-pencil-square" data-bs-toggle="tooltip" data-bs-toggle="tooltip" data-bs-placement="right" title="Edit PICA"></i>
                             </button>
                           </td>
-                          <td><?= $value['date_monthly_activity']; ?></td>
-                          <td><?= $value['pica_due_date']; ?></td>
+                          <td><?= datetostr($value['date_monthly_activity']); ?></td>
+                          <td><?= datetostr($value['pica_due_date']); ?></td>
                           <td><?= $value['root_cause']; ?></td>
                           <td><?= $value['capa']; ?></td>
                         </tr>

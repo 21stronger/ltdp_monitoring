@@ -121,7 +121,12 @@ class Update extends BaseController{
         $data = $modelMonthly
                     ->select('`id_monthly_activity`, `date_monthly_activity`')
                     ->where('id_activity', $idActivity)
+                    ->where('plan_monthly_activity > 0')
                     ->findAll();
+
+        for ($i=0; $i < count($data); $i++) { 
+            $data[$i]['date_monthly_activity'] = datetostr($data[$i]['date_monthly_activity']);
+        }
 
         return json_encode($data);
     }

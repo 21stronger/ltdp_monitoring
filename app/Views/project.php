@@ -162,29 +162,12 @@
                 <?php
                   $no=1;
                   foreach ($dataProjects as $key => $value) {
-                    // switch (true) {
-                    //   case ($value['ach']>1.0):
-                    //     $status = "Faster";
-                    //     break;
-                      
-                    //   case ($value['ach']==1.0):
-                    //     $status = "Ontime";
-                    //     break;
-                      
-                    //   case ($value['ach']<1.0):
-                    //     $status = "Overdue";
-                    //     break;
-                      
-                    //   default:
-                    //     $status = "Overdue!";
-                    //     break;
-                    // }
                 ?>
                   <tr onclick="window.location='<?= base_url('project/detail/'.$value['id_project']); ?>';">
                     <th scope="row"><?= $no; ?></th>
                     <td><?= $value['category_name']; ?></td>
                     <td><?= $value['project_name']; ?></td>
-                    <td><?= $value['project_due_date']; ?></td>
+                    <td><?= datetostr($value['project_due_date']); ?></td>
                     <td><?= $value['department_name']; ?></td>
                     <th><?= $value['name_pic']; ?></th>
                     <td><?= $value['achievement']; ?></td>
