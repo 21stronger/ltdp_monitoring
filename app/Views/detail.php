@@ -487,6 +487,7 @@
           success: function(response){
             $('#activityTable').empty();
             var numbering = 0;
+            var state = 0;
             var result = JSON.parse(response);
             result.forEach(function(items){
               numbering++;
@@ -494,32 +495,32 @@
                   '<th scope="row" rowspan="2">'+numbering+'</th>'+
                   '<td rowspan="2">'+items.activity_name+'</td>'+
                   '<td rowspan="2">'+items.activity_weight+'%</td>'+
-                  '<td>'+isset(items.JanPlan)+'</td>'+
-                  '<td>'+isset(items.FebPlan)+'</td>'+
-                  '<td>'+isset(items.MarPlan)+'</td>'+
-                  '<td>'+isset(items.AprPlan)+'</td>'+
-                  '<td>'+isset(items.MayPlan)+'</td>'+
-                  '<td>'+isset(items.JunPlan)+'</td>'+
-                  '<td>'+isset(items.JulPlan)+'</td>'+
-                  '<td>'+isset(items.AugPlan)+'</td>'+
-                  '<td>'+isset(items.SepPlan)+'</td>'+
-                  '<td>'+isset(items.OctPlan)+'</td>'+
-                  '<td>'+isset(items.NovPlan)+'</td>'+
-                  '<td>'+isset(items.DesPlan)+'</td>'+
+                  '<td>'+isset(items.JanPlan, state)+'</td>'+
+                  '<td>'+isset(items.FebPlan, state)+'</td>'+
+                  '<td>'+isset(items.MarPlan, state)+'</td>'+
+                  '<td>'+isset(items.AprPlan, state)+'</td>'+
+                  '<td>'+isset(items.MayPlan, state)+'</td>'+
+                  '<td>'+isset(items.JunPlan, state)+'</td>'+
+                  '<td>'+isset(items.JulPlan, state)+'</td>'+
+                  '<td>'+isset(items.AugPlan, state)+'</td>'+
+                  '<td>'+isset(items.SepPlan, state)+'</td>'+
+                  '<td>'+isset(items.OctPlan, state)+'</td>'+
+                  '<td>'+isset(items.NovPlan, state)+'</td>'+
+                  '<td>'+isset(items.DesPlan, state)+'</td>'+
                 '</tr>'+
                 '<tr class="table-primary">'+
-                  '<td><div class="editable" id="'+items.JanId+'">'+isset(items.JanAct)+'</div></td>'+
-                  '<td><div class="editable" id="'+items.FebId+'">'+isset(items.FebAct)+'</div></td>'+
-                  '<td><div class="editable" id="'+items.MarId+'">'+isset(items.MarAct)+'</div></td>'+
-                  '<td><div class="editable" id="'+items.AprId+'">'+isset(items.AprAct)+'</div></td>'+
-                  '<td><div class="editable" id="'+items.MayId+'">'+isset(items.MayAct)+'</div></td>'+
-                  '<td><div class="editable" id="'+items.JunId+'">'+isset(items.JunAct)+'</div></td>'+
-                  '<td><div class="editable" id="'+items.JulId+'">'+isset(items.JulAct)+'</div></td>'+
-                  '<td><div class="editable" id="'+items.AugId+'">'+isset(items.AugAct)+'</div></td>'+
-                  '<td><div class="editable" id="'+items.SepId+'">'+isset(items.SepAct)+'</div></td>'+
-                  '<td><div class="editable" id="'+items.OctId+'">'+isset(items.OctAct)+'</div></td>'+
-                  '<td><div class="editable" id="'+items.NovId+'">'+isset(items.NovAct)+'</div></td>'+
-                  '<td><div class="editable" id="'+items.DesId+'">'+isset(items.DesAct)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.JanId+'">'+isset(items.JanAct, items.JanPlan)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.FebId+'">'+isset(items.FebAct, items.FebPlan)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.MarId+'">'+isset(items.MarAct, items.MarPlan)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.AprId+'">'+isset(items.AprAct, items.AprPlan)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.MayId+'">'+isset(items.MayAct, items.MayPlan)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.JunId+'">'+isset(items.JunAct, items.JunPlan)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.JulId+'">'+isset(items.JulAct, items.JulPlan)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.AugId+'">'+isset(items.AugAct, items.AugPlan)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.SepId+'">'+isset(items.SepAct, items.SepPlan)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.OctId+'">'+isset(items.OctAct, items.OctPlan)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.NovId+'">'+isset(items.NovAct, items.NovPlan)+'</div></td>'+
+                  '<td><div class="editable" id="'+items.DesId+'">'+isset(items.DesAct, items.DesPlan)+'</div></td>'+
                 '</tr>';
             $('#activityTable').append(rowField);
             });
@@ -527,10 +528,14 @@
         });
       }
 
-      function isset(item){
-        return (item!=null)?
+      function isset(item, state){
+        if(state>0){
+          return item+'%'
+        }else{
+          return (item!=0)?
           item+'%':
           '&nbsp;'
+        }
       }
     </script>
   </main><!-- End #main -->

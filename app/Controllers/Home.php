@@ -177,6 +177,7 @@ class Home extends BaseController{
                   $newNewData[$indexNew]['close']   = 1;
                   $newNewData[$indexNew]['open']    = 0;
                   $newNewData[$indexNew]['cancel']  = 0;
+                  $newNewData[$indexNew]['postpone']= 0;
                   break;
 
                 case ($newData[$indexOld]['monthlyActuAch']<100&&
@@ -184,12 +185,14 @@ class Home extends BaseController{
                   $newNewData[$indexNew]['close']   = 0;
                   $newNewData[$indexNew]['open']    = 1;
                   $newNewData[$indexNew]['cancel']  = 0;
+                  $newNewData[$indexNew]['postpone']= 0;
                   break;
 
                 default:
                   $newNewData[$indexNew]['close']   = 0;
                   $newNewData[$indexNew]['open']    = 0;
                   $newNewData[$indexNew]['cancel']  = 0;
+                  $newNewData[$indexNew]['postpone']= 0;
                   break;
               }
               $indexOld = ($indexOld<count($newData)-1)? $indexOld+1: $indexOld;
@@ -234,6 +237,7 @@ class Home extends BaseController{
                     $newNewData[$indexNew]['close']   = 1;
                     $newNewData[$indexNew]['open']    = 0;
                     $newNewData[$indexNew]['cancel']  = 0;
+                    $newNewData[$indexNew]['postpone']= 0;
                     break;
 
                   case ($newData[$indexOld]['monthlyActuAch']<100&&
@@ -241,12 +245,14 @@ class Home extends BaseController{
                     $newNewData[$indexNew]['close']   = 0;
                     $newNewData[$indexNew]['open']    = 1;
                     $newNewData[$indexNew]['cancel']  = 0;
+                    $newNewData[$indexNew]['postpone']= 0;
                     break;
 
                   default:
                     $newNewData[$indexNew]['close']   = 0;
                     $newNewData[$indexNew]['open']    = 0;
                     $newNewData[$indexNew]['cancel']  = 0;
+                    $newNewData[$indexNew]['postpone']= 0;
                     break;
                 }
               } else
@@ -265,6 +271,7 @@ class Home extends BaseController{
                 $newNewData[$indexNew]['close']   = 0;
                 $newNewData[$indexNew]['open']    = 1;
                 $newNewData[$indexNew]['cancel']  = 0;
+                $newNewData[$indexNew]['postpone']= 0;
               } else {
                 $newNewData[$indexNew]['id_project']      = $newData[$indexOld-1]['id_project'];
                 $newNewData[$indexNew]['id_category']     = $newData[$indexOld-1]['id_category'];
@@ -305,6 +312,7 @@ class Home extends BaseController{
                     $newNewData[$indexNew]['close']   = 1;
                     $newNewData[$indexNew]['open']    = 0;
                     $newNewData[$indexNew]['cancel']  = 0;
+                    $newNewData[$indexNew]['postpone']= 0;
                     break;
 
                   case ($newData[$indexOld-1]['monthlyActuAch']<100&&
@@ -312,12 +320,14 @@ class Home extends BaseController{
                     $newNewData[$indexNew]['close']   = 0;
                     $newNewData[$indexNew]['open']    = 1;
                     $newNewData[$indexNew]['cancel']  = 0;
+                    $newNewData[$indexNew]['postpone']= 0;
                     break;
 
                   default:
                     $newNewData[$indexNew]['close']   = 0;
                     $newNewData[$indexNew]['open']    = 0;
                     $newNewData[$indexNew]['cancel']  = 0;
+                    $newNewData[$indexNew]['postpone']= 0;
                     break;
                 }
               }
@@ -352,6 +362,7 @@ class Home extends BaseController{
         $close   = array_keys(array_column($veryNewData, 'close'), 1);
         $open    = array_keys(array_column($veryNewData, 'open'), 1);
         $cancel  = array_keys(array_column($veryNewData, 'cancel'), 1);
+        $postpone= array_keys(array_column($veryNewData, 'postpone'), 1);
 
         $result['faster'] = count($faster);
         $result['ontime'] = count($ontime);
@@ -359,6 +370,7 @@ class Home extends BaseController{
         $result['close'] = count($close);
         $result['open'] = count($open);
         $result['cancel'] = count($cancel);
+        $result['postpone']= count($postpone);
         $result['dataCategories'] = $dataCategories;
         $result['dataDepartments']= $dataDepartments;
 

@@ -27,118 +27,157 @@
             <div class="card-body">
               <h5 class="card-title">Achievement</h5>
               
-              <div class="col-lg-12">
-                <!-- Row Achievement Faster Ontime Overdue Open Close Cancel -->
-                <div class="row">
-                  <!-- Faster Card -->
-                  <div class="col-lg-2">
-                    <div class="card info-card sales-card">
+                <div class="col-lg-12">
+                  <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link active" id="achievement-tab" data-bs-toggle="tab" data-bs-target="#achievement" type="button" role="tab" aria-controls="achievement" aria-selected="true">Achievement</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                      <button class="nav-link" id="status-tab" data-bs-toggle="tab" data-bs-target="#status" type="button" role="tab" aria-controls="status" aria-selected="false">Status</button>
+                    </li>
+                  </ul>
+                  <div class="tab-content pt-2" id="myTabContent">
+                    <div class="tab-pane fade show active" id="achievement" role="tabpanel" aria-labelledby="achievement-tab">
+                      <div class="col-lg-12">
+                        <!-- Row Achievement Faster Ontime Overdue Open Close Cancel -->
+                        <div class="row">
+                          <!-- Faster Card -->
+                          <div class="col-lg-4">
+                            <div class="card info-card sales-card">
 
-                      <div class="card-body">
-                        <h5 class="card-title">Faster</h5>
+                              <div class="card-body">
+                                <h5 class="card-title">Faster</h5>
 
-                        <div class="d-flex align-items-center">
-                          <div class="ps-3">
-                            <h6 id="achFaster">-</h6>
-                            <span class="text-muted small pt-2 ps-1">projects</span>
-                          </div>
+                                <div class="d-flex align-items-center">
+                                  <div class="ps-3">
+                                    <h6 id="achFaster">-</h6>
+                                    <span class="text-muted small pt-2 ps-1">projects</span>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div><!-- End Faster Card -->
+
+                          <!-- Ontime Card -->
+                          <div class="col-lg-4">
+                            <div class="card info-card revenue-card">
+
+                              <div class="card-body">
+                                <h5 class="card-title">Ontime</h5>
+
+                                <div class="d-flex align-items-center">
+                                  <div class="ps-3">
+                                    <h6 id="achOntime">-</h6>
+                                    <span class="text-muted small pt-2 ps-1">projects</span>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div><!-- End Ontime Card -->
+
+                          <!-- Overdue Card -->
+                          <div class="col-lg-4">
+                            <div class="card info-card revenue-card">
+
+                              <div class="card-body">
+                                <h5 class="card-title">Overdue</h5>
+
+                                <div class="d-flex align-items-center">
+                                  <div class="ps-3">
+                                    <h6 id="achOverdue">-</h6>
+                                    <span class="text-muted small pt-2 ps-1">projects</span>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div><!-- End Overdue Card -->
                         </div>
+                        <!-- End Row Achievement -->
                       </div>
-
                     </div>
-                  </div><!-- End Faster Card -->
+                    <div class="tab-pane fade" id="status" role="tabpanel" aria-labelledby="status-tab">
+                      <div class="col-lg-12">
+                        <!-- Row Achievement Open Close Cancel -->
+                        <div class="row">
+                          <!-- Close Card -->
+                          <div class="col-lg-3">
+                            <div class="card info-card revenue-card">
 
-                  <!-- Ontime Card -->
-                  <div class="col-lg-2">
-                    <div class="card info-card revenue-card">
+                              <div class="card-body">
+                                <h5 class="card-title">Close</h5>
 
-                      <div class="card-body">
-                        <h5 class="card-title">Ontime</h5>
+                                <div class="d-flex align-items-center">
+                                  <div class="ps-3">
+                                    <h6 id="proClose">-</h6>
+                                    <span class="text-muted small pt-2 ps-1">projects</span>
+                                  </div>
+                                </div>
+                              </div>
 
-                        <div class="d-flex align-items-center">
-                          <div class="ps-3">
-                            <h6 id="achOntime">-</h6>
-                            <span class="text-muted small pt-2 ps-1">projects</span>
-                          </div>
+                            </div>
+                          </div><!-- End Close Card -->
+
+                          <!-- Open Card -->
+                          <div class="col-lg-3">
+                            <div class="card info-card revenue-card">
+
+                              <div class="card-body">
+                                <h5 class="card-title">Open</h5>
+
+                                <div class="d-flex align-items-center">
+                                  <div class="ps-3">
+                                    <h6 id="proOpen">-</h6>
+                                    <span class="text-muted small pt-2 ps-1">projects</span>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div><!-- End Open Card -->
+
+                          <!-- Cancel Card -->
+                          <div class="col-lg-3">
+                            <div class="card info-card revenue-card">
+
+                              <div class="card-body">
+                                <h5 class="card-title">Cancel</h5>
+
+                                <div class="d-flex align-items-center">
+                                  <div class="ps-3">
+                                    <h6 id="proCancel">-</h6>
+                                    <span class="text-muted small pt-2 ps-1">projects</span>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div><!-- End Cancel Card -->
+
+                          <!-- Postpone Card -->
+                          <div class="col-lg-3">
+                            <div class="card info-card revenue-card">
+
+                              <div class="card-body">
+                                <h5 class="card-title">Postpone</h5>
+
+                                <div class="d-flex align-items-center">
+                                  <div class="ps-3">
+                                    <h6 id="proPostpone">-</h6>
+                                    <span class="text-muted small pt-2 ps-1">projects</span>
+                                  </div>
+                                </div>
+                              </div>
+
+                            </div>
+                          </div><!-- End Postpone Card -->
                         </div>
+                        <!-- End Row Achievement -->
                       </div>
-
                     </div>
-                  </div><!-- End Ontime Card -->
-
-                  <!-- Overdue Card -->
-                  <div class="col-lg-2">
-                    <div class="card info-card revenue-card">
-
-                      <div class="card-body">
-                        <h5 class="card-title">Overdue</h5>
-
-                        <div class="d-flex align-items-center">
-                          <div class="ps-3">
-                            <h6 id="achOverdue">-</h6>
-                            <span class="text-muted small pt-2 ps-1">projects</span>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div><!-- End Overdue Card -->
-
-                  <!-- Close Card -->
-                  <div class="col-lg-2">
-                    <div class="card info-card revenue-card">
-
-                      <div class="card-body">
-                        <h5 class="card-title">Close</h5>
-
-                        <div class="d-flex align-items-center">
-                          <div class="ps-3">
-                            <h6 id="proClose">-</h6>
-                            <span class="text-muted small pt-2 ps-1">projects</span>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div><!-- End Close Card -->
-
-                  <!-- Open Card -->
-                  <div class="col-lg-2">
-                    <div class="card info-card revenue-card">
-
-                      <div class="card-body">
-                        <h5 class="card-title">Open</h5>
-
-                        <div class="d-flex align-items-center">
-                          <div class="ps-3">
-                            <h6 id="proOpen">-</h6>
-                            <span class="text-muted small pt-2 ps-1">projects</span>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div><!-- End Open Card -->
-
-                  <!-- Cancel Card -->
-                  <div class="col-lg-2">
-                    <div class="card info-card revenue-card">
-
-                      <div class="card-body">
-                        <h5 class="card-title">Cancel</h5>
-
-                        <div class="d-flex align-items-center">
-                          <div class="ps-3">
-                            <h6 id="proCancel">-</h6>
-                            <span class="text-muted small pt-2 ps-1">projects</span>
-                          </div>
-                        </div>
-                      </div>
-
-                    </div>
-                  </div><!-- End Cancel Card -->
-                </div>
-                <!-- End Row Achievement -->
+                  </div>
               </div>
               <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
@@ -279,8 +318,8 @@
   // Color Pallete for Faster, Ontime and Overdue
   var colorPaletteAch = ['#2958BE', '#FFCC66', '#FF0000'];
 
-  // Color Pallete for Faster, Ontime and Overdue
-  var colorPaletteSta = ['#00B050', '#FFFF00', '#BFBFBF'];
+  // Color Pallete for Open, Close, Cancel and Postpone
+  var colorPaletteSta = ['#00B050', '#FFFF00', '#BFBFBF', '#2596BE'];
 
   var tableCategories = $('#dataCategories').DataTable({
     columns: [
@@ -342,13 +381,15 @@
       document.getElementById('proClose').innerHTML = result.close;
       document.getElementById('proOpen').innerHTML = result.open;
       document.getElementById('proCancel').innerHTML = result.cancel;
+      document.getElementById('proPostpone').innerHTML = result.postpone;
 
       ytdStatus1.setOption({
         tooltip: {
-          trigger: 'item'
+          trigger: 'item',
+          formatter: '{a} <br/>{b}: {c} ({d}%)'
         },
         legend: {
-          top: '5%',
+          top: '0%',
           left: 'center'
         },
         series: [{
@@ -358,7 +399,20 @@
           avoidLabelOverlap: false,
           label: {
             show: false,
-            position: 'center'
+            position: 'center',
+            rich: {
+              a: {
+                color: '#6E7079',
+                lineHeight: 22,
+                align: 'center'
+              },
+              b: {
+                color: '#4C5058',
+                fontSize: 14,
+                fontWeight: 'bold',
+                lineHeight: 33
+              }
+            }
           },
           emphasis: {
             label: {
@@ -381,6 +435,10 @@
             {
               value: result.cancel,
               name: 'Cancel'
+            },
+            {
+              value: result.postpone,
+              name: 'Postpone'
             }
           ],
           color: colorPaletteSta

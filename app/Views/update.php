@@ -95,9 +95,9 @@
                     <th scope="col">Month</th>
                     <th scope="col">Dept</th>
                     <th scope="col">PIC</th>
-                    <th scope="col">Monthly</th>
+                    <!-- <th scope="col">Monthly</th>
                     <th scope="col">Status</th>
-                    <th scope="col">YTD</th>
+                    <th scope="col">YTD</th> -->
                     <th scope="col">Achievement</th>
                   </tr>
                 </thead>
@@ -130,9 +130,9 @@
                     <td><?= datetostr($value['date_monthly_activity']); ?></td>
                     <td><?= $value['department_name']; ?></td>
                     <th><?= $value['name_pic']; ?></th>
-                    <td><?= $value['ach']*100; ?>%</td>
+                    <!-- <td><?= $value['ach']*100; ?>%</td>
                     <td><?= $status; ?></td>
-                    <td><?= $value['ach']*100; ?>%</td>
+                    <td><?= $value['ach']*100; ?>%</td> -->
                     <td><?= $value['achievement']; ?></td>
                   </tr>
                 <?php

@@ -106,6 +106,8 @@
                                   <?php echo ($dataProject['achievement']=="Close")?" selected":""; ?>>Close</option>
                                   <option value="Cancel"
                                   <?php echo ($dataProject['achievement']=="Cancel")?" selected":""; ?>>Cancel</option>
+                                  <option value="Postpone"
+                                  <?php echo ($dataProject['achievement']=="Postpone")?" selected":""; ?>>Postpone</option>
                                 </select>
                               </div>
                             </div>
@@ -336,9 +338,9 @@
   }
 
   function isset(item){
-    return (item!=null)?
+    return (item!=0)?
       item+'%':
-      ''
+      '&nbsp;'
   }
 
   function addActivity() {
