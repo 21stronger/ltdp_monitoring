@@ -338,9 +338,14 @@
   }
 
   function isset(item){
-    return (item!=0)?
-      item+'%':
-      '&nbsp;'
+    if(item==null){
+      return '';
+    }
+    if(item!=0){
+      return item+'%';
+    }else{
+      return '&nbsp;'
+    }
   }
 
   function addActivity() {

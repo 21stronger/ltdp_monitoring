@@ -140,7 +140,12 @@ class Project extends BaseController{
 
     public function editProject($idProject){
         $modelProject = new Project_model;
+        $modelActivity = new Activity_model;
+        $modelMonthly   = new Monthly_activity_model;
 
+        $projectData = $modelProject->find($idProject);
+        $projectYear = date('Y', strtotime($projectData['project_due_date']));
+        
         $data['project_name']           = $this->request->getPost("projectName");
         $data['project_due_date']       = $this->request->getPost("projectDueDate");
         $data['achievement']            = $this->request->getPost("projectAchievement");
@@ -148,10 +153,56 @@ class Project extends BaseController{
         $data['id_department']          = $this->request->getPost("projectDepartment");
         $data['id_pic']                 = $this->request->getPost("projectPic");
 
-        $result = $modelProject->update($idProject, $data);
-        if($result){
-            return redirect()->back();
+        $modelProject->update($idProject, $data);
+
+        $arrActivity = $modelActivity
+                        ->where('id_project', $idProject)
+                        ->findAll();
+
+        $arrIdActivity = array();
+        $arrIdMonthly  = array();
+
+        //Activity
+        $dataYear = date('Y', strtotime($data['project_due_date']));
+        if($dataYear>$projectYear){
+
+            foreach ($arrActivity as $key => $value) {
+                array_push($arrIdActivity, $value['id_activity']);
+            }
+
+            $arrayMonthly = array();
+            for ($i=$projectYear+1; $i <= $dataYear; $i++) { 
+
+                //Monthly Date Deleter
+                foreach ($arrIdActivity as $keyAct => $valueAct) {
+                    $data = $modelMonthly
+                        ->where('id_activity', $valueAct)
+                        ->where("date_monthly_activity LIKE '{$i}%'")
+                        ->findAll();
+                    foreach ($data as $keyMon => $valueMon) {
+                        array_push($arrIdMonthly, $valueMon['id_monthly_activity']);
+                    }
+                }
+                if(count($arrIdMonthly)>0){
+                    $modelMonthly->delete($arrIdMonthly);
+                }
+
+                // Monthly Creator
+                foreach ($arrIdActivity as $key => $value) {
+                    for ($j=1; $j <= 12; $j++) {
+                        $arrData['date_monthly_activity']    = $i.'-'.str_pad($j,2,0,STR_PAD_LEFT).'-01';
+                        $arrData['plan_monthly_activity']    = 0;
+                        $arrData['actual_monthly_activity']  = 0;
+                        $arrData['status_monthly_activity']  = 0;
+                        $arrData['id_activity']              = $value;
+                        array_push($arrayMonthly, $arrData);
+                    }
+                }
+            }
+            $modelMonthly->addBatch($arrayMonthly);
         }
+
+        return redirect()->back();
     }
 
     public function editActivities($idActivity){
@@ -237,7 +288,7 @@ class Project extends BaseController{
 
         $data = $modelMonthly
             ->where('id_activity', $id_activity)
-            ->where('plan_monthly_activity > 0')
+            ->where('(plan_monthly_activity > 0 OR plan_monthly_activity IS null)')
             ->findAll();
 
         echo json_encode($data);
@@ -248,7 +299,7 @@ class Project extends BaseController{
 
         $data = $modelViewActivity
             ->where('id_project', $id_project)
-            ->where('YEAR', $year)
+            ->where('(YEAR = '.$year.' OR YEAR IS null)')
             ->orderBy('id_activity', 'asc')
             ->findAll();
 

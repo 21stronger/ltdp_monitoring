@@ -43,17 +43,13 @@
                         <div class="row">
                           <!-- Faster Card -->
                           <div class="col-lg-4">
-                            <div class="card info-card sales-card">
+                            <div class="card text-center info-card sales-card">
 
                               <div class="card-body">
                                 <h5 class="card-title">Faster</h5>
 
-                                <div class="d-flex align-items-center">
-                                  <div class="ps-3">
-                                    <h6 id="achFaster">-</h6>
-                                    <span class="text-muted small pt-2 ps-1">projects</span>
-                                  </div>
-                                </div>
+                                <h6 id="achFaster">-</h6>
+                                <span class="text-muted small pt-2 ps-1">projects</span>
                               </div>
 
                             </div>
@@ -61,17 +57,13 @@
 
                           <!-- Ontime Card -->
                           <div class="col-lg-4">
-                            <div class="card info-card revenue-card">
+                            <div class="card text-center info-card revenue-card">
 
                               <div class="card-body">
                                 <h5 class="card-title">Ontime</h5>
 
-                                <div class="d-flex align-items-center">
-                                  <div class="ps-3">
-                                    <h6 id="achOntime">-</h6>
-                                    <span class="text-muted small pt-2 ps-1">projects</span>
-                                  </div>
-                                </div>
+                                <h6 id="achOntime">-</h6>
+                                <span class="text-muted small pt-2 ps-1">projects</span>
                               </div>
 
                             </div>
@@ -79,17 +71,13 @@
 
                           <!-- Overdue Card -->
                           <div class="col-lg-4">
-                            <div class="card info-card revenue-card">
+                            <div class="card text-center info-card revenue-card">
 
                               <div class="card-body">
                                 <h5 class="card-title">Overdue</h5>
 
-                                <div class="d-flex align-items-center">
-                                  <div class="ps-3">
-                                    <h6 id="achOverdue">-</h6>
-                                    <span class="text-muted small pt-2 ps-1">projects</span>
-                                  </div>
-                                </div>
+                                <h6 id="achOverdue">-</h6>
+                                <span class="text-muted small pt-2 ps-1">projects</span>
                               </div>
 
                             </div>
@@ -104,17 +92,13 @@
                         <div class="row">
                           <!-- Close Card -->
                           <div class="col-lg-3">
-                            <div class="card info-card revenue-card">
+                            <div class="card text-center info-card revenue-card">
 
                               <div class="card-body">
                                 <h5 class="card-title">Close</h5>
 
-                                <div class="d-flex align-items-center">
-                                  <div class="ps-3">
-                                    <h6 id="proClose">-</h6>
-                                    <span class="text-muted small pt-2 ps-1">projects</span>
-                                  </div>
-                                </div>
+                                <h6 id="proClose">-</h6>
+                                <span class="text-muted small pt-2 ps-1">projects</span>
                               </div>
 
                             </div>
@@ -122,17 +106,13 @@
 
                           <!-- Open Card -->
                           <div class="col-lg-3">
-                            <div class="card info-card revenue-card">
+                            <div class="card text-center info-card revenue-card">
 
                               <div class="card-body">
                                 <h5 class="card-title">Open</h5>
 
-                                <div class="d-flex align-items-center">
-                                  <div class="ps-3">
-                                    <h6 id="proOpen">-</h6>
-                                    <span class="text-muted small pt-2 ps-1">projects</span>
-                                  </div>
-                                </div>
+                                <h6 id="proOpen">-</h6>
+                                <span class="text-muted small pt-2 ps-1">projects</span>
                               </div>
 
                             </div>
@@ -140,17 +120,13 @@
 
                           <!-- Cancel Card -->
                           <div class="col-lg-3">
-                            <div class="card info-card revenue-card">
+                            <div class="card text-center info-card revenue-card">
 
                               <div class="card-body">
                                 <h5 class="card-title">Cancel</h5>
 
-                                <div class="d-flex align-items-center">
-                                  <div class="ps-3">
-                                    <h6 id="proCancel">-</h6>
-                                    <span class="text-muted small pt-2 ps-1">projects</span>
-                                  </div>
-                                </div>
+                                <h6 id="proCancel">-</h6>
+                                <span class="text-muted small pt-2 ps-1">projects</span>
                               </div>
 
                             </div>
@@ -158,17 +134,13 @@
 
                           <!-- Postpone Card -->
                           <div class="col-lg-3">
-                            <div class="card info-card revenue-card">
+                            <div class="card text-center info-card revenue-card">
 
                               <div class="card-body">
                                 <h5 class="card-title">Postpone</h5>
 
-                                <div class="d-flex align-items-center">
-                                  <div class="ps-3">
-                                    <h6 id="proPostpone">-</h6>
-                                    <span class="text-muted small pt-2 ps-1">projects</span>
-                                  </div>
-                                </div>
+                                <h6 id="proPostpone">-</h6>
+                                <span class="text-muted small pt-2 ps-1">projects</span>
                               </div>
 
                             </div>

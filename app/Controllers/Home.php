@@ -109,6 +109,8 @@ class Home extends BaseController{
         for ($i=0; $i < count($data); $i++) { 
           $diff         = ($idBefore==$data[$i]['id_project'])? true: false;
           $totalProject = ($idBefore==$data[$i]['id_project'])? $totalProject+0: $totalProject+1;
+          $totalProject = ($data[$i]['date_monthly_activity']=='2023-01-01')? $totalProject+1: $totalProject+0;
+          $totalProject = ($data[$i]['date_monthly_activity']=='2024-01-01')? $totalProject+1: $totalProject+0;
 
           $monthlyPlanAch = ($diff)? 
                       $monthlyPlanAch+$data[$i]['sumPlan']: 
@@ -124,6 +126,7 @@ class Home extends BaseController{
           $newData[$i]['date_monthly_activity']  = $data[$i]['date_monthly_activity'];
           $newData[$i]['sumPlan']         = $data[$i]['sumPlan'];
           $newData[$i]['sumActual']       = $data[$i]['sumActual'];
+          $newData[$i]['achievement']     = $data[$i]['achievement'];
           $newData[$i]['monthlyPlanAch']  = $monthlyPlanAch;
           $newData[$i]['monthlyActuAch']  = $monthlyActuAch;
         }
@@ -136,6 +139,50 @@ class Home extends BaseController{
           for($j=1; $j <= 12; $j++){
             $month = date('n', strtotime($newData[$indexOld]['date_monthly_activity']));
             $time = mktime(0, 0, 0, $j, 1, date('Y', strtotime($newData[$indexOld]['date_monthly_activity'])));
+
+            if($newData[$indexOld]['achievement']=='Cancel'){
+              $newNewData[$indexNew]['id_project']      = $newData[$indexOld]['id_project'];
+              $newNewData[$indexNew]['id_category']     = $newData[$indexOld]['id_category'];
+              $newNewData[$indexNew]['id_department']     = $newData[$indexOld]['id_department'];
+              $newNewData[$indexNew]['date_monthly_activity']  = date('Y-m-d', $time);
+              $newNewData[$indexNew]['sumPlan']         = $newData[$indexOld]['sumPlan'];
+              $newNewData[$indexNew]['sumActual']       = $newData[$indexOld]['sumActual'];
+              $newNewData[$indexNew]['monthlyPlanAch']  = $newData[$indexOld]['monthlyPlanAch'];
+              $newNewData[$indexNew]['monthlyActuAch']  = $newData[$indexOld]['monthlyActuAch'];
+              $newNewData[$indexNew]['faster']  = 0;
+              $newNewData[$indexNew]['ontime']  = 0;
+              $newNewData[$indexNew]['overdue'] = 0;
+              $newNewData[$indexNew]['close']   = 0;
+              $newNewData[$indexNew]['open']    = 0;
+              $newNewData[$indexNew]['cancel']  = 1;
+              $newNewData[$indexNew]['postpone']= 0;
+
+              $indexOld = ($indexOld<count($newData)-1)? $indexOld+1: $indexOld;
+              $indexNew++;
+              continue;
+            }
+
+            if($newData[$indexOld]['achievement']=='Postpone'){
+              $newNewData[$indexNew]['id_project']      = $newData[$indexOld]['id_project'];
+              $newNewData[$indexNew]['id_category']     = $newData[$indexOld]['id_category'];
+              $newNewData[$indexNew]['id_department']     = $newData[$indexOld]['id_department'];
+              $newNewData[$indexNew]['date_monthly_activity']  = date('Y-m-d', $time);
+              $newNewData[$indexNew]['sumPlan']         = $newData[$indexOld]['sumPlan'];
+              $newNewData[$indexNew]['sumActual']       = $newData[$indexOld]['sumActual'];
+              $newNewData[$indexNew]['monthlyPlanAch']  = $newData[$indexOld]['monthlyPlanAch'];
+              $newNewData[$indexNew]['monthlyActuAch']  = $newData[$indexOld]['monthlyActuAch'];
+              $newNewData[$indexNew]['faster']  = 0;
+              $newNewData[$indexNew]['ontime']  = 0;
+              $newNewData[$indexNew]['overdue'] = 0;
+              $newNewData[$indexNew]['close']   = 0;
+              $newNewData[$indexNew]['open']    = 0;
+              $newNewData[$indexNew]['cancel']  = 0;
+              $newNewData[$indexNew]['postpone']= 1;
+
+              $indexOld = ($indexOld<count($newData)-1)? $indexOld+1: $indexOld;
+              $indexNew++;
+              continue;
+            }
 
             if($month==$j){
               $newNewData[$indexNew]['id_project']      = $newData[$indexOld]['id_project'];
@@ -374,6 +421,7 @@ class Home extends BaseController{
         $result['dataCategories'] = $dataCategories;
         $result['dataDepartments']= $dataDepartments;
 
+        //echo json_encode($newData);
         echo json_encode($result);
     }
 }
