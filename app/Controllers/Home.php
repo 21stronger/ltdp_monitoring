@@ -111,6 +111,8 @@ class Home extends BaseController{
           $totalProject = ($idBefore==$data[$i]['id_project'])? $totalProject+0: $totalProject+1;
           $totalProject = ($data[$i]['date_monthly_activity']=='2023-01-01')? $totalProject+1: $totalProject+0;
           $totalProject = ($data[$i]['date_monthly_activity']=='2024-01-01')? $totalProject+1: $totalProject+0;
+          $totalProject = ($data[$i]['date_monthly_activity']=='2025-01-01')? $totalProject+1: $totalProject+0;
+          $totalProject = ($data[$i]['date_monthly_activity']=='2026-01-01')? $totalProject+1: $totalProject+0;
 
           $monthlyPlanAch = ($diff)? 
                       $monthlyPlanAch+$data[$i]['sumPlan']: 

@@ -6,6 +6,7 @@ use App\Models\Pica_model;
 use App\Models\Project_model;
 use App\Models\Activity_model;
 use App\Models\Department_model;
+use App\Models\Summary_monthly_model;
 use App\Models\Monthly_activity_model;
 
 use App\Models\View_activity_description_model;
@@ -14,10 +15,12 @@ use App\Models\View_project_detail_model;
 use App\Models\View_activity_pivot_model;
 use App\Models\View_activity_pica_model;
 
-class Update extends BaseController{
+class Update extends Checker{
+
     public function index(){
         $modelProject = new Project_model;
         $modelDeparment = new Department_model;
+        $modelSummaryMonthly = new Summary_monthly_model;
         $modelView = new View_summary_monthly_model;
 
         $data['headerTitle'] = "Update Project";
@@ -92,9 +95,12 @@ class Update extends BaseController{
 
         $result['id']   = $id;
         $result['value']= $data['actual_monthly_activity'];
+
+        $this->updatePerProject(1);
+        
         return json_encode($result);
     }
-
+    
     public function getDetailActivity($id_project, $year){
         $modelViewActivity = new View_activity_pivot_model;
 

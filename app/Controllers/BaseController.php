@@ -35,7 +35,7 @@ class BaseController extends Controller
      *
      * @var array
      */
-    protected $helpers = ['datetostr_helper'];
+    protected $helpers = ['datetostr_helper', 'summary_monthly_helper'];
 
     /**
      * Constructor.
