@@ -40,10 +40,8 @@ class Pica extends BaseController{
         $data['capa']       = $this->request->getPost("capa");
         $data['id_monthly_activity']   = $this->request->getPost("activityMonth");
 
-        $result = $modelPica->insert($data);
-        if($result){
-            return redirect()->back();
-        }
+        $modelPica->insert($data);
+        return redirect()->back();
     }
 
     public function editPica($id_pica){
@@ -66,9 +64,7 @@ class Pica extends BaseController{
         $data['capa']               = $this->request->getPost("capa");
         $data['id_monthly_activity']= $this->request->getPost("activityMonth");
 
-        $result = $modelPica->update($id_pica, $data);
-        if($result){
-            return redirect()->back();
-        }
+        $modelPica->update($id_pica, $data);
+        return redirect()->back();
     }
 }

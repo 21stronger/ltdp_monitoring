@@ -9,18 +9,21 @@ use App\Models\Department_model;
 use App\Models\Summary_monthly_model;
 use App\Models\Monthly_activity_model;
 
+use App\Models\View_summary_monthly_project_alter_model;
+use App\Models\View_summary_monthly_project_model;
 use App\Models\View_activity_description_model;
 use App\Models\View_summary_monthly_model;
 use App\Models\View_project_detail_model;
 use App\Models\View_activity_pivot_model;
 use App\Models\View_activity_pica_model;
 
-class Update extends Checker{
+class Update extends CheckerController{
 
     public function index(){
         $modelProject = new Project_model;
         $modelDeparment = new Department_model;
         $modelSummaryMonthly = new Summary_monthly_model;
+        
         $modelView = new View_summary_monthly_model;
 
         $data['headerTitle'] = "Update Project";
@@ -41,12 +44,12 @@ class Update extends Checker{
         $modelActivity  = new Activity_model;
 
         $modelViewActivityPica  = new View_activity_pica_model;
-        $modelViewProject       = new View_project_detail_model;
         $modelViewActivity      = new View_activity_pivot_model;
         $modelViewInformation   = new View_activity_description_model;
+        $modelViewSummaryProject= new View_summary_monthly_project_model;
 
         $data['idProject'] = $id_project;
-        $data['dataProject'] = $modelViewProject->find($id_project);
+        $data['dataProject'] = $modelViewSummaryProject->getProjectDetail($id_project);
         $data['detailActivity'] = $modelViewActivity
                                     ->where('id_project', $id_project)
                                     ->orderBy('id_activity', 'asc')
@@ -82,7 +85,7 @@ class Update extends Checker{
         echo view('_partial/footer');
     }
 
-    public function updateDetail(){
+    public function updateDetail($idProject){
         $modelMonthly = new Monthly_activity_model;
 
         $idMonthly     = $this->request->getPost("activityIdAch");
@@ -94,9 +97,9 @@ class Update extends Checker{
         $modelMonthly->update($id, $data);
 
         $result['id']   = $id;
-        $result['value']= $data['actual_monthly_activity'];
-
-        $this->updatePerProject(1);
+        $result['value']= number_format($data['actual_monthly_activity']);
+        
+        $this->updatePerProject($idProject);
         
         return json_encode($result);
     }
@@ -135,5 +138,43 @@ class Update extends Checker{
         }
 
         return json_encode($data);
+    }
+
+    public function getDataSummary(){
+        $request = \Config\Services::request();
+        $session = \Config\Services::session();
+        $datatable = new View_summary_monthly_project_alter_model($request, $session);
+
+        if ($request->getMethod(true) === 'POST') {
+            $lists = $datatable->getDatatables();
+            $data = [];
+            $no = $request->getPost('start');
+
+            foreach ($lists as $list) {
+                $no++;
+                $row = [];
+                $row[] = $no;
+                $row[] = $list->id_project;
+                $row[] = $list->category_name;
+                $row[] = $list->project_name;
+                $row[] = datetostr($list->date_monthly);
+                $row[] = $list->department_name;
+                $row[] = $list->name_pic;
+                $row[] = $list->monthly.'%';
+                $row[] = $list->status;
+                $row[] = $list->ytd.'%';
+                $row[] = $list->achievement;
+                $data[] = $row;
+            }
+
+            $output = [
+                'draw' => $request->getPost('draw'),
+                'recordsTotal' => $datatable->countAll(),
+                'recordsFiltered' => $datatable->countFiltered(),
+                'data' => $data
+            ];
+
+            echo json_encode($output);
+        }
     }
 }

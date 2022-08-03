@@ -61,7 +61,7 @@
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Achiement</div>
+                    <div class="col-lg-3 col-md-4 label">Achievement</div>
                     <div class="col-lg-9 col-md-8"><?= $dataProject['achievement']; ?></div>
                   </div>
                 </div>
@@ -115,7 +115,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
-                            <input type="hidden" class="form-control" id="activityIdAch" name="activityIdAch">
+                            <input type="hidden" id="activityIdAch" name="activityIdAch">
                             <div class="row mb-3">
                               <label for="inputProjectName" class="col-sm-2 col-form-label">Activity Name</label>
                               <div class="col-sm-10">
@@ -437,7 +437,7 @@
           event.preventDefault();
 
           $.ajax({
-            url: '<?= base_url('update/updateDetail'); ?>',
+            url: '<?= base_url('update/updateDetail').'/'.$idProject; ?>',
             type: "POST",
             data: $('#monthlyEditForm').serialize(),
             success: function(response){

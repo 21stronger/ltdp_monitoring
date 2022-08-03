@@ -13,7 +13,7 @@ use App\Models\View_project_detail_model;
 use App\Models\View_activity_pivot_model;
 use App\Models\View_activity_monthly_model;
 
-class Project extends Checker{
+class Project extends CheckerController{
     
     public function index(){
         $modelPIC = new Pic_model;
@@ -203,7 +203,7 @@ class Project extends Checker{
             }
         }
 
-        $this->updatePerProject($id_project);
+        $this->updatePerProject($idProject);
         return redirect()->back();
     }
 

@@ -20,7 +20,7 @@
       <li class="nav-item">
         <a class="nav-link <?= ($currentPage=="Update")? "": "collapsed"; ?>" href="<?= base_url('update') ?>">
           <i class="bi bi-pencil-square"></i>
-          <span>Update Project</span>
+          <span>Update Projects</span>
         </a>
       </li><!-- End Update Project Page Nav -->
 
@@ -37,14 +37,21 @@
       <li class="nav-item">
         <a class="nav-link <?= ($currentPage=="Project")? "": "collapsed"; ?>" href="<?= base_url('project') ?>">
           <i class="bi bi-card-list"></i>
-          <span>Project</span>
+          <span>Projects</span>
         </a>
       </li><!-- End Project Monitoring Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link <?= ($currentPage=="PIC")? "": "collapsed"; ?>" href="<?= base_url('pic') ?>">
           <i class="bi bi-people"></i>
-          <span>PICs</span>
+          <span>User PICs</span>
+        </a>
+      </li><!-- End PIC Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link <?= ($currentPage=="Settings")? "": "collapsed"; ?>" href="<?= base_url('settings') ?>">
+          <i class="bi bi-gear"></i>
+          <span>App Settings</span>
         </a>
       </li><!-- End PIC Page Nav -->
       <?php } ?>

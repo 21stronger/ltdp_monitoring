@@ -10,7 +10,7 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Datatables
+              <h5 class="card-title">Projects
                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#addProjectModal">
                   <i class="bi bi-plus-square" data-bs-toggle="tooltip" data-bs-toggle="tooltip" data-bs-placement="right" title="Add New Project"></i>
                 </button>
@@ -92,7 +92,7 @@
 
               <!-- Default Accordion -->
               <?php //print_r($dataSummary); ?>
-              <div class="accordion" id="accordionExample">
+              <div class="accordion" id="accordionExample" style="padding-bottom: 10px;">
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -155,7 +155,7 @@
                     <th scope="col">Due Date</th>
                     <th scope="col">Dept</th>
                     <th scope="col">PIC</th>
-                    <th scope="col">Achievement</th>
+                    <th scope="col">Ach</th>
                   </tr>
                 </thead>
                 <tbody>

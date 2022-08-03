@@ -27,257 +27,275 @@
             <div class="card-body">
               <h5 class="card-title">Achievement</h5>
               
-                <div class="col-lg-12">
-                  <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link active" id="achievement-tab" data-bs-toggle="tab" data-bs-target="#achievement" type="button" role="tab" aria-controls="achievement" aria-selected="true">Achievement</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                      <button class="nav-link" id="status-tab" data-bs-toggle="tab" data-bs-target="#status" type="button" role="tab" aria-controls="status" aria-selected="false">Status</button>
-                    </li>
-                  </ul>
-                  <div class="tab-content pt-2" id="myTabContent">
-                    <div class="tab-pane fade show active" id="achievement" role="tabpanel" aria-labelledby="achievement-tab">
-                      <div class="col-lg-12">
-                        <!-- Row Achievement Faster Ontime Overdue Open Close Cancel -->
-                        <div class="row">
-                          <!-- Faster Card -->
-                          <div class="col-lg-4">
-                            <div class="card text-center info-card sales-card">
+              <!-- Tab Achievement and Status -->
+              <div class="col-lg-12">
+                <!-- Nav Tab Achievement and Status -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="achievement-tab" data-bs-toggle="tab" data-bs-target="#achievement" type="button" role="tab" aria-controls="achievement" aria-selected="true">Achievement</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="status-tab" data-bs-toggle="tab" data-bs-target="#status" type="button" role="tab" aria-controls="status" aria-selected="false">Status</button>
+                  </li>
+                </ul>
+                <div class="tab-content pt-2" id="myTabContent">
+                  <div class="tab-pane fade show active" id="achievement" role="tabpanel" aria-labelledby="achievement-tab">
+                    <div class="col-lg-12">
+                      <!-- Row Achievement Faster Ontime Overdue Open Close Cancel -->
+                      <div class="row">
+                        <!-- Faster Card -->
+                        <div class="col-lg-4">
+                          <div class="card text-center info-card sales-card">
 
-                              <div class="card-body">
-                                <h5 class="card-title">Faster</h5>
+                            <div class="card-body">
+                              <h5 class="card-title">Faster</h5>
 
-                                <h6 id="achFaster">-</h6>
-                                <span class="text-muted small pt-2 ps-1">projects</span>
-                              </div>
-
+                              <h6 id="achFaster">-</h6>
+                              <span class="text-muted small pt-2 ps-1">projects</span>
                             </div>
-                          </div><!-- End Faster Card -->
 
-                          <!-- Ontime Card -->
-                          <div class="col-lg-4">
-                            <div class="card text-center info-card revenue-card">
+                          </div>
+                        </div><!-- End Faster Card -->
 
-                              <div class="card-body">
-                                <h5 class="card-title">Ontime</h5>
+                        <!-- Ontime Card -->
+                        <div class="col-lg-4">
+                          <div class="card text-center info-card revenue-card">
 
-                                <h6 id="achOntime">-</h6>
-                                <span class="text-muted small pt-2 ps-1">projects</span>
-                              </div>
+                            <div class="card-body">
+                              <h5 class="card-title">Ontime</h5>
 
+                              <h6 id="achOntime">-</h6>
+                              <span class="text-muted small pt-2 ps-1">projects</span>
                             </div>
-                          </div><!-- End Ontime Card -->
 
-                          <!-- Overdue Card -->
-                          <div class="col-lg-4">
-                            <div class="card text-center info-card revenue-card">
+                          </div>
+                        </div><!-- End Ontime Card -->
 
-                              <div class="card-body">
-                                <h5 class="card-title">Overdue</h5>
+                        <!-- Overdue Card -->
+                        <div class="col-lg-4">
+                          <div class="card text-center info-card revenue-card">
 
-                                <h6 id="achOverdue">-</h6>
-                                <span class="text-muted small pt-2 ps-1">projects</span>
-                              </div>
+                            <div class="card-body">
+                              <h5 class="card-title">Overdue</h5>
 
+                              <h6 id="achOverdue">-</h6>
+                              <span class="text-muted small pt-2 ps-1">projects</span>
                             </div>
-                          </div><!-- End Overdue Card -->
-                        </div>
-                        <!-- End Row Achievement -->
+
+                          </div>
+                        </div><!-- End Overdue Card -->
                       </div>
-                    </div>
-                    <div class="tab-pane fade" id="status" role="tabpanel" aria-labelledby="status-tab">
-                      <div class="col-lg-12">
-                        <!-- Row Achievement Open Close Cancel -->
-                        <div class="row">
-                          <!-- Close Card -->
-                          <div class="col-lg-3">
-                            <div class="card text-center info-card revenue-card">
-
-                              <div class="card-body">
-                                <h5 class="card-title">Close</h5>
-
-                                <h6 id="proClose">-</h6>
-                                <span class="text-muted small pt-2 ps-1">projects</span>
-                              </div>
-
-                            </div>
-                          </div><!-- End Close Card -->
-
-                          <!-- Open Card -->
-                          <div class="col-lg-3">
-                            <div class="card text-center info-card revenue-card">
-
-                              <div class="card-body">
-                                <h5 class="card-title">Open</h5>
-
-                                <h6 id="proOpen">-</h6>
-                                <span class="text-muted small pt-2 ps-1">projects</span>
-                              </div>
-
-                            </div>
-                          </div><!-- End Open Card -->
-
-                          <!-- Cancel Card -->
-                          <div class="col-lg-3">
-                            <div class="card text-center info-card revenue-card">
-
-                              <div class="card-body">
-                                <h5 class="card-title">Cancel</h5>
-
-                                <h6 id="proCancel">-</h6>
-                                <span class="text-muted small pt-2 ps-1">projects</span>
-                              </div>
-
-                            </div>
-                          </div><!-- End Cancel Card -->
-
-                          <!-- Postpone Card -->
-                          <div class="col-lg-3">
-                            <div class="card text-center info-card revenue-card">
-
-                              <div class="card-body">
-                                <h5 class="card-title">Postpone</h5>
-
-                                <h6 id="proPostpone">-</h6>
-                                <span class="text-muted small pt-2 ps-1">projects</span>
-                              </div>
-
-                            </div>
-                          </div><!-- End Postpone Card -->
-                        </div>
-                        <!-- End Row Achievement -->
-                      </div>
+                      <!-- End Row Achievement -->
                     </div>
                   </div>
+                  <div class="tab-pane fade" id="status" role="tabpanel" aria-labelledby="status-tab">
+                    <div class="col-lg-12">
+                      <!-- Row Achievement Open Close Cancel -->
+                      <div class="row">
+                        <!-- Close Card -->
+                        <div class="col-lg-3">
+                          <div class="card text-center info-card revenue-card">
+
+                            <div class="card-body">
+                              <h5 class="card-title">Close</h5>
+
+                              <h6 id="proClose">-</h6>
+                              <span class="text-muted small pt-2 ps-1">projects</span>
+                            </div>
+
+                          </div>
+                        </div><!-- End Close Card -->
+
+                        <!-- Open Card -->
+                        <div class="col-lg-3">
+                          <div class="card text-center info-card revenue-card">
+
+                            <div class="card-body">
+                              <h5 class="card-title">Open</h5>
+
+                              <h6 id="proOpen">-</h6>
+                              <span class="text-muted small pt-2 ps-1">projects</span>
+                            </div>
+
+                          </div>
+                        </div><!-- End Open Card -->
+
+                        <!-- Cancel Card -->
+                        <div class="col-lg-3">
+                          <div class="card text-center info-card revenue-card">
+
+                            <div class="card-body">
+                              <h5 class="card-title">Cancel</h5>
+
+                              <h6 id="proCancel">-</h6>
+                              <span class="text-muted small pt-2 ps-1">projects</span>
+                            </div>
+
+                          </div>
+                        </div><!-- End Cancel Card -->
+
+                        <!-- Postpone Card -->
+                        <div class="col-lg-3">
+                          <div class="card text-center info-card revenue-card">
+
+                            <div class="card-body">
+                              <h5 class="card-title">Postpone</h5>
+
+                              <h6 id="proPostpone">-</h6>
+                              <span class="text-muted small pt-2 ps-1">projects</span>
+                            </div>
+
+                          </div>
+                        </div><!-- End Postpone Card -->
+                      </div>
+                      <!-- End Row Achievement -->
+                    </div>
+                  </div>
+                </div>
               </div>
-              <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="ytd-tab" data-bs-toggle="tab" data-bs-target="#ytd" type="button" role="tab" aria-controls="ytd" aria-selected="true">YTD</button>
-                </li>
-                <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="department-tab" data-bs-toggle="tab" data-bs-target="#department" type="button" role="tab" aria-controls="department" aria-selected="false">Department</button>
-                </li>
-              </ul>
-              <div class="tab-content pt-2" id="myTabContent">
-                <div class="tab-pane fade show active" id="ytd" role="tabpanel" aria-labelledby="ytd-tab">
-                  <div class="col-lg-12">
-                    <div class="row">
-                      <div class="col-lg-8"> 
-                        <div class="row">
-                          <!-- Category Sales -->
-                          <div class="col-md-12">
-                            <div class="card recent-sales">
+              <!-- End Tab Achievement and Status -->
 
-                              <div class="card-body">
-                                <h5 class="card-title">Category</span></h5>
+              <!-- Tab YTD and Department -->
+              <div class="col-lg-12">
+                <!-- Nav Tab YTD and Department -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="ytd-tab" data-bs-toggle="tab" data-bs-target="#ytd" type="button" role="tab" aria-controls="ytd" aria-selected="true">YTD</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="department-tab" data-bs-toggle="tab" data-bs-target="#department" type="button" role="tab" aria-controls="department" aria-selected="false">Department</button>
+                  </li>
+                </ul>
+                <div class="tab-content pt-2" id="myTabContent">
+                  <div class="tab-pane fade show active" id="ytd" role="tabpanel" aria-labelledby="ytd-tab">
+                    <div class="col-lg-12">
+                      <div class="row">
+                        <div class="col-lg-8"> 
+                          <div class="row">
+                            <div class="col-md-12">
+                              <div class="card recent-sales">
+                                <div class="card-body">
+                                  <h5 class="card-title">Category</h5>
 
-                                <table class="table table-borderless" id="dataCategories">
-                                  <thead>
-                                    <tr>
-                                      <th scope="col">#</th>
-                                      <th scope="col">Kategori</th>
-                                      <th scope="col">Faster</th>
-                                      <th scope="col">Ontime</th>
-                                      <th scope="col">Overdue</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody id="categoriesDataTable">
-                                  </tbody>
-                                </table>
-
+                                  <table class="table table-borderless" id="dataCategories">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Kategori</th>
+                                        <th scope="col">Faster</th>
+                                        <th scope="col">Ontime</th>
+                                        <th scope="col">Overdue</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody id="categoriesDataTable">
+                                    </tbody>
+                                  </table>
+                                </div>
                               </div>
                             </div>
-                          </div><!-- End Category Sales -->
+                          </div>
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="row">
+                            <div class="col-md-12">
+                              <!-- YTD Percent Traffic -->
+                              <div class="card">
+
+                                <div class="card-body pb-0">
+                                  <h5 class="card-title">YTD Percentage Achievement</h5>
+
+                                  <div id="ytdAchievement" style="min-height: 250px;" class="echart"></div>
+
+                                </div>
+                              </div><!-- End YTD Percent Traffic -->
+                            </div>
+                            <div class="col-md-12"><!-- YTD Percent Traffic -->
+                              <div class="card">
+
+                                <div class="card-body pb-0">
+                                  <h5 class="card-title">YTD Percentage Status</h5>
+
+                                  <div id="ytdStatus" style="min-height: 250px;" class="echart"></div>
+                                </div>
+                              </div><!-- End YTD Percent Traffic -->
+                            </div>
+                          </div>
                         </div>
                       </div>
-                      <div class="col-lg-4">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <!-- YTD Percent Traffic -->
-                            <div class="card">
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="department" role="tabpanel" aria-labelledby="department-tab">
+                    <div class="col-lg-12">
+                      <div class="row">
+                        <div class="col-lg-8">
+                          <div class="row">
+                            <div class="col-12">
+                              <div class="card recent-sales">
+                                <div class="card-body">
+                                  <h5 class="card-title">Department</h5>
 
-                              <div class="card-body pb-0">
-                                <h5 class="card-title">YTD Percentage Achievement</h5>
-
-                                <div id="ytdAchievement" style="min-height: 250px;" class="echart"></div>
-
+                                  <table class="table table-borderless" id="dataDepartment">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Department</th>
+                                        <th scope="col">Faster</th>
+                                        <th scope="col">Ontime</th>
+                                        <th scope="col">Overdue</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                  </table>
+                                </div>
                               </div>
-                            </div><!-- End YTD Percent Traffic -->
+                            </div>
                           </div>
-                          <div class="col-md-12"><!-- YTD Percent Traffic -->
+                        </div>
+                        <div class="col-lg-4">
+                          <div class="row">
+                            <!-- YTD Percentage per PIC -->
                             <div class="card">
 
                               <div class="card-body pb-0">
-                                <h5 class="card-title">YTD Percentage Achievement</h5>
+                                <h5 class="card-title">YTD Percentage per PIC</h5>
 
-                                <div id="ytdStatus" style="min-height: 250px;" class="echart"></div>
+                                <div id="ytdDepartmentPIC" style="min-height: 250px;" class="echart"></div>
+
                               </div>
-                            </div><!-- End YTD Percent Traffic -->
+                            </div><!-- End YTD Percentage per PIC -->
+
+                            <!-- YTD Percentage per PIC -->
+                            <div class="card">
+
+                              <div class="card-body pb-0">
+                                <h5 class="card-title">YTD Percentage per PIC</h5>
+
+                                <div id="ytdDepartmentPIC1" style="min-height: 250px;" class="echart"></div>
+
+                              </div>
+                            </div><!-- End YTD Percentage per PIC -->
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="tab-pane fade" id="department" role="tabpanel" aria-labelledby="department-tab">
-                  <div class="col-lg-12">
-                    <div class="row">
-                      <div class="col-lg-8">
-                        <div class="row">
-                          <div class="col-12">
-                            <div class="card recent-sales">
-                              <div class="card-body">
-                                <h5 class="card-title">Department</h5>
+              </div>
+              <!-- End Tab YTD and Department -->
 
-                                <table class="table table-borderless" id="dataDepartment">
-                                  <thead>
-                                    <tr>
-                                      <th scope="col">#</th>
-                                      <th scope="col">Department</th>
-                                      <th scope="col">Faster</th>
-                                      <th scope="col">Ontime</th>
-                                      <th scope="col">Overdue</th>
-                                    </tr>
-                                  </thead>
-                                  <tbody>
-                                  </tbody>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-lg-4">
-                        <div class="row">
-                          
-                          <!-- YTD Percent Traffic -->
-                          <div class="card">
+              <!-- Yearly Report Chart -->
+              <div class="col-lg-12">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Yearly Report</h5>
 
-                            <div class="card-body pb-0">
-                              <h5 class="card-title">YTD Percentage Achievement</h5>
-
-                              <div id="ytdAchievement1" style="min-height: 250px;" class="echart"></div>
-
-                            </div>
-                          </div><!-- End YTD Percent Traffic -->
-
-                          <!-- YTD Percent Traffic -->
-                          <div class="card">
-
-                            <div class="card-body pb-0">
-                              <h5 class="card-title">YTD Percentage Achievement</h5>
-
-                              <div id="ytdStatus1" style="min-height: 250px;" class="echart"></div>
-
-                            </div>
-                          </div><!-- End YTD Percent Traffic -->
-                        </div>
-                      </div>
-                    </div>
+                    <div id="reportsChart" style="min-height: 450px;" class="echart"></div>
                   </div>
                 </div>
-              </div><!-- End Default Tabs -->
+              </div>
+              <!-- End Yearly Report Chart -->
+
             </div>
           </div>
         </div>
@@ -314,12 +332,13 @@
   });
   
   // EChart initfor Graph Data
-  var ytdStatus1, ytdAch1, ytdAch2, ytdStatus2;
+  var ytdStatus1, ytdAch1, ytdDeptPIC, ytdDeptPIC1, yearlyReportChart;
   document.addEventListener("DOMContentLoaded", () => {
-    ytdStatus1 = echarts.init(document.querySelector("#ytdStatus"));
     ytdAch1 = echarts.init(document.querySelector("#ytdAchievement"));
-    ytdAch2 = echarts.init(document.querySelector("#ytdAchievement1"));
-    ytdStatus2 = echarts.init(document.querySelector("#ytdStatus1"));
+    ytdStatus1 = echarts.init(document.querySelector("#ytdStatus"));
+    ytdDeptPIC = echarts.init(document.querySelector("#ytdDepartmentPIC"));
+    ytdDeptPIC1 = echarts.init(document.querySelector("#ytdDepartmentPIC1"));
+    yearlyReportChart = echarts.init(document.querySelector('#reportsChart'));
   });
   
   $(document).ready(function() {
@@ -332,6 +351,134 @@
     //choosed month
     $("#month").change(function(){
       getAchievement(this.value);
+    });
+
+    var yearlySource = [
+      ['ach', 'month'],
+      [0, 'Dec'],
+      [0, 'Nov'],
+      [0, 'Oct'],
+      [0, 'Sep'],
+      [0, 'Aug'],
+      [0, 'Jul'],
+      [0, 'Jun'],
+      [0, 'May'],
+      [0, 'Apr'],
+      [0, 'Mar'],
+      [0, 'Feb'],
+      [0, 'Jan'],
+      [0, 'YTD']
+    ];
+
+    $.ajax({
+      url: "<?= base_url('home/getYearlyChartData'); ?>",
+      success: function(response){
+        var index = 1;
+        var result = JSON.parse(response);
+
+        yearlySource = result;
+        yearlyReportChart.setOption({
+          dataset: {
+            source: yearlySource
+          }
+        });
+      }
+    });
+
+    yearlyReportChart.setOption({
+      dataset: {
+        source: yearlySource
+      },
+      grid: { containLabel: true },
+      xAxis: { name: 'ach' },
+      yAxis: { type: 'category' },
+      visualMap: {
+        show: false,
+        orient: 'horizontal',
+        left: 'center',
+        min: 0,
+        max: 120,
+        text: ['High Score', 'Low Score'],
+        // Map the score column to color
+        dimension: 0,
+        inRange: {
+          color: [
+            '#ff0000', //0
+            '#ff0000', //10
+            '#ff0000', //20
+            '#ff0000', //30
+            '#ff0000', //40
+            '#ff0000', //50
+            '#ff0000', //60
+            '#ff0000', //70
+            '#ff0000', //80
+            '#bb0000', //90
+            '#00bb00', //100
+            '#0044ff', //110
+            '#0000ff'  //120
+          ] 
+        }
+      },
+      series: [
+        {
+          type: 'bar',
+          label: {
+            show: true,
+            position: 'right',
+            formatter: '{@ach}%'
+          },
+          encode: {
+            // Map the "amount" column to X axis.
+            x: 'ach',
+            // Map the "product" column to Y axis
+            y: 'month'
+          }
+        }
+      ]
+    });
+
+    ytdDeptPIC.setOption({
+      xAxis: {
+        type: 'category',
+        data: ['Mon', 'Tue', 'Wed']
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+        {
+          data: [120, 200, 150],
+          type: 'bar',
+          label: {
+            show: true,
+            position: 'top',
+            formatter: '{@ach}%'
+          },
+          barWidth: '30%'
+        }
+      ]
+    });
+
+    ytdDeptPIC1.setOption({
+      xAxis: {
+        type: 'category',
+        data: ['Mon', 'Tue', 'Wed']
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+        {
+          data: [120, 200, 150],
+          type: 'bar',
+          label: {
+            show: true,
+            position: 'top',
+            formatter: '{@ach}%'
+          },
+          barWidth: '30%'
+        }
+      ]
     });
   });
 
@@ -481,100 +628,6 @@
         }
       });
 
-      ytdStatus2.setOption({
-        tooltip: {
-          trigger: 'item'
-        },
-        legend: {
-          top: '5%',
-          left: 'center'
-        },
-        series: [{
-          name: 'Project',
-          type: 'pie',
-          radius: ['40%', '70%'],
-          avoidLabelOverlap: false,
-          label: {
-          show: false,
-          position: 'center'
-          },
-          emphasis: {
-          label: {
-            show: true,
-            fontSize: '18',
-            fontWeight: 'bold'
-          }
-          },
-          labelLine: {
-          show: false
-          },
-          data: [{
-              value: result.close,
-              name: 'Close'
-            },
-            {
-              value: result.open,
-              name: 'Open'
-            },
-            {
-              value: result.cancel,
-              name: 'Cancel'
-            }
-          ],
-          color: colorPaletteSta
-        }],
-        graph: {
-          color: colorPaletteSta
-        }
-      });
-
-      ytdAch2.setOption({
-        tooltip: {
-          trigger: 'item'
-        },
-        legend: {
-          top: '5%',
-          left: 'center'
-        },
-        series: [{
-            name: 'Project',
-            type: 'pie',
-            radius: ['40%', '70%'],
-            avoidLabelOverlap: false,
-            label: {
-            show: false,
-            position: 'center'
-          },
-          emphasis: {
-            label: {
-              show: true,
-              fontSize: '18',
-              fontWeight: 'bold'
-            }
-          },
-          labelLine: {
-            show: false
-          },
-          data: [{
-              value: result.faster,
-              name: 'Faster'
-            },
-            {
-              value: result.ontime,
-              name: 'Ontime'
-            },
-            {
-              value: result.overdue,
-              name: 'Overdue'
-            }
-          ],
-          color: colorPaletteAch
-        }],
-        graph: {
-          color: colorPaletteAch
-        }
-      });
-        
     }});
   };
 

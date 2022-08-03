@@ -22,7 +22,6 @@ class Profile extends BaseController{
         $modelPic = new Pic_model;
 
         $data['name_pic'] = $this->request->getPost("fullname");
-        $data['user_pic'] = $this->request->getPost("username");
 
         $getPic   = $modelPic->where('id_pic', $idPic)
                         ->first();
@@ -37,7 +36,6 @@ class Profile extends BaseController{
         $updatePic = $modelPic->update($getPic['id_pic'], $data);
         if($updatePic){
             session()->set([
-                'username'  => $data['user_pic'],
                 'name'      => $data['name_pic']
             ]);
             return redirect()->to(base_url('profile'));

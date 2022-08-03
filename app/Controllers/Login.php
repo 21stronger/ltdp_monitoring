@@ -15,19 +15,24 @@ class Login extends BaseController{
 
     public function check(){
         $session = session();
-        $model = new Pic_model;
+        $modelPIC = new Pic_model;
 
         $username = $this->request->getGet("username");
         $password = $this->request->getGet("password");
 
-        $checkPic = $model->where('user_pic', $username)
+        $dataPIC = $modelPIC->where('user_pic', $username)
                         ->first();
+
+        $checkPic = $modelPIC->checkPic($dataPIC['id_pic']);
+
         if($checkPic){
             if($checkPic['pass_pic']==$password){
                 session()->set([
                     'idPic'     => $checkPic['id_pic'],
                     'username'  => $checkPic['user_pic'],
                     'name'      => $checkPic['name_pic'],
+                    'idDept'    => $checkPic['id_department'],
+                    'nameDept'  => $checkPic['department_name'],
                     'role'      => $checkPic['role_pic'],
                     'logged_in' => TRUE
                 ]);

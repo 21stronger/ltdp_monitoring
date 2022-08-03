@@ -14,6 +14,16 @@
   </div>
 </form> -->
 
+<!-- Background image -->
+<style class="text/css">
+  body{
+    background: url(assets/img/bg.png) no-repeat;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+  }
+</style>
+
   <main>
     <div class="container">
 
@@ -24,8 +34,8 @@
 
               <div class="d-flex justify-content-center py-4">
                 <a href="index.html" class="logo d-flex align-items-center w-auto">
-                  <img src="assets/img/logo.png" alt="">
-                  <span class="d-none d-lg-block">LTDP Monitoring</span>
+                  <img src="assets/img/logokalbe.png" alt="">
+                  <span class="d-none d-lg-block">LTDP MONITORING</span>
                 </a>
               </div><!-- End Logo -->
 
@@ -34,7 +44,7 @@
                 <div class="card-body">
 
                   <div class="pt-4 pb-2">
-                    <h5 class="card-title text-center pb-0 fs-4">Login to Your Account</h5>
+                    <h5 class="card-title text-center pb-0 fs-4">Login</h5>
                     <p class="text-center small">Enter your username & password to login</p>
                   </div>
 
@@ -59,6 +69,10 @@
                     </div>
                   </form>
 
+                </div>
+				
+				<div class="pt-1 pb-1">
+					<p class="text-center small">Forgot password? contact EXT.402</p>
                 </div>
               </div>
 

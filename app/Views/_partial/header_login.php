@@ -5,12 +5,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title><?= (isset($headerTitle))? $headerTitle: "Testing"; ?> - LTDP Monitoring</title>
+  <title><?= (isset($headerTitle))? $headerTitle: "Testing"; ?> - MSTD - LTDP MONITORING</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="<?= base_url(); ?>/assets/img/favicon.png" rel="icon">
+  <link href="<?= base_url(); ?>/assets/img/logokalbe.png" rel="icon">
   <link href="<?= base_url(); ?>/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->

@@ -28,29 +28,41 @@
                       </div>
                       <div class="modal-body">
                         <div class="row mb-3">
-                          <label for="inputProjectName" class="col-sm-3 col-form-label">Surename</label>
+                          <label for="InputInitial" class="col-sm-3 col-form-label">Initial</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" id="surename" name="surename" required>
+                            <input type="text" class="form-control" id="initial" name="initial" required>
                           </div>
                         </div>
                         <div class="row mb-3">
-                          <label for="InputDueDate" class="col-sm-3 col-form-label">Username</label>
+                          <label for="InputEmail" class="col-sm-3 col-form-label">E-Mail</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" id="username" name="username" required>
+                            <input type="email" class="form-control" id="email" name="email" required>
                           </div>
                         </div>
                         <div class="row mb-3">
-                          <label for="inputCategory" class="col-sm-3 col-form-label">Password</label>
+                          <label for="InputPassword" class="col-sm-3 col-form-label">Password</label>
                           <div class="col-sm-9">
                             <input type="password" class="form-control" id="password" name="password" required>
                           </div>
                         </div>
                         <div class="row mb-3">
-                          <label for="inputDepartment" class="col-sm-3 col-form-label">Role</label>
+                          <label for="InputRole" class="col-sm-3 col-form-label">Role</label>
                           <div class="col-sm-9">
                             <select class="form-select" name="role" id="role" aria-label="Role">
                               <option value="User">User</option>
+                              <option value="Supervisor">Supervisor</option>
                               <option value="Admin">Admin</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="row mb-3" id="inputAddDepartment">
+                          <label for="InputDept" class="col-sm-3 col-form-label">Department</label>
+                          <div class="col-sm-9">
+                            <select class="form-select" name="dept" id="dept" aria-label="Role">
+                              <?php foreach ($dataDepartments as $key => $value) {
+                                echo 
+                                '<option value="'.$value['id_department'].'">'.$value['department_name'].'</option>';
+                              }?>
                             </select>
                           </div>
                         </div>
@@ -75,15 +87,15 @@
                       </div>
                       <div class="modal-body">
                         <div class="row mb-3">
-                          <label for="edtUsername" class="col-sm-3 col-form-label">Username</label>
+                          <label for="edtEmail" class="col-sm-3 col-form-label">Email</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" id="edtUsername" disabled>
+                            <input type="text" class="form-control" id="edtEmail" disabled>
                           </div>
                         </div>
                         <div class="row mb-3">
-                          <label for="edtSurename" class="col-sm-3 col-form-label">Surename</label>
+                          <label for="edtInitial" class="col-sm-3 col-form-label">Initial</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" id="edtSurename" name="edtSurename" required>
+                            <input type="text" class="form-control" id="edtInitial" name="edtInitial" required>
                           </div>
                         </div>
                         <div class="row mb-3">
@@ -97,7 +109,19 @@
                           <div class="col-sm-9">
                             <select class="form-select" name="edtRole" id="edtRole" aria-label="Role">
                               <option value="User">User</option>
+                              <option value="Supervisor">Supervisor</option>
                               <option value="Admin">Admin</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="row mb-3" id="inputEdtDepartment">
+                          <label for="InputDept" class="col-sm-3 col-form-label">Department</label>
+                          <div class="col-sm-9">
+                            <select class="form-select" name="edtDept" id="edtDept" aria-label="Role">
+                              <?php foreach ($dataDepartments as $key => $value) {
+                                echo 
+                                '<option value="'.$value['id_department'].'">'.$value['department_name'].'</option>';
+                              }?>
                             </select>
                           </div>
                         </div>
@@ -116,8 +140,9 @@
                   <tr>
                     <th scope="col">#</th>
                     <th scope="col">Username</th>
-                    <th scope="col">Surename</th>
+                    <th scope="col">Initial</th>
                     <th scope="col">Role</th>
+                    <th scope="col">Dept</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -130,6 +155,7 @@
                     <td><?= $value['user_pic']; ?></td>
                     <td><?= $value['name_pic']; ?></td>
                     <td><?= $value['role_pic']; ?></td>
+                    <td><?= $value['department_name']; ?></td>
                     <td>
                       <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editPIC" onclick="editModal('<?= $value['id_pic']; ?>', '<?= $value['name_pic']; ?>', '<?= $value['user_pic']; ?>', '<?= $value['role_pic']; ?>')"><i class="bi bi-pencil-square"></i> Edit</button>
                     </td>
@@ -139,7 +165,6 @@
                   ?>
                 </tbody>
               </table>
-
             </div>
           </div>
         </div><!-- End PICs -->
@@ -151,10 +176,34 @@
 <script type="text/javascript">
   function editModal(id, sure, user, role){
     document.getElementById("idPic").value = id;
-    document.getElementById("edtSurename").value = sure;
-    document.getElementById("edtUsername").value = user;
+    document.getElementById("edtInitial").value = sure;
+    document.getElementById("edtEmail").value = user;
     document.getElementById("edtRole").value = role;
+
+    if(role == 'User' || role == 'Supervisor'){
+      $('#inputEdtDepartment').show();
+    } else {
+      $('#inputEdtDepartment').hide();
+    }
   }
+
+  $(document).ready(function(){
+    $('#role').change(function(){
+      if($(this).val()=="Supervisor" || $(this).val()=="User"){
+        $('#inputAddDepartment').show();
+      } else {
+        $('#inputAddDepartment').hide();
+      }
+    });
+
+    $('#edtRole').change(function(){
+      if($(this).val()=="Supervisor" || $(this).val()=="User"){
+        $('#inputEdtDepartment').show();
+      } else {
+        $('#inputEdtDepartment').hide();
+      }
+    });
+  });
 </script>
 
 </main><!-- End #main -->

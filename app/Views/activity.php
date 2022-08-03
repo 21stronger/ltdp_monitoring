@@ -147,7 +147,7 @@
                   </div>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Achiement</div>
+                    <div class="col-lg-3 col-md-4 label">Achievement</div>
                     <div class="col-lg-9 col-md-8"><?= $dataProject['achievement']; ?></div>
                   </div>
                 </div>

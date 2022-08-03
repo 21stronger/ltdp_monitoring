@@ -5,13 +5,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title><?= (isset($headerTitle))? $headerTitle: "Testing"; ?> - LTDP Monitoring</title>
+  <title><?= (isset($headerTitle))? $headerTitle: "Testing"; ?> - MSTD - LTDP MONITORING</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="<?= base_url(); ?>/assets/img/favicon.png" rel="icon">
-  <link href="<?= base_url(); ?>/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="<?= base_url(); ?>/assets/img/logokalbe.png" rel="icon">
+  <link href="<?= base_url(); ?>/assets/img/" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
@@ -56,7 +56,7 @@
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- <img src="assets/img/logo.png" alt=""> -->
-        <span class="d-none d-lg-block">LTDP Monitoring</span>
+        <span class="d-none d-lg-block">LTDP MONITORING</span>
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -80,14 +80,14 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="<?= base_url(); ?>/assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
+            <img src="<?= base_url(); ?>/assets/img/profile.jpg" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2"><?= session()->get('name'); ?></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
               <h6><?= session()->get('role'); ?></h6>
-              <span><?= "Department" ?></span>
+              <span><?= session()->get('nameDept'); ?></span>
             </li>
             <li>
               <hr class="dropdown-divider">

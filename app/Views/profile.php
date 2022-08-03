@@ -32,7 +32,7 @@
                   <h5 class="card-title">Profile Details</h5>
 
                   <div class="row">
-                    <div class="col-lg-3 col-md-4 label">Username</div>
+                    <div class="col-lg-3 col-md-4 label">Username/E-Mail</div>
                     <div class="col-lg-9 col-md-8"><?= $dataProfile['user_pic']; ?></div>
                   </div>
 
@@ -47,9 +47,9 @@
                   <!-- Profile Edit Form -->
                   <form action="<?= base_url('profile/editpic')."/".session()->get('idPic'); ?>" method="post">
                     <div class="row mb-3">
-                      <label for="username" class="col-md-4 col-lg-3 col-form-label">Username</label>
+                      <label for="username" class="col-md-4 col-lg-3 col-form-label">Username/E-Mail</label>
                       <div class="col-md-8 col-lg-9">
-                        <input name="username" type="text" class="form-control" id="username" value="<?= $dataProfile['user_pic']; ?>">
+                        <input name="username" type="text" class="form-control" id="username" value="<?= $dataProfile['user_pic']; ?>" disabled>
                       </div>
                     </div>
 
