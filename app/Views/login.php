@@ -1,19 +1,3 @@
-<!-- <form action="<?php //echo base_url('/login/check'); ?>" method="post">
-  <div class="container">
-  	<?php //if(isset($hasil)) echo $hasil; ?><br>
-
-    <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" name="username" required>
-    <br>
-
-    <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
-    <br>
-
-    <button type="submit">Login</button>
-  </div>
-</form> -->
-
 <!-- Background image -->
 <style class="text/css">
   body{
