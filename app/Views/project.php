@@ -77,6 +77,7 @@
                               <option value="Open">Open</option>
                               <option value="Close">Close</option>
                               <option value="Cancel">Cancel</option>
+                              <option value="Postpone">Postpone</option>
                             </select>
                           </div>
                         </div>
