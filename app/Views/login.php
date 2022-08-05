@@ -29,22 +29,22 @@
 
                   <div class="pt-4 pb-2">
                     <h5 class="card-title text-center pb-0 fs-4">Login</h5>
-                    <p class="text-center small">Enter your username & password to login</p>
+                    <p class="text-center small">Enter your E-Mail & password to login</p>
                   </div>
 
                   <form action="<?= base_url('/login/check'); ?>" method="get" class="row g-3 needs-validation" >
 
                     <div class="col-12">
-                      <label for="username" class="form-label">Username</label>
+                      <label for="username" class="form-label">E-Mail</label>
                       <div class="input-group has-validation">
-                        <input type="text" name="username" class="form-control" id="username" required autofocus>
-                        <div class="invalid-feedback">Please enter your username.</div>
+                        <input type="text" name="username" class="form-control" id="username" placeholder="Enter your E-Mail" required autofocus>
+                        <div class="invalid-feedback">Please enter your E-Mail.</div>
                       </div>
                     </div>
 
                     <div class="col-12">
                       <label for="password" class="form-label">Password</label>
-                      <input type="password" name="password" class="form-control" id="password" required>
+                      <input type="password" name="password" class="form-control" id="password" placeholder="Enter your Password" required>
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
 
