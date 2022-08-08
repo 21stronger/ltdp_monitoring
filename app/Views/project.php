@@ -150,13 +150,13 @@
               <table class="table" id="dataProject">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Category</th>
+                    <th scope="col" style="width: 1%;">#</th>
+                    <th scope="col" style="width: 16%;">Category</th>
                     <th scope="col">Project Name</th>
-                    <th scope="col">Due Date</th>
-                    <th scope="col">Dept</th>
-                    <th scope="col">PIC</th>
-                    <th scope="col">Ach</th>
+                    <th scope="col" style="width: 12%;">Due Date</th>
+                    <th scope="col" style="width: 9%;">Dept</th>
+                    <th scope="col" style="width: 5%;">PIC</th>
+                    <th scope="col" style="width: 5%;">Ach</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -189,3 +189,47 @@
 
   </main><!-- End #main -->
 
+<script type="text/javascript">
+  $(document).ready(function() {
+    var pic, department, achievement;
+    var table = $('#dataProject').DataTable({
+      autoWidth: false
+    });
+     
+    $('#DeptSel').change( function() {
+      department = this.value;
+      table
+        .columns(4)
+        .search(department)
+        .draw();
+    });
+
+    $('#PicSel').change( function() {
+      pic = this.value
+      table
+        .columns(5)
+        .search(pic)
+        .draw();
+    });
+
+    $('#AchSel').change( function() {
+      achievement = this.value
+      table
+        .columns(6)
+        .search(achievement)
+        .draw();
+    });
+
+    $('#reset').click( function() {
+      document.getElementById("PicSel").selectedIndex = 0;
+      document.getElementById("DeptSel").selectedIndex = 0;
+      document.getElementById("AchSel").selectedIndex = 0;
+      department='';
+      pic='';
+      table
+        .columns()
+        .search('')
+        .draw();
+    })
+  });
+</script>
