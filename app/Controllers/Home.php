@@ -15,21 +15,7 @@ class Home extends BaseController{
         $modelCategory = new Category_model;
         $modelDepartment = new Department_model;
 
-        $dataCategories = $modelCategory->getSummaryByMonth('01');
-        $dataDepartments = $modelDepartment->getSummaryByMonth('1');
-
-        $countFaster=0; $countOntime=0; $countOverdue=0;
-        foreach ($dataCategories as $value) {
-            $countFaster += $value['faster'];
-            $countOntime += $value['ontime'];
-            $countOverdue +=  $value['overdue'];
-        }
-
-        $data['dataDepartments'] = $dataDepartments;
-        $data['dataCategories'] = $dataCategories;
-        $data['countFaster'] = $countFaster;
-        $data['countOntime'] = $countOntime;
-        $data['countOverdue'] = $countOverdue;
+        $data['dataDepartments'] = $modelDepartment->findAll();
         $data['countProjectOpen'] = $modelProject->getOpenProject();
         $data['countProjectClose'] = $modelProject->getCloseProject();
         $data['countProjectCancel'] = $modelProject->getCancelProject();
@@ -143,33 +129,14 @@ class Home extends BaseController{
 
         echo json_encode($result);
     }
+
+    public function achPicPerDept($monthFilter, $deptFilter){
+        $date = date('Y').'-'.$monthFilter.'-01';
+
+        $modelSummaryMonthly = new View_summary_monthly_project_model;
+
+        $result = $modelSummaryMonthly->getAchPicPerDept($date, $deptFilter);
+
+        echo json_encode($result);
+    }
 }
-
-
-// Add Project Tahun 2021
-
-// Graph perbaikan
-// Profile, Name, Department, Extention
-
-// PIC berdasarkan dept
-
-// Reminder
-
-// Halaman Department, Category
-// Navbar, Department
-// Penanda Project kosong
-// Project belum sikron
-// Grafik YTD Ach per PIC
-// Yearly Report Di full
-
-// SELECT * FROM `vw_summary_monthly` dipercepat
-
-// email, PIC, Surename, Password pada tabel 
-// Supervisor Update
-
-// Penjumlahan Weight, Limit input
-// perhitungan koma koma
-
-// DONE
-// Cancel dan Postpone belum muncul di update
-// Detail Achievement belum sinkron

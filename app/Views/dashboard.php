@@ -177,19 +177,20 @@
                                 <div class="card-body">
                                   <h5 class="card-title">Category</h5>
 
-                                  <table class="table table-borderless" id="dataCategories">
-                                    <thead>
-                                      <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Kategori</th>
-                                        <th scope="col">Faster</th>
-                                        <th scope="col">Ontime</th>
-                                        <th scope="col">Overdue</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody id="categoriesDataTable">
-                                    </tbody>
-                                  </table>
+                                  <div class="table-responsive-sm">
+                                    <table class="table table-borderless" id="dataCategories">
+                                      <thead>
+                                        <tr>
+                                          <th scope="col" class="col-sm-1">#</th>
+                                          <th scope="col" class="col-sm-8">Category</th>
+                                          <th scope="col" class="col-sm-1">Faster</th>
+                                          <th scope="col" class="col-sm-1">Ontime</th>
+                                          <th scope="col" class="col-sm-1">Overdue</th>
+                                        </tr>
+                                      </thead>
+                                    </table>
+                                  </div>
+
                                 </div>
                               </div>
                             </div>
@@ -232,21 +233,23 @@
                             <div class="col-12">
                               <div class="card recent-sales">
                                 <div class="card-body">
+                                  
                                   <h5 class="card-title">Department</h5>
 
-                                  <table class="table table-borderless" id="dataDepartment">
-                                    <thead>
-                                      <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Department</th>
-                                        <th scope="col">Faster</th>
-                                        <th scope="col">Ontime</th>
-                                        <th scope="col">Overdue</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                    </tbody>
-                                  </table>
+                                  <div class="table-responsive-sm">
+                                    <table class="table table-borderless" id="dataDepartment">
+                                      <thead>
+                                        <tr>
+                                          <th scope="col" class="col-sm-1">#</th>
+                                          <th scope="col" class="col-sm-8">Department</th>
+                                          <th scope="col" class="col-sm-1">Faster</th>
+                                          <th scope="col" class="col-sm-1">Ontime</th>
+                                          <th scope="col" class="col-sm-1">Overdue</th>
+                                        </tr>
+                                      </thead>
+                                    </table>
+                                  </div>
+
                                 </div>
                               </div>
                             </div>
@@ -257,6 +260,16 @@
                             <!-- YTD Percentage per PIC -->
                             <div class="card">
 
+                              <div class="filter" style="right: 20px;">
+                                <select class="form-select" name="YtdPicPerDept" id="YtdPicPerDept">
+                                  <?php 
+                                    foreach ($dataDepartments as $key => $value) {
+                                      echo "<option value=\"{$value['department_name']}\">{$value['department_name']}</option>";
+                                    }
+                                  ?>
+                                </select>
+                              </div>
+
                               <div class="card-body pb-0">
                                 <h5 class="card-title">YTD Percentage per PIC</h5>
 
@@ -265,16 +278,6 @@
                               </div>
                             </div><!-- End YTD Percentage per PIC -->
 
-                            <!-- YTD Percentage per PIC -->
-                            <div class="card">
-
-                              <div class="card-body pb-0">
-                                <h5 class="card-title">YTD Percentage per PIC</h5>
-
-                                <div id="ytdDepartmentPIC1" style="min-height: 250px;" class="echart"></div>
-
-                              </div>
-                            </div><!-- End YTD Percentage per PIC -->
                           </div>
                         </div>
                       </div>
@@ -311,46 +314,56 @@
   // Color Pallete for Open, Close, Cancel and Postpone
   var colorPaletteSta = ['#00B050', '#FFFF00', '#BFBFBF', '#2596BE'];
 
-  var tableCategories = $('#dataCategories').DataTable({
-    columns: [
-      {data: "id_category"},
-      {data: "category_name"},
-      {data: "faster"},
-      {data: "ontime"},
-      {data: "overdue"},
-    ]
-  });
-
-  var tableDepartment = $('#dataDepartment').DataTable({
-    columns: [
-      {data: "id_department"},
-      {data: "department_name"},
-      {data: "faster"},
-      {data: "ontime"},
-      {data: "overdue"},
-    ]
-  });
+  // Table
+  var tableCategories, tableDepartment;
   
   // EChart initfor Graph Data
-  var ytdStatus1, ytdAch1, ytdDeptPIC, ytdDeptPIC1, yearlyReportChart;
+  var ytdStatus1, ytdAch1, ytdDeptPIC, yearlyReportChart;
   document.addEventListener("DOMContentLoaded", () => {
+    tableCategories = $('#dataCategories').DataTable({
+      autoWidth: false,
+      columns: [
+        {data: "id_category"},
+        {data: "category_name"},
+        {data: "faster"},
+        {data: "ontime"},
+        {data: "overdue"},
+      ]
+    });
+
+    tableDepartment = $('#dataDepartment').DataTable({
+      autoWidth: false,
+      columns: [
+        {data: "id_department"},
+        {data: "department_name"},
+        {data: "faster"},
+        {data: "ontime"},
+        {data: "overdue"},
+      ]
+    });
+
     ytdAch1 = echarts.init(document.querySelector("#ytdAchievement"));
     ytdStatus1 = echarts.init(document.querySelector("#ytdStatus"));
     ytdDeptPIC = echarts.init(document.querySelector("#ytdDepartmentPIC"));
-    ytdDeptPIC1 = echarts.init(document.querySelector("#ytdDepartmentPIC1"));
     yearlyReportChart = echarts.init(document.querySelector('#reportsChart'));
   });
   
   $(document).ready(function() {
-    //this month
     const d = new Date();
     const month = ['01','02','03','04','05','06','07','08','09','10','11','12'];
     getAchievement(month[d.getMonth()]);
     document.getElementById('month').value = month[d.getMonth()];
 
+    getYtdPerPic($('#YtdPicPerDept').val());
+
     //choosed month
     $("#month").change(function(){
       getAchievement(this.value);
+      getYtdPerPic($('#YtdPicPerDept').val());
+    });
+
+    $("#YtdPicPerDept").change(function(){
+      getYtdPerPic(this.value);
     });
 
     var yearlySource = [
@@ -433,50 +446,6 @@
             // Map the "product" column to Y axis
             y: 'month'
           }
-        }
-      ]
-    });
-
-    ytdDeptPIC.setOption({
-      xAxis: {
-        type: 'category',
-        data: ['Mon', 'Tue', 'Wed']
-      },
-      yAxis: {
-        type: 'value'
-      },
-      series: [
-        {
-          data: [120, 200, 150],
-          type: 'bar',
-          label: {
-            show: true,
-            position: 'top',
-            formatter: '{@ach}%'
-          },
-          barWidth: '30%'
-        }
-      ]
-    });
-
-    ytdDeptPIC1.setOption({
-      xAxis: {
-        type: 'category',
-        data: ['Mon', 'Tue', 'Wed']
-      },
-      yAxis: {
-        type: 'value'
-      },
-      series: [
-        {
-          data: [120, 200, 150],
-          type: 'bar',
-          label: {
-            show: true,
-            position: 'top',
-            formatter: '{@ach}%'
-          },
-          barWidth: '30%'
         }
       ]
     });
@@ -630,6 +599,43 @@
 
     }});
   };
+
+  function getYtdPerPic(dept){
+    var month = $("#month").val();
+
+    $.ajax({url: "<?= base_url('home/achPicPerDept'); ?>/"+month+"/"+dept, success: function(response){
+      var result = JSON.parse(response);
+      const arrPic = [];
+      const arrVal = [];
+
+      result.forEach(function(item){
+        arrPic[arrPic.length] = item.name_pic;
+        arrVal[arrVal.length] = Number(item.percentage).toFixed(2);
+      });
+
+      ytdDeptPIC.setOption({
+        xAxis: {
+          type: 'category',
+          data: arrPic
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [
+          {
+            data: arrVal,
+            type: 'bar',
+            label: {
+              show: true,
+              position: 'top',
+              formatter: '{@ach}%'
+            },
+            barWidth: '30%'
+          }
+        ]
+      });
+    }});
+  }
 
   function addCategoriesRow(item){
     tableCategories.row.add({

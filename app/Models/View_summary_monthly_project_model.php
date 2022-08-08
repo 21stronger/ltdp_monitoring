@@ -2,7 +2,6 @@
  
 namespace App\Models;
  
-use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\Model;
  
 class View_summary_monthly_project_model extends Model{
@@ -33,6 +32,18 @@ class View_summary_monthly_project_model extends Model{
         $builder->where();
         $builder->orderBy('`vw_summary_monthly_project`.`id_project`', 'ASC');
         return $builder->get()->getResultArray();
+    }
+
+    public function getAchPicPerDept($date, $dept){
+        $builder = $this->db->table($this->table);
+        $builder->select('department_name, name_pic, AVG(monthly) AS percentage');
+        $builder->where('date_monthly', $date);
+        $builder->where('department_name', $dept);
+        $builder->where("achievement <> 'Cancel'");
+        $builder->where("achievement <> 'Postpone'");
+        $builder->groupBy(['department_name', 'name_pic']);
+        $builder->orderBy('department_name');
+        return $builder->get()->getResultArray();  
     }
 
     public function getYTDDepartmentByMonth($date){

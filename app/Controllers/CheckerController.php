@@ -17,20 +17,6 @@ class CheckerController extends BaseController{
         echo json_encode($dataSummary);
     }
 
-    // protected function resetData(){
-    //     $modelSummary = new Summary_monthly_model;
-    //     //Check if Admin
-
-    //     $modelSummary->deleteAndResetAI();
-        
-    //     $dataActivities = $modelSummary->getAllMonthlyActivities();
-
-    //     $dataSummary = activityAlter($dataActivities);
-
-    //     $result = $modelSummary->addBatch($dataSummary);
-    //     //return 
-    // }
-    
     protected function updatePerProject($idProject){
         $modelSummary = new Summary_monthly_model;
 

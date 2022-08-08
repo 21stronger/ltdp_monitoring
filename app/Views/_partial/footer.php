@@ -26,49 +26,6 @@
 
   <!-- Template Main JS File -->
   <script src="<?= base_url(); ?>/assets/js/main.js"></script>
-
-  <script type="text/javascript">
-    $(document).ready(function() {
-      var pic, department, achievement;
-      var table = $('#dataProject').DataTable();
-       
-      $('#DeptSel').change( function() {
-        department = this.value;
-        table
-          .columns(4)
-          .search(department)
-          .draw();
-      });
-
-      $('#PicSel').change( function() {
-        pic = this.value
-        table
-          .columns(5)
-          .search(pic)
-          .draw();
-      });
-
-      $('#AchSel').change( function() {
-        achievement = this.value
-        table
-          .columns(6)
-          .search(achievement)
-          .draw();
-      });
-
-      $('#reset').click( function() {
-        document.getElementById("PicSel").selectedIndex = 0;
-        document.getElementById("DeptSel").selectedIndex = 0;
-        document.getElementById("AchSel").selectedIndex = 0;
-        department='';
-        pic='';
-        table
-          .columns()
-          .search('')
-          .draw();
-      })
-    });
-  </script>
 </body>
 
 </html>
