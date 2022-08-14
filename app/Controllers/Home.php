@@ -139,4 +139,24 @@ class Home extends BaseController{
 
         echo json_encode($result);
     }
+
+    public function getProjectList(){
+        $modelSummaryMonthly = new View_summary_monthly_project_model;
+
+        $month = $this->request->getPost("month");
+        $filter = $this->request->getPost("filter");
+
+        $date = date('Y').'-'.$month.'-01';
+
+        $result = $modelSummaryMonthly
+            ->select('project_name, department_name, name_pic, monthly')
+            ->where('date_monthly', $date)
+            ->groupStart()
+                ->where('achievement', $filter)
+                ->orWhere('status', $filter)
+            ->groupEnd()
+            ->findAll();
+
+        echo json_encode($result);
+    }
 }
