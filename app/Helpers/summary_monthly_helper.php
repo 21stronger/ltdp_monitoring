@@ -106,7 +106,7 @@
                 return 'Open';
                 break;
 
-            case $actual==100:
+            case $actual>=100:
                 return 'Close';
                 break;
 
