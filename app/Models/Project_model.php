@@ -47,7 +47,15 @@ class Project_model extends Model{
 
     public function getProjectList(){
         $builder = $this->db->table($this->table);
-        $builder->select("`tb_project`.`id_project`, `tb_project`.`project_name`, `tb_project`.`achievement`, `tb_project`.`project_due_date`, `tb_category`.`category_name`, `tb_department`.`department_name`, `tb_pic`.`name_pic`, `tb_summary_monthly_alter`.`ytd`, CASE WHEN `tb_project`.`achievement`='Cancel' THEN 'Cancel' WHEN `tb_project`.`achievement`='Postpone' THEN 'Postpone' WHEN `tb_summary_monthly_alter`.`ytd` < 100 THEN 'Open' ELSE 'Close' END AS `ach`");
+        $builder->select("`tb_project`.`id_project`, `tb_project`.`project_name`, `tb_project`.`achievement`, `tb_project`.`project_due_date`, `tb_category`.`category_name`, `tb_department`.`department_name`, `tb_pic`.`name_pic`, `tb_summary_monthly_alter`.`ytd`, 
+            CASE 
+                WHEN `tb_project`.`achievement`='Cancel' THEN 'Cancel' 
+                WHEN `tb_project`.`achievement`='Postpone' THEN 'Postpone' 
+                WHEN `tb_project`.`achievement`='Open' AND `tb_summary_monthly_alter`.`ytd` IS null THEN 'Open'
+                WHEN `tb_project`.`achievement`='Close' AND `tb_summary_monthly_alter`.`ytd` IS null THEN 'Close'
+                WHEN `tb_summary_monthly_alter`.`ytd` < 100 THEN 'Open' 
+                ELSE 'Close' 
+            END AS `ach`");
         $builder->join(
             "(SELECT id_project, MAX(ytd) AS ytd FROM `tb_summary_monthly` GROUP BY id_project) AS `tb_summary_monthly_alter`",
             "`tb_project`.`id_project`=`tb_summary_monthly_alter`.`id_project`",
