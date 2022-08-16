@@ -103,42 +103,59 @@
                   <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
                       <div class="row">
-                        <label class="col-sm-2 col-form-label">PIC</label>
-                        <div class="col-sm-2">
-                          <select class="form-select" name="PicSel" id="PicSel" aria-label="Default select example">
-                            <option value=''>All</option>
-                            <?php foreach ($dataPics as $key => $value) {
-                              echo "<option value=".$value['name_pic'].">".$value['name_pic']."</option>";
-                            }?>
-                          </select>
-                        </div>
-
-                        <label class="col-sm-2 col-form-label">Department</label>
-                        <div class="col-sm-2">
-                          <select class="form-select" name="DeptSel" id="DeptSel" aria-label="Default select example">
-                            <option value="">All</option>
-                            <?php 
-                              foreach ($dateDepartment as $key => $value) {
-                            ?>
-                            <option value="<?php echo $value['department_name']; ?>"><?php echo $value['department_name']; ?></option>
-                            <?php 
-                              }
-                            ?>
-                          </select>
-                        </div>
-
-                        <label class="col-sm-2 col-form-label">Achievement</label>
-                        <div class="col-sm-2">
-                          <select class="form-select" name="AchSel" id="AchSel" aria-label="Default select example">
-                            <option value="">All</option>
-                            <option value="Open">Open</option>
-                            <option value="Close">Close</option>
-                            <option value="Cancel">Cancel</option>
-                          </select>
-                        </div>
-
-                        <div class="col-sm-3">
-                          <button type="button" id="reset" class="btn btn-primary">Reset</button>
+                        <div class="col-md-12">
+                          <div class="row">
+                            <label class="col-sm-2 col-form-label">PIC</label>
+                            <div class="col-md-2">
+                              <select class="form-select" name="PicSel" id="PicSel" aria-label="Default select example">
+                                <option value=''>All</option>
+                                <?php foreach ($dataPics as $key => $value) {
+                                  echo "<option value=".$value['name_pic'].">".$value['name_pic']."</option>";
+                                }?>
+                              </select>
+                            </div>
+                            <label class="col-sm-2 col-form-label">Department</label>
+                            <div class="col-md-2">
+                              <select class="form-select" name="DeptSel" id="DeptSel" aria-label="Default select example">
+                                <option value="">All</option>
+                                <?php 
+                                  foreach ($dateDepartment as $key => $value) {
+                                ?>
+                                <option value="<?php echo $value['department_name']; ?>"><?php echo $value['department_name']; ?></option>
+                                <?php 
+                                  }
+                                ?>
+                              </select>
+                            </div>
+                            <label class="col-sm-2 col-form-label">Achievement</label>
+                            <div class="col-md-2">
+                              <select class="form-select" name="AchSel" id="AchSel" aria-label="Default select example">
+                                <option value="">All</option>
+                                <option value="Open">Open</option>
+                                <option value="Close">Close</option>
+                                <option value="Cancel">Cancel</option>
+                                <option value="Postpone">Postpone</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-4">
+                              <div class="form-check" style="margin-top: 10px; margin-bottom: 10px;">
+                                <input class="form-check-input" type="checkbox" id="selectZeroActivity">
+                                <label class="form-check-label" for="selectZeroActivity">
+                                  Show Zero Activity Project Only
+                                </label>
+                              </div>
+                            </div>
+                            <div class="col-md-4">&nbsp;</div>
+                            <div class="col-md-4">&nbsp;</div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <button type="button" id="reset" class="btn btn-primary">Reset</button>
+                            </div>
+                            <div class="col-md-6"></div>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -147,7 +164,7 @@
               </div><!-- End Default Accordion Example -->
 
               <!-- Table with stripped rows -->
-              <table class="table" id="dataProject">
+              <table class="table table-stripped" id="dataProject">
                 <thead>
                   <tr>
                     <th scope="col" style="width: 1%;">#</th>
@@ -157,6 +174,7 @@
                     <th scope="col" style="width: 9%;">Dept</th>
                     <th scope="col" style="width: 5%;">PIC</th>
                     <th scope="col" style="width: 5%;">Ach</th>
+                    <th scope="col">-</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -164,14 +182,15 @@
                   $no=1;
                   foreach ($dataProjects as $key => $value) {
                 ?>
-                  <tr onclick="window.location='<?= base_url('project/detail/'.$value['id_project']); ?>';">
+                  <tr <?= ($value['ytd']==null)? "class='table-warning'": ""; ?> onclick="window.location='<?= base_url('project/detail/'.$value['id_project']); ?>';" style="border-color: unset;">
                     <th scope="row"><?= $no; ?></th>
                     <td><?= $value['category_name']; ?></td>
                     <td><?= $value['project_name']; ?></td>
                     <td><?= datetostr($value['project_due_date']); ?></td>
                     <td><?= $value['department_name']; ?></td>
                     <th><?= $value['name_pic']; ?></th>
-                    <td><?= $value['achievement']; ?></td>
+                    <td><?= $value['ach']; ?></td>
+                    <td><?= ($value['ytd']==null)? "0": "1"; ?></td>
                   </tr>
                 <?php
                   $no++;
@@ -196,6 +215,23 @@
       autoWidth: false
     });
      
+    table.column(7).visible(false);
+
+    $('#selectZeroActivity').change( function(){
+      if($(this).is(':checked')){
+        table
+          .columns(7)
+          .search('0')
+          .draw();
+      } else {
+        zeroAct = 0;
+        table
+          .columns(7)
+          .search('')
+          .draw();
+      }
+    });
+
     $('#DeptSel').change( function() {
       department = this.value;
       table
@@ -224,6 +260,7 @@
       document.getElementById("PicSel").selectedIndex = 0;
       document.getElementById("DeptSel").selectedIndex = 0;
       document.getElementById("AchSel").selectedIndex = 0;
+      document.getElementById("selectZeroActivity").checked = false;
       department='';
       pic='';
       table

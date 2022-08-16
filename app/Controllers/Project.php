@@ -20,14 +20,13 @@ class Project extends CheckerController{
         $modelProject = new Project_model;
         $modelCategory = new Category_model;
         $modelDeparment = new Department_model;
-        $modelViewProject = new View_project_detail_model;
 
         $data['headerTitle'] = "Project";
         $data['currentPage'] = "Project";
         $data['dataPics'] = $modelPIC->findAll();
         $data['dataCategories'] = $modelCategory->findAll();
         $data['dateDepartment'] = $modelDeparment->findAll();
-        $data['dataProjects'] = $modelViewProject->findAll();
+        $data['dataProjects'] = $modelProject->getProjectList();
 
         echo view('_partial/header', $data);
         echo view('_partial/sidebar');
@@ -303,6 +302,10 @@ class Project extends CheckerController{
             ->findAll();
 
         echo json_encode($data);
+    }
+
+    public function getProjectList(){
+
     }
 
     public function error404(){

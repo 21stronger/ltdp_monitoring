@@ -90,17 +90,17 @@
               <table class="table" id="dataUpdate">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
+                    <th scope="col" style="width: 1%;">#</th>
                     <th scope="col">ID</th>
-                    <th scope="col">Category</th>
+                    <th scope="col" style="width: 16%;">Category</th>
                     <th scope="col">Project Name</th>
-                    <th scope="col">Month</th>
-                    <th scope="col">Dept</th>
-                    <th scope="col">PIC</th>
-                    <th scope="col">Monthly</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">YTD</th>
-                    <th scope="col">Ach</th>
+                    <th scope="col" style="width: 12%;">Month</th>
+                    <th scope="col" style="width: 9%;">Dept</th>
+                    <th scope="col" style="width: 5%;">PIC</th>
+                    <th scope="col" style="width: 5%;">Monthly</th>
+                    <th scope="col" style="width: 5%;">Status</th>
+                    <th scope="col" style="width: 5%;">YTD</th>
+                    <th scope="col" style="width: 5%;">Ach</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -125,6 +125,7 @@
       document.getElementById('monthUpd').value = month[date.getMonth()];
 
       var table = $('#dataUpdate').DataTable({
+        "autoWidth": false,
         "processing": false,
         "serverSide": true,
         "ordering": false,
@@ -135,6 +136,9 @@
             d.form = $('#dataFilter').serializeArray();
           }
         },
+        "createdRow": function(row, data, dataIndex, cells){
+          $(row).attr('title', data[3]);
+        }
       });
       
       table.column(1).visible(false);
