@@ -42,6 +42,13 @@
       </li><!-- End Project Monitoring Page Nav -->
 
       <li class="nav-item">
+        <a class="nav-link <?= ($currentPage=="Reminder")? "": "collapsed"; ?>" href="<?= base_url('reminder') ?>">
+          <i class="bi bi-envelope-exclamation"></i>
+          <span>Reminder</span>
+        </a>
+      </li><!-- End Reminder Page Nav -->
+
+      <li class="nav-item">
         <a class="nav-link <?= ($currentPage=="PIC")? "": "collapsed"; ?>" href="<?= base_url('pic') ?>">
           <i class="bi bi-people"></i>
           <span>User PICs</span>
@@ -53,7 +60,7 @@
           <i class="bi bi-gear"></i>
           <span>App Settings</span>
         </a>
-      </li><!-- End PIC Page Nav -->
+      </li><!-- End App Settings Page Nav -->
       <?php } ?>
       
     </ul>

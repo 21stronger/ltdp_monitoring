@@ -42,7 +42,8 @@ class Filters extends BaseConfig
                     'login/',
                     'login/*',
                     'logout/',
-                    'logout/*'
+                    'logout/*',
+                    'reminder'
                 ]
             ]
             // 'honeypot',
